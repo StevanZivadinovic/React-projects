@@ -29,16 +29,20 @@ export default function Navbar(props) {
     <nav className='navbar'>
       <div className='navbar-container'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          TRVL
+          Православне иконе - Ниш 
           <i className='fab fa-typo3' />
         </Link>
+        
+          <img src='./slika.jpg'></img>
+        
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Home
+              Почетна
             </Link>
           </li>
           <li className='nav-item'>
@@ -47,7 +51,7 @@ export default function Navbar(props) {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Services
+              О иконописцу
             </Link>
           </li>
           <li className='nav-item'>
@@ -56,21 +60,22 @@ export default function Navbar(props) {
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Products
+              Галерија
             </Link>
           </li>
 
-          <li>
+          <li className='nav-item'>
             <Link
-              to='/sign-up'
-              className='nav-links-mobile'
+              to='/products'
+              className='nav-links'
               onClick={closeMobileMenu}
             >
-              Sign Up
+              Контакт
             </Link>
           </li>
+          
         </ul>
-        {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+     
       </div>
     </nav>
   </>

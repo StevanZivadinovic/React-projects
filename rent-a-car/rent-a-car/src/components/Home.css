@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.main{
+    height: 130vh;
+    width: 100%;
+    background-image: url(./pozadina-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y:50px ;
+    
+    /* opacity: .5; */
+}
+h1{
+    z-index: 100;
+    margin-top: 100px;
+    opacity: 1 !important;
+    color: black
+}
+.opis{
+    
+    display: flex;
+    justify-content: space-around;
+    color: rgb(50,50,50);
+
+}
+.liste{
+    color: black;
+}
