@@ -26,14 +26,16 @@ export default function Navbar(props) {
 
   return (
     <>
+
     <nav className='navbar'>
       <div className='navbar-container'>
+     
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           Православне иконе - Ниш 
           <i className='fab fa-typo3' />
         </Link>
         
-          <img src='./slika.jpg'></img>
+         
         
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

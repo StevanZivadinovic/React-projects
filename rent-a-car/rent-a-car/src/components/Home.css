@@ -2,7 +2,12 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Crimson Text', serif;
+ 
 
+}
+html{
+    scroll-behavior: smooth;
 }
 
 .main{
@@ -13,14 +18,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y:50px ;
+    margin-top: 0;
     
     /* opacity: .5; */
 }
 h1{
     z-index: 100;
-    margin-top: 100px;
+    
     opacity: 1 !important;
-    color: black
+    color: black;
+    font-weight: 200;
+    font-family: 'Pacifico', cursive;
 }
 .opis{
     
@@ -31,4 +39,36 @@ h1{
 }
 .liste{
     color: black;
+}
+.lista{
+    padding-top: 120px; 
+}
+.lista li{
+    list-style-type: none;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 30px;
+}
+
+.lista li a{
+    text-decoration: none;
+    color: black;
+}
+
+.lista li a:hover{
+    color: brown;
+    text-decoration: underline;
+}
+
+#vizantijskiStil{
+    margin-top: 400px;
+    height: 100vh;
+}
+
+#daska h2{
+    color: black;
+    height: 100vh;
+    
 }
