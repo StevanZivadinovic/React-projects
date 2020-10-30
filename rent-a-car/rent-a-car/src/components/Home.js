@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Link, animateScroll as scroll } from "react-scroll";
+import  daska from './daska.jpg'
 
 export default function Home() {
   return (
@@ -72,6 +73,10 @@ export default function Home() {
       </div>
       <div id="daska">
         <h2>Традиционално обрађена липова даска</h2>
+        <div className='textDaska'>
+        <img id='slikaDaska' src={daska}></img>
+        <p>Oригинална липова даска</p>
+        </div>
       </div>
     </div>
   );

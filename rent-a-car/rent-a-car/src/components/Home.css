@@ -63,9 +63,8 @@ h1{
 }
 
 #vizantijskiStil{
-    margin-top: 100px;
+    margin-top: 65px;
     height: 85vh;
-    border: 1px solid black;
     
 
 }
@@ -94,5 +93,23 @@ h1{
 }
 
 #daska{
-    background-image: url('./textura.jpg');
+    background-image: url('./textura2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#daska h2{
+    color: white;
+    font-weight: 100;
+    height: 100px;
+}
+.textDaska{
+    display: flex;
+    justify-content: space-around;
+}
+#slikaDaska{
+    width: 400px;
+    border-radius: 30px;
+
+   
 }

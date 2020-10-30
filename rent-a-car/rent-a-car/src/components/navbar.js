@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from "react";
 import { Link } from 'react-router-dom';
 import  Button  from './button';
 import './navbar.css'
+import krst from './1.png'
 
 export default function Navbar(props) {
   const [click, setClick] = useState(false);
@@ -34,7 +35,9 @@ export default function Navbar(props) {
           Православне иконе - Ниш 
           <i className='fab fa-typo3' />
         </Link>
-        
+        <div>
+          <img id='krst' className='nav-item' src={krst}></img>
+        </div>
          
         
         <div className='menu-icon' onClick={handleClick}>
