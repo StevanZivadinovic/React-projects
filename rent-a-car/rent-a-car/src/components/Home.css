@@ -11,7 +11,7 @@ html{
 }
 
 .main{
-    height: 130vh;
+    height: 150vh;
     width: 100%;
     background-image: url(./pozadina-home.jpg);
     background-position: center;
@@ -63,12 +63,36 @@ h1{
 }
 
 #vizantijskiStil{
-    margin-top: 400px;
-    height: 100vh;
+    margin-top: 100px;
+    height: 85vh;
+    border: 1px solid black;
+    
+
+}
+
+#vizantijskiStil h2{
+    font-family: 'Pacifico', cursive;
+
 }
 
 #daska h2{
     color: black;
     height: 100vh;
-    
+    font-family: 'Pacifico', cursive;
+
+}
+
+.text{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.text p{
+    text-align: left;
+    margin: 30px;
+}
+
+#daska{
+    background-image: url('./textura.jpg');
 }
