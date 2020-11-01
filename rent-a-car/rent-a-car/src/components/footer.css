@@ -1,36 +1,39 @@
-.navbar {
+.navbar1 {
     background: linear-gradient(0deg, rgb(28, 27, 27) 10%, rgb(216, 86, 86) 100%);
-    height: 80px;
+    height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 1.2rem;
     /* position: sticky; */
     /* top: 0; */
     z-index: 999;
     /* position: fixed;
-    top: 0; */
+    bottom: 0;
+     */
     width: 100%;
   }
  
   
-  .navbar-container {
+  .navbar-container1 {
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
     height: 80px;
+    
     max-width: 1500px;
   }
   
-  .navbar-logo {
+  .navbar-logo1 {
     color: #fff;
-    justify-self: start;
+    justify-self: left;
     margin-left: 20px;
+    margin-right: 50px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
     display: flex;
-    align-items: center;
+    align-items: left;
   }
   #krst{
     width: 50px;

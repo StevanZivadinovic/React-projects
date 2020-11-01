@@ -36,7 +36,7 @@ export default function Navbar(props) {
           <i className='fab fa-typo3' />
         </Link>
         <div>
-          <img id='krst' className='nav-item' src={krst}></img>
+          <img id='krst'  src={krst}></img>
         </div>
          
         
