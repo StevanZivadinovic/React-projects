@@ -88,6 +88,14 @@
   .menu-icon {
     display: none;
   }
+  #fb{
+      width: 40px;
+  }
+  #fb:hover{
+      background-color: rgb(216, 86, 86);
+      border-radius: 20px;
+      cursor: pointer;
+  }
   
   @media screen and (max-width: 960px) {
     .NavbarItems {

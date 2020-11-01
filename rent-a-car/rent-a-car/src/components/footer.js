@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "./button";
 import "./footer.css";
 import krst from "./1.png";
+import fb from './facebook.svg';
 
 export default function Footer(props) {
   const [click, setClick] = useState(false);
@@ -37,7 +38,7 @@ export default function Footer(props) {
           <div>
             <p>stevanzivadinovic@outlook.com</p>
             <p>061/321-60-87</p>
-            <i></i>
+            <a target='_blank' href='https://www.facebook.com/Pravoslavne-ikone-Nis-1691948927791453'><img id='fb' src={fb}></img></a>
           </div>
         </div>
       </nav>
