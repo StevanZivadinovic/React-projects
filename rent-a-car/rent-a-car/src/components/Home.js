@@ -6,8 +6,9 @@ import daska1 from "./daska1.jpg";
 import daska2 from "./daska2.jpg";
 import zlatni_listici from './zlatni_listici.jpg';
 import pigment from './pigment.jpg';
-import Footer from "./footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Footer from "./footer";
+
 
 
 

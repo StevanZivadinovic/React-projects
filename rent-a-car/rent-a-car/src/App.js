@@ -5,6 +5,8 @@ import Navbar from "./components/navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Ikonopisac from './components/ikonopisac';
+import Footer from "./components/footer";
+import Galerija from './components/galerija'
 function App() {
   return (
     <div className="App">
@@ -15,9 +17,9 @@ function App() {
           <Route path="/" exact component={Home}></Route>
 
           <Route path="/ikonopisac" exact component={Ikonopisac}></Route>
-         {/* <Route path="/products" exact component={Products}></Route>
-          <Route path="/sign-up" exact component={SignUp}></Route> */}
-          
+          <Route path="/galerija" exact component={Galerija}></Route>
+         {/* <Route path="/kontakt" exact component={SignUp}></Route> */}
+         
         </Router>
        
       </header>
