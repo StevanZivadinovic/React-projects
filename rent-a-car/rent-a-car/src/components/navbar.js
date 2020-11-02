@@ -52,7 +52,7 @@ export default function Navbar(props) {
           </li>
           <li className='nav-item'>
             <Link
-              to='/services'
+              to='/ikonopisac'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -61,7 +61,7 @@ export default function Navbar(props) {
           </li>
           <li className='nav-item'>
             <Link
-              to='/products'
+              to='/galerija'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -71,7 +71,7 @@ export default function Navbar(props) {
 
           <li className='nav-item'>
             <Link
-              to='/products'
+              to='/kontakt'
               className='nav-links'
               onClick={closeMobileMenu}
             >

@@ -11,9 +11,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 
+
+
 export default function Home() {
   return (
     <div className="main">
+    
       <h1>Израда Православних икона</h1>
       <div className="sazetak"></div>
       <div className="opis">

@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
+import Ikonopisac from './components/ikonopisac';
 function App() {
   return (
     <div className="App">
@@ -13,8 +14,8 @@ function App() {
 
           <Route path="/" exact component={Home}></Route>
 
-          {/*<Route path="/services" exact component={Services}></Route>
-          <Route path="/products" exact component={Products}></Route>
+          <Route path="/ikonopisac" exact component={Ikonopisac}></Route>
+         {/* <Route path="/products" exact component={Products}></Route>
           <Route path="/sign-up" exact component={SignUp}></Route> */}
           
         </Router>
