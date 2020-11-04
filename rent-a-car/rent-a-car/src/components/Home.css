@@ -34,6 +34,10 @@ h1{
     font-weight: 200;
     font-family: 'Pacifico', cursive;
 }
+.podtekst{
+    font-family: 'Pacifico', cursive;
+    color: black;
+}
 .opis{
     
     display: flex;
@@ -67,7 +71,7 @@ h1{
 }
 
 #vizantijskiStil{
-    margin-top: 65px;
+    margin-top: 50px;
     height: 85vh;
     
 

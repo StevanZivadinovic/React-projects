@@ -1,5 +1,23 @@
-.mainGalerija{
+
+.slika{
+    width: 300px;
+}
+.row1{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
+
+    
+}
+
+.col1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    
+}
+img{
+    margin: 10px;
+    border-radius: 3px;
 }

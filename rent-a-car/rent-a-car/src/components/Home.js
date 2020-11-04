@@ -19,6 +19,7 @@ export default function Home() {
     <div className="main">
     
       <h1>Израда Православних икона</h1>
+      <p className='podtekst'>-по наруџбини-</p>
       <div className="sazetak"></div>
       <div className="opis">
         <div className="liste">

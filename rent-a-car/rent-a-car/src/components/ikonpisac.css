@@ -22,6 +22,9 @@ position: absolute;
     margin-top: 100px;
     width:500px;
 }
+.textIkonopisac p{
+    padding-top: 10px;
+}
 #majka{
     width:400px;
     transform: scale(.8);

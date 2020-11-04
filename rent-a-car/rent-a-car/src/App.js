@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import 'react-image-lightbox/style.css';
 import ReactDOM from "react-dom";
 import "./App.css";
 import Navbar from "./components/navbar";
