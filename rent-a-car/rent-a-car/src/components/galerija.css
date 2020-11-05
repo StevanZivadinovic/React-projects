@@ -19,5 +19,36 @@
 }
 img{
     margin: 10px;
-    border-radius: 3px;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+img:hover{
+    cursor: pointer;
+}
+.sektor{
+    display: flex;
+    flex-direction: column;
+    
+   
+
+}
+.sektor p{
+    /* background-image: url('./textura2.jpg'); */
+    background-color: white;
+    font-size: 18px;
+    color: grey;
+    width: 300px;
+    margin-left: 10px;
+    
+
+    
+}
+.title{
+    font-family: 'Pacifico', cursive;
+    text-decoration: underline;
+}
+.last{
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+
 }
