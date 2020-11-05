@@ -18,8 +18,9 @@
     
 }
 img{
-    margin: 10px;
-    border-radius: 5px;
+    margin: 10px 20px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
     margin-bottom: 0;
 }
 img:hover{
@@ -38,7 +39,7 @@ img:hover{
     font-size: 18px;
     color: grey;
     width: 300px;
-    margin-left: 10px;
+    margin-left: 20px;
     
 
     

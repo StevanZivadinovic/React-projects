@@ -1,0 +1,18 @@
+
+.main3{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.contactDetails{
+    border: 1px solid black;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.contactForm{
+    width: 600px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}

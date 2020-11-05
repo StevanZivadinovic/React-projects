@@ -10,12 +10,22 @@ import ikona7 from "./ikona7.jpg";
 import ikona8 from "./ikona8.jpg";
 import ikona9 from "./ikona9.jpg";
 import "./galerija.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Footer from "./footer";
+
 
 const images = [ikona1, ikona2, ikona3,
     ikona4, ikona5, ikona6,
     ikona7, ikona8, ikona9];
 
-    
+    const textHeader = ['Св Вукашин Клепачки',
+  'Св Јован Крститељ', 'Св Великомученик Димитрије',
+'Св Кнез Лазар', 'Мајка Божија - Дечанска', 'Икона Мајке Божије',
+'Св Муч Јустин Философ', 'Св Нектарије Егински', 'Св Архангел Михаил'];
+
+const textFooter = ['21x30cm','30x40cm', '18x40cm', '30x40cm', '30x40cm', '30x40cm',
+'30x40cm', '30x40cm', '26x61cm'];
 
 export default class Galerija extends React.Component {
   constructor(props) {
@@ -40,8 +50,8 @@ export default class Galerija extends React.Component {
                 src={ikona1}
                 onClick={() => this.setState({ isOpen: true, photoIndex: 0 })}
               />
-              <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
+              <p className='title'> Св Вукашин Клепачки</p>
+              <p>Димензије 21х30cm</p>
               <p className='last'>Цена са златом 100е</p>
 
 
@@ -53,9 +63,9 @@ export default class Galerija extends React.Component {
               src={ikona2}
               onClick={() => this.setState({ isOpen: true, photoIndex: 1 })}
             />
-               <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+               <p className='title'>Св Јован Крститељ</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
             </div>
 
@@ -66,9 +76,9 @@ export default class Galerija extends React.Component {
               src={ikona3}
               onClick={() => this.setState({ isOpen: true, photoIndex: 2 })}
             />
-            <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+            <p className='title'>Св Великомученик Димитрије</p>
+              <p>Димензије 18х40cm</p>
+              <p className='last'>Цена са златом 110е</p>
 
 
             </div>
@@ -84,9 +94,9 @@ export default class Galerija extends React.Component {
                 src={ikona4}
                 onClick={() => this.setState({ isOpen: true, photoIndex: 3 })}
               />
-              <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+              <p className='title'>Св Кнез Лазар</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
 
             </div>
@@ -97,9 +107,9 @@ export default class Galerija extends React.Component {
               src={ikona5}
               onClick={() => this.setState({ isOpen: true, photoIndex: 4 })}
             />
-               <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+               <p className='title'>Мајка Божија - Дечанска</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
             </div>
 
@@ -111,8 +121,8 @@ export default class Galerija extends React.Component {
               onClick={() => this.setState({ isOpen: true, photoIndex: 5 })}
             />
             <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
 
             </div>
@@ -128,9 +138,9 @@ export default class Galerija extends React.Component {
                 src={ikona7}
                 onClick={() => this.setState({ isOpen: true, photoIndex: 0 })}
               />
-              <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+              <p className='title'>Св Муч Јустин Философ</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
 
             </div>
@@ -141,9 +151,9 @@ export default class Galerija extends React.Component {
               src={ikona8}
               onClick={() => this.setState({ isOpen: true, photoIndex: 1 })}
             />
-               <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+               <p className='title'>Св Нектарије Егински</p>
+              <p>Димензије 30х40cm</p>
+              <p className='last'>Цена са златом 150е</p>
 
             </div>
 
@@ -154,20 +164,25 @@ export default class Galerija extends React.Component {
               src={ikona9}
               onClick={() => this.setState({ isOpen: true, photoIndex: 2 })}
             />
-            <p className='title'>Икона Мајке Божије</p>
-              <p>Димензије 15х30cm</p>
-              <p className='last'>Цена са златом 100е</p>
+            <p className='title'>Св Архангел Михаил</p>
+              <p>Димензије 26х61cm</p>
+              <p className='last'>Цена са златом 200е</p>
 
 
             </div>
           </div>
+          <div className="footer">
+        <Router>
+          <Footer></Footer>
+        </Router>
+      </div>
         </div>
 
         {isOpen && (
           <Lightbox
             mainSrc={images[photoIndex]}
-            imageTitle='slika'
-            imageCaption='slika1'
+            imageTitle={textHeader[photoIndex]}
+            imageCaption={textFooter[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}
             onCloseRequest={() => this.setState({ isOpen: false })}
