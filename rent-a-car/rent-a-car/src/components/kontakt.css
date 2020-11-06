@@ -2,10 +2,9 @@
 .main3{
  display: flex;
  justify-content: space-between;
- align-items: center;
+
 }
 .contactDetails{
-    border: 1px solid black;
     width: 600px;
     display: flex;
     flex-direction: column;
@@ -15,4 +14,68 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+}
+.form-field{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    
+}
+span{
+    text-align: right;
+    width: 80px;
+
+    
+}
+input{
+    width: 500px;
+    border-radius: 5px;
+    font-size: 18px;
+    
+}
+input:focus, textarea:focus{
+    outline: none;
+    border: 2px solid olivedrab;
+}
+
+#porukaInput{
+    height: 200px;
+   caret-color: black;
+   
+   
+    
+}
+#submitButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 98px;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 500px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    color: #fff;
+    
+    
+    
+    
+}
+
+
+#submitButton:hover{
+    background: #4837ff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+    
+
+textarea{
+    width: 500px;
+    border-radius: 5px;
+    font-size: 18px;
 }
