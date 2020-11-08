@@ -26,6 +26,7 @@
   height: 600px;
   flex-direction: column;
   margin-top: 50px;
+  z-index: 100;
 
 }
 
@@ -49,17 +50,23 @@
 
 .contact-form {
   display: flex;
+  z-index: 100;
+
 }
 
 .input-fields {
   display: flex;
   flex-direction: column;
   margin-right: 4%;
+  z-index: 100;
+
 }
 
 .input-fields,
 .msg {
   width: 48%;
+  z-index: 100;
+
 }
 
 .input-fields .input,
@@ -71,6 +78,8 @@
   padding: 10px;
   color: #c5ecfd;
   width: 100%;
+  z-index: 100;
+
 }
 
 .msg textarea {
@@ -108,13 +117,19 @@
   .wrapper{
     height: 700px;
     width: 100%;
+    z-index: 1;
+
   }
   .msg textarea {
     height: 80px;
+    z-index: 1;
+
   }
   .input-fields,
   .msg {
     width: 100%;
+    z-index: 1;
+
   }
   
 }

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import  Button  from './button';
 import './navbar.css'
 import krst from './1.png'
+// Za slike sa font awesoma, uzimas cdn kod sa njihovog sajta koji se nalazi na tvom profilu,
+//i kopiras ga u index.html, u public folderu!!!!!!!!!!!!!!!!!
 
 export default function Navbar(props) {
   const [click, setClick] = useState(false);
@@ -33,7 +35,7 @@ export default function Navbar(props) {
      
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           Православне иконе - Ниш 
-          <i className='fab fa-typo3' />
+          
         </Link>
         <div>
           <img id='krst'  src={krst}></img>
@@ -41,7 +43,7 @@ export default function Navbar(props) {
          
         
         <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          <i className={click ? "fas fa-times" : "fas fa-bars"} />
           
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
