@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import emailjs from 'emailjs-com';
 // import Footer from "./footer";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import fb from "./facebook.svg";
@@ -43,26 +44,40 @@ export default function Kontakt() {
     alert("submitted");
   }
 
+  function sendEmail(e){
+    e.preventDefault();
+
+    emailjs.sendForm('service_vqyu154', 'template_pasc3rj', e.target, 'user_iDF7GBVBepZlv2bZg187d')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });//ova funkcija je kopirana sa njihovog sajta
+
+      e.target.reset();
+  }
+
+  //npm install emailjs-com --save, ovo mora da se instalira da bi EmailJS dodatak radio
   return (
     <div className="main3">
-      <div className="wrapper">
+      <form className="wrapper" onSubmit={sendEmail}>
         <div className="title">
-          <h1>контакт форма</h1>
+          <h1>контактирајте нас!</h1>
         </div>
         <div className="contact-form">
           <div className="input-fields">
-            <input type="text" class="input" placeholder="Name"></input>
+            <input type="text" className="input" placeholder="Name" name='from_name'></input>
             <input
               type="text"
-              class="input"
+              className="input"
               placeholder="Email Address"
             ></input>
-            <input type="text" class="input" placeholder="Phone"></input>
-            <input type="text" class="input" placeholder="Subject"></input>
+            <input type="text" className="input" placeholder="Phone" name='phone'></input>
+            <input type="text" className="input" placeholder="Subject" name='subjekt'></input>
           </div>
           <div className="msg">
-            <textarea placeholder="Message"></textarea>
-            <div className="btn">send</div>
+            <textarea placeholder="Message" name='message'></textarea>
+            <input type='submit' className="btn" value='send'></input>
           </div>
         </div>
         <div className="contactDetails">
@@ -77,7 +92,7 @@ export default function Kontakt() {
             </a>
           </p>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

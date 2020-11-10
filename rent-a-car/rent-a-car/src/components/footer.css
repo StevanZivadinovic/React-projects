@@ -100,6 +100,12 @@
   }
   
   @media screen and (max-width: 960px) {
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     .NavbarItems {
       position: relative;
     }
@@ -181,4 +187,24 @@
       color: #242424;
       transition: 250ms;
     }
+
+
+    .navbar-container1{
+      display: flex;
+      flex-direction: column;
+      
+      justify-content: center;
+
+      
+    }
+    .navbar-logo1{
+      display: none;
+      
+    }
+    #majka{
+      align-self: center;
+    }
+
+
+   
   }

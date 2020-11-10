@@ -9,11 +9,12 @@
 html{
     scroll-behavior: smooth;
    
+   
 
 }
 
 .main{
-    height: 150vh;
+    height: 190vh;
     width: 100%;
     background-image: url(./pozadina-home.jpg);
     background-position: center;
@@ -21,6 +22,7 @@ html{
     background-size: cover;
     background-position-y:50px ;
     margin-top: 30px;
+   
    
     
     
@@ -49,7 +51,7 @@ h1{
     color: black;
 }
 .lista{
-    padding-top: 60px; 
+    padding-top: 110px; 
 }
 .lista li{
     list-style-type: none;
@@ -63,15 +65,17 @@ h1{
 .lista li a{
     text-decoration: none;
     color: black;
+    font-weight: 800;
 }
 
 .lista li a:hover{
     color: brown;
     text-decoration: underline;
+    font-weight: 800;
 }
 
 #vizantijskiStil{
-    margin-top: 50px;
+    margin-top: 290px;
     height: 85vh;
     
 
@@ -157,4 +161,8 @@ h1{
     transform: scale(1.5);
     cursor: pointer;
     transition: transform 1.5s;
+}
+
+@media screen and (max-width: 960px) {
+    
 }

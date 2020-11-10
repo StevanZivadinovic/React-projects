@@ -32,7 +32,7 @@ export default function Footer(props) {
         <div className="navbar-container1">
             <div> <Link to="/" className="navbar-logo1" onClick={closeMobileMenu}>
             Православне иконе - Ниш
-            <i className="fab fa-typo3" />
+           
           </Link></div>
          
           <div>
