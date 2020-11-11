@@ -17,10 +17,9 @@ import Footer from "./footer";
 export default function Home() {
   return (
     <div className="main">
-    
-      <h1>Израда Православних икона</h1>
+      <div className='uvod'> <h1>Израда Православних икона</h1>
       <p className='podtekst'>-по наруџбини-</p>
-      <div className="sazetak"></div>
+      
       <div className="opis">
         <div className="liste">
           <ul className="lista">
@@ -44,6 +43,8 @@ export default function Home() {
             </animateScroll> */}
           </ul>
         </div>
+        
+     
         <div className="liste">
           <ul className="lista">
             <li>
@@ -54,6 +55,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
+      </div>
       </div>
       <div id="vizantijskiStil">
         <h2>Византијски стил</h2>
@@ -67,8 +69,7 @@ export default function Home() {
             мозаика, миниатура и икона. У првим апостолским временима хришћани
             су користили сликање и украшавање из богослужбених разлога.
           </p>
-          <br></br>
-          <br></br>
+         
           <p>
             Током трећег века, када је ишчезао страх од идолопоклонства,
             хришћани су почели да осликавају ликове Христа, Богородице и

@@ -132,8 +132,10 @@
     z-index: 1;
 
   }
+  
   .nav-menu{
     display: none;
+   
   }
 
   .active{

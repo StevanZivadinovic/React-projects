@@ -39,7 +39,7 @@ export default class Galerija extends React.Component {
   render() {
     const { photoIndex, isOpen } = this.state;
     return (
-      <div>
+      <div className='mainGalerija'>
         <h1 className="text-middle mt-4">Галерија</h1>
         <div className="row1">
           <div className="col1">
@@ -82,7 +82,7 @@ export default class Galerija extends React.Component {
 
 
             </div>
-          </div>
+           </div>
 
 
 

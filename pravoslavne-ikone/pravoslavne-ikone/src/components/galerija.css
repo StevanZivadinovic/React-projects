@@ -53,3 +53,13 @@ img:hover{
     border-bottom-right-radius:5px;
 
 }
+
+@media screen and (max-width: 960px) {
+    .col1{
+        display: flex;
+        flex-direction: column;
+    }
+    .mainGalerija{
+        width: 100%;
+    }
+}
