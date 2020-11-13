@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./ikonpisac.css";
 import Footer from "./footer";
 import majka from './majka.jpg'
+import fb from "./facebook.svg";
+
 
 export default function Ikonopisac() {
   return (
@@ -25,11 +27,18 @@ export default function Ikonopisac() {
         </div>
       </div>
 
-      <div className="footer">
-        <Router>
-          <Footer></Footer>
-        </Router>
-      </div>
+      <div className="contactDetails1">
+            <p>stevanzivadinovic@outlook.com</p>
+            <p>061/321-60-87</p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/Pravoslavne-ikone-Nis-1691948927791453"
+              >
+                <img id="fb" src={fb}></img>
+              </a>
+            </p>
+          </div>
     </div>
   );
 }

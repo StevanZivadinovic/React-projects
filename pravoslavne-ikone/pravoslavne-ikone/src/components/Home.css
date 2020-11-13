@@ -8,16 +8,16 @@ html {
   scroll-behavior: smooth;
 }
 
-.uvod{
-    width: 100%;
-    background-image: url('./pozadina-home.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-top: 80px;
-    height: 100vh;
+.uvod {
+  width: 100%;
+  background-image: url("./pozadina-home.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 80px;
+  height: 100vh;
 }
- 
+
 h1 {
   z-index: 100;
   padding-top: 70px;
@@ -37,12 +37,9 @@ h1 {
 
   justify-content: space-around;
   color: rgb(50, 50, 50);
-  
 }
 .liste {
   color: black;
-  
-
 }
 /* .lista{
     margin-top: 110px; 
@@ -72,6 +69,10 @@ h1 {
 #vizantijskiStil {
   margin-top: 0px;
   height: 80vh;
+  width: 100%;
+}
+#vizantijskiStil p{
+  text-align: justify;
 }
 
 #vizantijskiStil h2 {
@@ -146,17 +147,38 @@ h1 {
   transition: transform 1.5s;
 }
 
+.contactDetails1 {
+  width: 100%;
+  background: linear-gradient(0deg, rgb(28, 27, 27) 10%, rgb(216, 86, 86) 100%);
+  border-radius: 5px;
+  font-size: 16px;
+  font-size: 20px !important;
+}
+#tehnika p{
+  text-align: justify;
+  margin: 0 30px 10px 30px;
+}
+
 @media screen and (max-width: 960px) {
- .uvod{
-     height: 100vh;
-     
- }
+  .contactDetails1 {
+    width: 100%;
+    background: linear-gradient(
+      0deg,
+      rgb(28, 27, 27) 10%,
+      rgb(216, 86, 86) 100%
+    );
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .uvod {
+    height: 100vh;
+  }
   .opis {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-     margin-top: 30px;
+    margin-top: 30px;
     background-color: rgb(50, 50, 50, 0.3);
   }
 
@@ -164,7 +186,7 @@ h1 {
     background-color: rgb(31, 29, 29);
     cursor: pointer;
   }
-  
+
   .lista {
     padding-top: 0;
   }
@@ -200,29 +222,27 @@ h1 {
   .active {
     display: flex;
   }
-  
+
   #vizantijskiStil {
     height: 100%;
   }
-  #daska{
-      height: 100%;
+  #daska {
+    height: 100%;
   }
-  #daska p{
-      padding: 0 30px;
-      text-align: justify;
+  #daska p {
+    padding: 0 30px;
+    text-align: justify;
   }
-  .textDaska{
+  .textDaska {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     width: 300px;
     align-self: center;
-
   }
-  #slikaDaska{
-      align-self: center;
+  #slikaDaska {
+    align-self: center;
   }
-
 
   .slikeTehnika {
     display: flex;
@@ -230,7 +250,7 @@ h1 {
     justify-content: space-around;
     align-items: center;
   }
-  #tehnika{
-      height: 100%;
+  #tehnika {
+    height: 100%;
   }
 }

@@ -6,6 +6,8 @@ import daska1 from "./daska1.jpg";
 import daska2 from "./daska2.jpg";
 import zlatni_listici from './zlatni_listici.jpg';
 import pigment from './pigment.jpg';
+import fb from "./facebook.svg";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./footer";
 
@@ -111,11 +113,18 @@ export default function Home() {
           карата), шлаг металом или осликава бојом по жељи.
         </p>
       </div>
-      <div>
-       
-          <Footer></Footer>
-        
-      </div>
+      <div className="contactDetails1">
+            <p>stevanzivadinovic@outlook.com</p>
+            <p>061/321-60-87</p>
+            <p>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/Pravoslavne-ikone-Nis-1691948927791453"
+              >
+                <img id="fb" src={fb}></img>
+              </a>
+            </p>
+          </div>
     </div>
   );
 }

@@ -41,7 +41,7 @@ export default function Kontakt() {
   // }
 
   function onClickHandle() {
-    alert("submitted");
+    alert("Порука је послата!");
   }
 
   function sendEmail(e){
@@ -62,7 +62,7 @@ export default function Kontakt() {
     <div className="main3">
       <form className="wrapper" onSubmit={sendEmail}>
         <div className="title">
-          <h1>контактирајте нас!</h1>
+          <h1>Контактирајте нас!</h1>
         </div>
         <div className="contact-form">
           <div className="input-fields">
@@ -77,7 +77,7 @@ export default function Kontakt() {
           </div>
           <div className="msg">
             <textarea placeholder="Message" name='message'></textarea>
-            <input type='submit' className="btn" value='send'></input>
+            <input type='submit' className="btn" value='send' onClick={onClickHandle}></input>
           </div>
         </div>
         <div className="contactDetails">
