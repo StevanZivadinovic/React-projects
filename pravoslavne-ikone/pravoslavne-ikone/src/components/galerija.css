@@ -53,13 +53,38 @@ img:hover{
     border-bottom-right-radius:5px;
 
 }
+.contactDetails1 {
+    width: 100%;
+    background: linear-gradient(0deg, rgb(28, 27, 27) 10%, rgb(216, 86, 86) 100%);
+    border-radius: 5px;
+    font-size: 16px;
+    
+    
+  }
 
 @media screen and (max-width: 960px) {
+    .contactDetails1 {
+        width: 100%;
+        background: linear-gradient(0deg, rgb(28, 27, 27) 10%, rgb(216, 86, 86) 100%);
+        border-radius: 5px;
+        font-size: 16px;
+        
+       
+       
+      }
+      .row1{
+          display: block;
+          float: left;
+          width: 100%;
+      }
+     
     .col1{
         display: flex;
         flex-direction: column;
     }
     .mainGalerija{
         width: 100%;
+        position: relative;
+        height: 100%;
     }
 }
