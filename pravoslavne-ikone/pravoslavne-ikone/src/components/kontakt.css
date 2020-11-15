@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+.btnDisabled:hover{
+  cursor: not-allowed;
+}
 
 .main3 {
   display: flex;

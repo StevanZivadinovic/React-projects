@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 // import Footer from "./footer";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import fb from "./facebook.svg";
 import "./kontakt.css";
+import { useForm } from "react-hook-form";
 
 export default function Kontakt() {
   let a = document.getElementById("porukaInput");
@@ -44,40 +45,101 @@ export default function Kontakt() {
     alert("Порука је послата!");
   }
 
-  function sendEmail(e){
+  function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_vqyu154', 'template_pasc3rj', e.target, 'user_iDF7GBVBepZlv2bZg187d')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_vqyu154",
+        "template_pasc3rj",
+        e.target,
+        "user_iDF7GBVBepZlv2bZg187d"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });//ova funkcija je kopirana sa njihovog sajta
+        }
+      ); //ova funkcija je kopirana sa njihovog sajta
 
-      e.target.reset();
+    e.target.reset();
   }
 
   //npm install emailjs-com --save, ovo mora da se instalira da bi EmailJS dodatak radio
+
+  //
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(watch("example")); // watch input value by passing the name of it
+  var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+  let email = document.querySelector("#email");
+  const myRef = React.createRef();
+  const myRefSubmit = React.createRef();
+
+  let validation = (e) => {
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let a = pattern.test(e.target.value);
+    console.log(a);
+
+    if (a) {
+      console.log(a);
+    } else {
+      e.target.color = "red";
+    }
+  };
+
   return (
     <div className="main3">
+      {/* onSubmit={handleSubmit(onSubmit)} */}
       <form className="wrapper" onSubmit={sendEmail}>
         <div className="title">
           <h1>Контактирајте нас!</h1>
         </div>
         <div className="contact-form">
           <div className="input-fields">
-            <input type="text" className="input" placeholder="Name" name='from_name'></input>
             <input
+              ref={register}
               type="text"
+              className="input"
+              placeholder="Name"
+              name="from_name"
+            ></input>
+            <input
+              ref={myRef}
+              onKeyUp={validation}
+              id="email"
+              type="email"
               className="input"
               placeholder="Email Address"
             ></input>
-            <input type="text" className="input" placeholder="Phone" name='phone'></input>
-            <input type="text" className="input" placeholder="Subject" name='subjekt'></input>
+            {errors.email && errors.email.message}
+            <input
+              ref={register}
+              type="text"
+              className="input"
+              placeholder="Phone"
+              name="phone"
+            ></input>
+            <input
+              ref={register}
+              type="text"
+              className="input"
+              placeholder="Subject"
+              name="subjekt"
+            ></input>
           </div>
           <div className="msg">
-            <textarea placeholder="Message" name='message'></textarea>
-            <input type='submit' className="btn" value='send' onClick={onClickHandle}></input>
+            <textarea placeholder="Message" name="message"></textarea>
+            <input
+              ref={myRefSubmit}
+              type="submit"
+              className="btn"
+              value="send"
+              onClick={onClickHandle}
+            ></input>
           </div>
         </div>
         <div className="contactDetails">
