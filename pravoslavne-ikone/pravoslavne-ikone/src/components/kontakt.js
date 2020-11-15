@@ -72,12 +72,7 @@ export default function Kontakt() {
   //
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log(watch("example")); // watch input value by passing the name of it
-  var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-  let email = document.querySelector("#email");
-  const myRef = React.createRef();
-  const myRefSubmit = React.createRef();
 
   let validation = (e) => {
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -85,30 +80,30 @@ export default function Kontakt() {
     console.log(a);
 
     if (a) {
-      console.log(a);
+      e.target.style.borderColor = "blue";
     } else {
-      e.target.color = "red";
+      e.target.style.borderColor = "red";
     }
   };
 
   return (
     <div className="main3">
       {/* onSubmit={handleSubmit(onSubmit)} */}
-      <form className="wrapper" onSubmit={sendEmail}>
+      <form className="wrapper" onSubmit={sendEmail} >
         <div className="title">
           <h1>Контактирајте нас!</h1>
         </div>
         <div className="contact-form">
           <div className="input-fields">
             <input
-              ref={register}
+             
               type="text"
               className="input"
               placeholder="Name"
               name="from_name"
             ></input>
             <input
-              ref={myRef}
+             
               onKeyUp={validation}
               id="email"
               type="email"
@@ -134,7 +129,7 @@ export default function Kontakt() {
           <div className="msg">
             <textarea placeholder="Message" name="message"></textarea>
             <input
-              ref={myRefSubmit}
+              
               type="submit"
               className="btn"
               value="send"
