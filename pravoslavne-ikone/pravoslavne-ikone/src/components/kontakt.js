@@ -1,48 +1,23 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
-// import Footer from "./footer";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import fb from "./facebook.svg";
 import "./kontakt.css";
 import { useForm } from "react-hook-form";
 
 export default function Kontakt() {
-  let a = document.getElementById("porukaInput");
 
-  function setCaretPosition(ctrl, pos) {
-    // For Most Web Browsers
-    if (ctrl.setSelectionRange) {
-      ctrl.focus();
-      ctrl.setSelectionRange(pos, pos);
-      // IE8 and below
-    }
-  }
+  const [status, setStatus] = useState(false);
 
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const porukaRef = useRef();
-  const submitRef = useRef();
+  
 
-  // useEffect(() => {
-  //   nameRef.current.focus();
-  // }, []);
-
-  // function keyPressHandle(e) {
-  //   if (e.keyCode === 13) {
-  //     if (e.target.id === "nameInput") {
-  //       emailRef.current.focus();
-  //     }
-  //     if (e.target.id === "emailInput") {
-  //       porukaRef.current.focus();
-  //       let a = document.querySelector('#porukaInput');
-
-  //     }
-
-  //   }
-  // }
-
+ 
   function onClickHandle() {
     alert("Порука је послата!");
+  }
+
+  function onClickHandle1() {
+    alert("Емаил је неисправан!");
   }
 
   function sendEmail(e) {
@@ -70,8 +45,7 @@ export default function Kontakt() {
   //npm install emailjs-com --save, ovo mora da se instalira da bi EmailJS dodatak radio
 
   //
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  
 
 
   let validation = (e) => {
@@ -81,11 +55,26 @@ export default function Kontakt() {
 
     if (a) {
       e.target.style.borderColor = "blue";
+     let dugme = document.querySelector('input[type="submit"]').disabled=false;
+      // dugme.style.cursor = 'pointer'
+      setStatus(true);
+      // dugme.innerText = 'email je dobar'
     } else {
       e.target.style.borderColor = "red";
-    }
-  };
+      let dugme = document.querySelector('input[type="submit"]').disabled = true;
+      let dugme1 = document.querySelector('input[type="submit"]');
+      // dugme.style.cursor = 'not-allowed';
+      setStatus(false);
+      
 
+      // dugme1.setAttribut('class', 'losInput');
+
+     
+    }
+     console.log(status);
+    }
+    
+  
   return (
     <div className="main3">
       {/* onSubmit={handleSubmit(onSubmit)} */}
@@ -105,21 +94,22 @@ export default function Kontakt() {
             <input
              
               onKeyUp={validation}
+              name='email'
               id="email"
               type="email"
               className="input"
               placeholder="Email Address"
             ></input>
-            {errors.email && errors.email.message}
+          
             <input
-              ref={register}
+             
               type="text"
               className="input"
               placeholder="Phone"
               name="phone"
             ></input>
             <input
-              ref={register}
+             
               type="text"
               className="input"
               placeholder="Subject"
@@ -129,11 +119,12 @@ export default function Kontakt() {
           <div className="msg">
             <textarea placeholder="Message" name="message"></textarea>
             <input
-              
+              onClick={status ? onClickHandle : onClickHandle1 }
               type="submit"
               className="btn"
               value="send"
-              onClick={onClickHandle}
+
+
             ></input>
           </div>
         </div>

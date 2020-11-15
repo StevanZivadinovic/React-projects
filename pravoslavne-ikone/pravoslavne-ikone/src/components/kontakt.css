@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-.btnDisabled:hover{
-  cursor: not-allowed;
+.losInput{
+content: 'nije';  
 }
 
 .main3 {
