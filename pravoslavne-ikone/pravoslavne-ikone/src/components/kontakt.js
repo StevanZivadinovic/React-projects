@@ -42,7 +42,7 @@ export default function Kontakt() {
 
   //
   let validationInputTextarea = (e) => {
-    var pattern = /^[\s0-9-,.a-zA-Z:/.!?]+$/;
+    var pattern = /^[\s0-9-,.AБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШабвгдђежзијклљмнњопрстћуфхцчџшA-Za-zA-Ša-š:/.!?]+$/;
     let a = pattern.test(e.target.value);
     console.log(a);
     setStatus(false);
@@ -75,7 +75,7 @@ export default function Kontakt() {
     }
 
   let validationInput = (e) => {
-    var pattern = /^[A-Za-z\s0-9]+$/;
+    var pattern = /^[\s0-9-,.AБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШабвгдђежзијклљмнњопрстћуфхцчџшA-Za-zA-Ša-š:/.!?]+$/;
     let a = pattern.test(e.target.value);
     console.log(a);
     setStatus(false);
