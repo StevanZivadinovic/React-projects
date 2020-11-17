@@ -41,8 +41,24 @@ export default function Kontakt() {
   //npm install emailjs-com --save, ovo mora da se instalira da bi EmailJS dodatak radio
 
   //
+  let validationInputTextarea = (e) => {
+    var pattern = /^[\s0-9-,.a-zA-Z:/.!?]+$/;
+    let a = pattern.test(e.target.value);
+    console.log(a);
+    setStatus(false);
+
+    if (a) {
+      e.target.style.borderColor = "blue";
+      setStatus(true);
+    }
+    else{
+      e.target.style.borderColor = "red";
+      setStatus(false);
+
+    }
+    }
   let validationInputPhone = (e) => {
-    var pattern = /^[^ ][0-9]{6,16}$/;
+    var pattern = /^[\s0-9-]+$/;
     let a = pattern.test(e.target.value);
     console.log(a);
     setStatus(false);
@@ -59,7 +75,7 @@ export default function Kontakt() {
     }
 
   let validationInput = (e) => {
-    var pattern = /^[ ][a-z, A-Z][0-9]$/;
+    var pattern = /^[A-Za-z\s0-9]+$/;
     let a = pattern.test(e.target.value);
     console.log(a);
     setStatus(false);
@@ -164,7 +180,7 @@ export default function Kontakt() {
             ></input>
           </div>
           <div className="msg">
-            <textarea  onKeyUp={validationInput}
+            <textarea  onKeyUp={validationInputTextarea}
             placeholder="Message" name="message"></textarea>
             <input
               onClick={status ? onClickHandle : onClickHandle1}
