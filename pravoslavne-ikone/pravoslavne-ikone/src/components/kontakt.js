@@ -6,12 +6,8 @@ import "./kontakt.css";
 import { useForm } from "react-hook-form";
 
 export default function Kontakt() {
-
   const [status, setStatus] = useState(false);
 
-  
-
- 
   function onClickHandle() {
     alert("Порука је послата!");
   }
@@ -45,8 +41,40 @@ export default function Kontakt() {
   //npm install emailjs-com --save, ovo mora da se instalira da bi EmailJS dodatak radio
 
   //
-  
+  let validationInputPhone = (e) => {
+    var pattern = /^[^ ][0-9]{6,16}$/;
+    let a = pattern.test(e.target.value);
+    console.log(a);
+    setStatus(false);
 
+    if (a) {
+      e.target.style.borderColor = "blue";
+      setStatus(true);
+    }
+    else{
+      e.target.style.borderColor = "red";
+      setStatus(false);
+
+    }
+    }
+
+  let validationInput = (e) => {
+    var pattern = /^[ ][a-z, A-Z][0-9]$/;
+    let a = pattern.test(e.target.value);
+    console.log(a);
+    setStatus(false);
+
+
+    if (a) {
+      e.target.style.borderColor = "blue";
+      setStatus(true);
+    }
+    else{
+      e.target.style.borderColor = "red";
+      setStatus(false);
+
+    }
+    }
 
   let validation = (e) => {
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -55,76 +83,96 @@ export default function Kontakt() {
 
     if (a) {
       e.target.style.borderColor = "blue";
-     let dugme = document.querySelector('input[type="submit"]').disabled=false;
+      let dugme = (document.querySelector(
+        'input[type="submit"]'
+      ).disabled = false);
       // dugme.style.cursor = 'pointer'
       setStatus(true);
       // dugme.innerText = 'email je dobar'
+      let label = document.querySelector("label");
+      label.style.display = "none";
     } else {
       e.target.style.borderColor = "red";
-      let dugme = document.querySelector('input[type="submit"]').disabled = true;
+      let dugme = (document.querySelector(
+        'input[type="submit"]'
+      ).disabled = true);
       let dugme1 = document.querySelector('input[type="submit"]');
-      // dugme.style.cursor = 'not-allowed';
+      let label = document.querySelector("label");
+      label.style.position = "absolute";
+      label.style.top = "110px";
+      label.style.right = "0px";
+      label.style.fontSize = "14px";
+      label.style.display = "inline";
+      label.style.color = "red";
+
+      label.style.opacity = 1;
+
       setStatus(false);
-      
 
-      // dugme1.setAttribut('class', 'losInput');
+      let node = document.createTextNode("Hello, I am Arun");
+      console.log(node);
+      dugme1.appendChild(node);
+    }
+    console.log(status);
+  };
 
-     
-    }
-     console.log(status);
-    }
-    
-  
   return (
     <div className="main3">
       {/* onSubmit={handleSubmit(onSubmit)} */}
-      <form className="wrapper" onSubmit={sendEmail} >
+      <form className="wrapper" onSubmit={sendEmail}>
         <div className="title">
           <h1>Контактирајте нас!</h1>
         </div>
         <div className="contact-form">
           <div className="input-fields">
             <input
-             
+            onKeyUp={validationInput}
               type="text"
               className="input"
               placeholder="Name"
               name="from_name"
+              required
             ></input>
+            <label htmlFor="email">Неисправан унос</label>
             <input
-             
               onKeyUp={validation}
-              name='email'
+              name="email"
               id="email"
               type="email"
               className="input"
               placeholder="Email Address"
+              required
             ></input>
-          
+
             <input
-             
+              onKeyUp={validationInputPhone}
+
               type="text"
               className="input"
               placeholder="Phone"
               name="phone"
+              required
             ></input>
             <input
-             
+              onKeyUp={validationInput}
+
               type="text"
               className="input"
               placeholder="Subject"
               name="subjekt"
+              required
             ></input>
           </div>
           <div className="msg">
-            <textarea placeholder="Message" name="message"></textarea>
+            <textarea  onKeyUp={validationInput}
+            placeholder="Message" name="message"></textarea>
             <input
-              onClick={status ? onClickHandle : onClickHandle1 }
+              onClick={status ? onClickHandle : onClickHandle1}
+              onSubmit={validation}
               type="submit"
               className="btn"
               value="send"
-
-
+              required
             ></input>
           </div>
         </div>
