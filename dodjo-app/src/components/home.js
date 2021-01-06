@@ -1,28 +1,43 @@
 //sfc - statles functional component
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BlogList from "./blogList";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([
     {
-      title:'ozonizacija',  
-      ime: "stefana",
-      prezime: "podolski",
+      title: "ozonizacija",
+      author: "stefana podolski",
+      body: "Lorem ispum dolor sit amit",
       id: 1,
     },
-    {title:'pesticidi', ime: "milijana", prezime: "djokic", id: 2 },
+    {
+      title: "pesticidi",
+      author: "milijana djokic",
+      body: "Lorem ispum dolor sit amit",
+      id: 2,
+    },
   ]);
+
+  let izbrisiBlog = (id) =>{
+   let newBlogs =  blogs.filter((blog)=>blog.id !== id);
+   setBlogs(newBlogs);
+  }
+
+useEffect(()=>{
+  console.log('haj')
+}, [])
 
   return (
     <div className="content">
-      <h1>Home page</h1>
-      <p>pozz</p>
-      <div>{blogs.map(blog=>{
-          return ( 
-          <div key={blog.id}>
-            <h1>{blog.title}</h1>
-            <p>{blog.ime}</p>
-          </div>)
-      })}</div>
+      <BlogList blogs={blogs} naziv="All blogs" izbrisiBlog={izbrisiBlog}     />
+      {/* <BlogList
+        blogs={blogs.filter((blog) => {
+          return blog.author === "stefana podolski";
+        })}
+        naziv="Stefana's blogs"
+        izbrisiBlog={izbrisiBlog}
+      /> */}
+      {/* u redu iznad, u filter metodi, mozes da sklonis return i viticaste zagrade ili da ih ostavis */}
     </div>
   );
 };
