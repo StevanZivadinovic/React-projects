@@ -18,18 +18,28 @@ const Home = () => {
     },
   ]);
 
+// const [name, setName] = useState('mijagi')
+
+
   let izbrisiBlog = (id) =>{
    let newBlogs =  blogs.filter((blog)=>blog.id !== id);
    setBlogs(newBlogs);
   }
 
 useEffect(()=>{
-  console.log('haj')
+  fetch('http://localhost:8000/blogs')
+  .then((resp)=>{
+    return resp.json()
+  })
+  .then((data)=>{
+    console.log(data);
+    setBlogs(data);
+  })
 }, [])
 
   return (
     <div className="content">
-      <BlogList blogs={blogs} naziv="All blogs" izbrisiBlog={izbrisiBlog}     />
+      {blogs && <BlogList blogs={blogs} naziv="All blogs" izbrisiBlog={izbrisiBlog} />}
       {/* <BlogList
         blogs={blogs.filter((blog) => {
           return blog.author === "stefana podolski";
@@ -38,6 +48,8 @@ useEffect(()=>{
         izbrisiBlog={izbrisiBlog}
       /> */}
       {/* u redu iznad, u filter metodi, mozes da sklonis return i viticaste zagrade ili da ih ostavis */}
+      {/* <button onClick={()=>setName('luka')}>Promeni ime</button>
+      <p>{ name }</p> */}
     </div>
   );
 };
