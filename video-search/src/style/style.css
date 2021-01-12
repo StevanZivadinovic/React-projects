@@ -1,0 +1,38 @@
+.extra {
+  width: 250px;
+  border-radius: 10px;
+  border: 3px solid black;
+}
+
+.extra .pitanje {
+  text-align: center;
+}
+
+.extra .dugmici {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.extra .dugmici .potvrdi {
+  padding: 10px 20px;
+  border: 2px solid green;
+  border-radius: 5px;
+}
+
+.extra .dugmici .potvrdi:hover {
+  background-color: grey;
+}
+
+.extra .dugmici .odbaci {
+  padding: 10px 20px;
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+.extra .dugmici .odbaci:hover {
+  background-color: grey;
+}
+/*# sourceMappingURL=style.css.map */

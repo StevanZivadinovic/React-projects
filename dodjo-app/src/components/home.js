@@ -3,21 +3,23 @@ import { useState, useEffect } from "react";
 import BlogList from "./blogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    {
-      title: "ozonizacija",
-      author: "stefana podolski",
-      body: "Lorem ispum dolor sit amit",
-      id: 1,
-    },
-    {
-      title: "pesticidi",
-      author: "milijana djokic",
-      body: "Lorem ispum dolor sit amit",
-      id: 2,
-    },
-  ]);
-
+  const [blogs, setBlogs] = useState(null
+  //   [
+  //   {
+  //     title: "ozonizacija",
+  //     author: "stefana podolski",
+  //     body: "Lorem ispum dolor sit amit",
+  //     id: 1,
+  //   },
+  //   {
+  //     title: "pesticidi",
+  //     author: "milijana djokic",
+  //     body: "Lorem ispum dolor sit amit",
+  //     id: 2,
+  //   },
+  // ]
+  );
+  const [isLoading, setLoading] = useState(true);
 // const [name, setName] = useState('mijagi')
 
 
@@ -27,18 +29,23 @@ const Home = () => {
   }
 
 useEffect(()=>{
-  fetch('http://localhost:8000/blogs')
-  .then((resp)=>{
-    return resp.json()
-  })
-  .then((data)=>{
-    console.log(data);
-    setBlogs(data);
-  })
+  setTimeout(()=>{
+    fetch('http://localhost:8000/blogs')
+    .then((resp)=>{
+      return resp.json()
+    })
+    .then((data)=>{
+      console.log(data);
+      setBlogs(data);
+      setLoading(false)
+    })
+  },1000)
+  
 }, [])
 
   return (
     <div className="content">
+      {isLoading && <div>Loading...</div>}
       {blogs && <BlogList blogs={blogs} naziv="All blogs" izbrisiBlog={izbrisiBlog} />}
       {/* <BlogList
         blogs={blogs.filter((blog) => {

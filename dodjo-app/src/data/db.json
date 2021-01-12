@@ -1,0 +1,20 @@
+
+
+
+{
+    "blogs":[
+        {
+            "title":"My first Blog",
+            "body":"Why do we?",
+            "author":"mario",
+            "id":"1"
+        },
+        {
+            "title":"Opening Party",
+            "body":"Why do we?",
+            "author":"yoshi",
+            "id":"2"
+        }
+
+    ]
+}

@@ -1,27 +1,32 @@
 //instalacija npm install --save faker
 import faker from "faker";
-import Avatar from './components/avatar'
+import Avatar from './components/avatar';
+import {useState} from 'react';
+import ExtraContent from './components/extraContent'
+import './style/style.css'
 
 function App() {
-  
+  const [names, setNames] = useState([{name:'mike',
+id:1}, {name:'max', id:2}, {name:'alex', id:3}])
 
   return (
     <div className="App">
-      <div className="polje" style={{display:'flex'}}>
-        <a href="/" className="avatar">
-          <img src={faker.image.imageUrl()} alt="error" style={{width:'50px'}} />
-        </a>
-        <div className="podaci">
-          <div className="metadata">
-          <a href="/">Sam</a>
-            <span>Today 6:00PM</span>
-          </div>
-            <div className="text">Nice text!</div>
-        </div>
+            <ExtraContent>
+              <div>
+                <h2>Warning!</h2>
+                <div>Are you sure?</div>
+              </div>
+              </ExtraContent>
+
+            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
+            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
+            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
+
+            
+        
       </div>
 
-     <Avatar></Avatar>
-    </div>
+  
   );
 }
 
