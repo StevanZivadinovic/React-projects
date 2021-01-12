@@ -21,7 +21,7 @@ const Home = () => {
   );
   const [isLoading, setLoading] = useState(true);
 // const [name, setName] = useState('mijagi')
-
+const [error, setError] = useState(null);
 
   let izbrisiBlog = (id) =>{
    let newBlogs =  blogs.filter((blog)=>blog.id !== id);
@@ -33,12 +33,24 @@ useEffect(()=>{
     //npx json-server --watch public/db.json --port 8000
     fetch('http://localhost:8000/blogs')
     .then((resp)=>{
+
+      if(!resp.ok){
+        throw Error('Nije moguce iz nekog razloga dohvatiti podatke!!!')
+        
+      }
       return resp.json()
     })
     .then((data)=>{
       console.log(data);
       setBlogs(data);
-      setLoading(false)
+      setLoading(false);
+      setError(null)
+    })
+    .catch((err)=>{
+      console.log(err.message);
+      setError(err.message);
+      setLoading(false);
+      setBlogs(false);
     })
   },1000)
   
@@ -46,6 +58,7 @@ useEffect(()=>{
 
   return (
     <div className="content">
+      {error && <div>{ error }</div> }
       {isLoading && <div>Loading...</div>}
       {blogs && <BlogList blogs={blogs} naziv="All blogs" izbrisiBlog={izbrisiBlog} />}
       {/* <BlogList
