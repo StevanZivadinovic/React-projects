@@ -30,6 +30,7 @@ const Home = () => {
 
 useEffect(()=>{
   setTimeout(()=>{
+    //npx json-server --watch public/db.json --port 8000
     fetch('http://localhost:8000/blogs')
     .then((resp)=>{
       return resp.json()
