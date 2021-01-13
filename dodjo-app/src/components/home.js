@@ -1,60 +1,13 @@
 //sfc - statles functional component
 import { useState, useEffect } from "react";
 import BlogList from "./blogList";
+import useFetch from "./useFetch";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(null
-  //   [
-  //   {
-  //     title: "ozonizacija",
-  //     author: "stefana podolski",
-  //     body: "Lorem ispum dolor sit amit",
-  //     id: 1,
-  //   },
-  //   {
-  //     title: "pesticidi",
-  //     author: "milijana djokic",
-  //     body: "Lorem ispum dolor sit amit",
-  //     id: 2,
-  //   },
-  // ]
-  );
-  const [isLoading, setLoading] = useState(true);
-// const [name, setName] = useState('mijagi')
-const [error, setError] = useState(null);
+    const {blogs, isLoading, error, izbrisiBlog} = useFetch('http://localhost:8000/blogs');
 
-  let izbrisiBlog = (id) =>{
-   let newBlogs =  blogs.filter((blog)=>blog.id !== id);
-   setBlogs(newBlogs);
-  }
+    
 
-useEffect(()=>{
-  setTimeout(()=>{
-    //npx json-server --watch public/db.json --port 8000
-    fetch('http://localhost:8000/blogs')
-    .then((resp)=>{
-
-      if(!resp.ok){
-        throw Error('Nije moguce iz nekog razloga dohvatiti podatke!!!')
-        
-      }
-      return resp.json()
-    })
-    .then((data)=>{
-      console.log(data);
-      setBlogs(data);
-      setLoading(false);
-      setError(null)
-    })
-    .catch((err)=>{
-      console.log(err.message);
-      setError(err.message);
-      setLoading(false);
-      setBlogs(false);
-    })
-  },1000)
-  
-}, [])
 
   return (
     <div className="content">
