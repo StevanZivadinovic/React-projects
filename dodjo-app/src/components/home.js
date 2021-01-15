@@ -4,10 +4,10 @@ import BlogList from "./blogList";
 import useFetch from "./useFetch";
 
 const Home = () => {
-    const {blogs, isLoading, error, izbrisiBlog} = useFetch('http://localhost:8000/blogs');
+    const {blogs, isLoading, error, izbrisiBlog} = useFetch('http://localhost:8002/blogs');
 
     
-
+    
 
   return (
     <div className="content">

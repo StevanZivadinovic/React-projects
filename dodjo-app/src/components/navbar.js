@@ -1,17 +1,19 @@
+import {Link} from 'react-router-dom'
+
 //sfc - statles functional component
 const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>Dodjo-app</h1>
       <div className="links" >
-        <a href="/" style={{
+        <Link  to="/" style={{
            color:'green',
            backgroundColor:'red'
-        }}>Home</a>
-        <a href="/create" style={{
+        }}>Home</Link>
+        <Link to="/create" style={{
            color:'green',
            backgroundColor:'red'
-        }}>New blog</a>
+        }}>New blog</Link>
       </div>
     </nav>
   );

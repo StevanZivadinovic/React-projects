@@ -24,9 +24,10 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let Abort  = new AbortController()
     setTimeout(() => {
       //npx json-server --watch public/db.json --port 8000
-      fetch(url)
+      fetch(url, {signal: Abort.signal})
         .then((resp) => {
           if (!resp.ok) {
             throw Error("Nije moguce iz nekog razloga dohvatiti podatke!!!");
@@ -40,19 +41,27 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          console.log(err.message);
-          setError(err.message);
-          setLoading(false);
-          setBlogs(false);
+          if(err.name === 'AbortError'){
+            console.log('fetch aborted')
+          }
+          else{
+
+            setError(err.message);
+            setLoading(false);
+            setBlogs(false);
+          }
         });
     }, 1000);
+    // abort the fetch
+    return () => Abort.abort();
   }, [url]);
 
   let izbrisiBlog = (id) => {
     let newBlogs = blogs.filter((blog) => blog.id !== id);
     return setBlogs(newBlogs);
   };
-  return { blogs, isLoading, error, izbrisiBlog };
+  
+  return { blogs, isLoading, error, izbrisiBlog  };
 };
 
 export default useFetch;
