@@ -1,32 +1,37 @@
 //instalacija npm install --save faker
 import faker from "faker";
-import Avatar from './components/avatar';
-import {useState} from 'react';
-import ExtraContent from './components/extraContent'
-import './style/style.css'
+import { useState } from "react";
+import Avatar from "./components/season";
+import "./style/style.css";
 
 function App() {
-  const [names, setNames] = useState([{name:'mike',
-id:1}, {name:'max', id:2}, {name:'alex', id:3}])
+// brisanje npm paketa iz projekta: npm uninstall --save ime projekta-npm, 
+
+const [lat, setLat]=useState(null);
+const [long, setLong]=useState(null);
+
+
+
+window.navigator.geolocation.getCurrentPosition(
+  (response)=>{setLat(response.coords.latitude)
+    setLong(response.coords.longitude)
+    console.log(response.coords.latitude)}
+    ,
+    err=>{console.log(err.message)}
+)
+
+    
+
 
   return (
     <div className="App">
-            <ExtraContent>
-              <div>
-                <h2>Warning!</h2>
-                <div>Are you sure?</div>
-              </div>
-              </ExtraContent>
+      <Avatar></Avatar>
+    
+    {(lat && long)? <div className="ispis">{`lat:${lat}, long: ${long}`}
+    </div>:<div>Loading....</div>}
+    </div>
 
-            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
-            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
-            <ExtraContent><Avatar names={names}></Avatar></ExtraContent>
 
-            
-        
-      </div>
-
-  
   );
 }
 
