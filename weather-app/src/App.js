@@ -3,53 +3,6 @@ import "./App.css";
 
 import firebase from "./config/config.js";
 
-/*
-//ispis podataka sa mog git hub profila
-function App() {
-  let initProfile={
-    name:null,
-    numOfRepo:null
-  }
-  let [profile, setProfile] = useState(initProfile);
-let getDocuments = async ()=>{
-  let response =await fetch( `https://api.github.com/users/stevanzivadinovic`);
-  let data = await response.json();
-  console.log(data);
-  setProfile({
-    name:data.login,
-    numOfRepo:data.public_repos
-  });
-  console.log(data.public_repos);
-};
-  useEffect(()=>{
-    getDocuments();
-  },[]);
-  console.log('haj');
-  return (
-     <div className="App">
-       <h1>{profile.name}</h1>
-       <h1>{profile.numOfRepo}</h1>
-    </div>
-  );
-}
-*/
-
-/*
-firebase
-  .firestore()
-  .collection("kolekcija")
-  .set({
-    oblacnost:data.weather.main
-  })
-  .then((snapshot) => {
-   
-    snapshot.docs.forEach((doc) => {
-      let id1 = doc.data();
-      console.log(id1);
-    });
-  });
-*/
-
 const api = {
   key: "bb75ef88e0fef7fd55e01fcb844d0bf3",
   base: "https://api.openweathermap.org/data/2.5/",
@@ -57,10 +10,18 @@ const api = {
 
 function App() {
   let db = firebase.firestore();
+
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [oblacnost2, setOblacnost2] = useState("");
-  const [grad, setGrad] = useState('');
+  const [grad, setGrad] = useState("");
+
+  useEffect(() => {
+   localStorage.setItem('vreme',weather);
+  }, [weather]);
+
+  console.log(weather);
+
 
   useEffect(() => {
     if (localStorage.getItem("oblacnost")) {
@@ -73,28 +34,16 @@ function App() {
     localStorage.setItem("oblacnost", oblacnost2);
   }, [oblacnost2]);
 
-
-
   useEffect(() => {
     if (localStorage.getItem("grad")) {
       setGrad(localStorage.getItem("grad"));
     }
-  }, []);
+  },[]);
 
   //svaki naredni put
   useEffect(() => {
     localStorage.setItem("grad", grad);
   }, [grad]);
-
-  /*
-  db.collection("kolekcija").get()
-  .then((snapshot)=>{
-    snapshot.docs.forEach(doc => {
-        let id=doc.id;
-        db.collection("kolekcija").doc(id).delete();
-    });
-  });
-*/
 
   let search = async (evt) => {
     if (evt.key === "Enter") {
@@ -103,43 +52,22 @@ function App() {
       );
       let data = await response.json();
       setWeather(data);
-      console.log(data.weather[0].main);
       setQuery("");
       setOblacnost2(data.weather[0].main);
       setGrad(data.name);
 
       db.collection("kolekcija")
-        .doc()
+      .doc()
         .set({
           oblacnost: data.weather[0].main,
           grad: data.name,
         })
-        .then(() => {});
-    }
-  };
-
-  /*
-  //umesto ovog gore moze i ovako
-  const search = (evt) => {
-    if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&appid=${api.key}`)
-        .then((res) => res.json())
-        .then((result) => {
-          setWeather(result);
-          setQuery("");
-          console.log(result);
-          db.collection("kolekcija")
-            .doc()
-            .set({
-              oblacnost: result,
-            })
-            .then(() => {
-              console.log("dodato");
-            });
+        .then(() => {
+          console.log(`Grad je dodat: ${data.name}`)
         });
     }
   };
-  */
+
   const dateBuilder = (d) => {
     let months = [
       "January",
@@ -204,12 +132,18 @@ function App() {
             </div>
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp) / 10}°c</div>
-              <div className="weather">{weather.weather[0].main}</div>
+              
+               <div className="weather">{weather.weather[0].main}</div>
               <div className="weather">Wind: {weather.wind.speed}m/s</div>
             </div>
           </div>
         ) : (
-          ""
+          <div className="weather-box">
+
+            <div className="weather">{oblacnost2}</div>
+            <div className="weather">{grad}</div>
+          </div>
+
         )}
       </main>
     </div>
