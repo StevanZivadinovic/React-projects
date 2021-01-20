@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-
 import firebase from "./config/config.js";
+
 
 const api = {
   key: "bb75ef88e0fef7fd55e01fcb844d0bf3",
@@ -16,8 +16,8 @@ function App() {
   const [oblacnost2, setOblacnost2] = useState("");
   const [grad, setGrad] = useState("");
   const [temp, setTemp] = useState("");
-  const [country, setCountry] = useState('');
-  const [wind, setWind] = useState('');
+  const [country, setCountry] = useState("");
+  const [wind, setWind] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("wind")) {
@@ -27,11 +27,9 @@ function App() {
 
   //svaki naredni put
   useEffect(() => {
-    localStorage.setItem('wind', wind);
+    localStorage.setItem("wind", wind);
     console.log(weather);
-   }, [wind]);
-
-  
+  }, [wind]);
 
   useEffect(() => {
     if (localStorage.getItem("country")) {
@@ -41,12 +39,8 @@ function App() {
 
   //svaki naredni put
   useEffect(() => {
-    localStorage.setItem('country', country);
-    
-   }, [country]);
-
-
-
+    localStorage.setItem("country", country);
+  }, [country]);
 
   useEffect(() => {
     if (localStorage.getItem("temp")) {
@@ -56,12 +50,9 @@ function App() {
 
   //svaki naredni put
   useEffect(() => {
-    localStorage.setItem('temp', temp);
+    localStorage.setItem("temp", temp);
     console.log(weather);
-   }, [temp]);
-
-  
-
+  }, [temp]);
 
   useEffect(() => {
     if (localStorage.getItem("oblacnost")) {
@@ -78,7 +69,7 @@ function App() {
     if (localStorage.getItem("grad")) {
       setGrad(localStorage.getItem("grad"));
     }
-  },[]);
+  }, []);
 
   //svaki naredni put
   useEffect(() => {
@@ -100,16 +91,18 @@ function App() {
       setWind(data.wind.speed);
 
       db.collection("kolekcija")
-      .doc()
+        .doc()
         .set({
           oblacnost: data.weather[0].main,
           grad: data.name,
         })
         .then(() => {
-          console.log(`Grad je dodat: ${data.name}`)
+          console.log(`Grad je dodat: ${data.name}`);
         });
     }
   };
+
+
 
   const dateBuilder = (d) => {
     let months = [
@@ -143,6 +136,7 @@ function App() {
 
     return `${day} ${date} ${month} ${year}`;
   };
+  
 
   return (
     <div
@@ -156,6 +150,7 @@ function App() {
     >
       <main>
         <div className="search-box">
+       
           <input
             type="text"
             className="search-bar"
@@ -174,26 +169,35 @@ function App() {
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round((temp) -273.15).toString().slice(0,4)}°c</div>
-              
-               <div className="weather">{oblacnost2}</div>
+              <div className="temp">
+                {Math.round(temp - 273.15)
+                  .toString()
+                  .slice(0, 4)}
+                °c
+              </div>
+
+              <div className="weather">{oblacnost2}</div>
               <div className="weather">Wind: {wind}m/s</div>
             </div>
           </div>
         ) : (
           <div className="weather-box">
-
-            <div className="weather">{grad},{country}</div>
+            <div className="weather">
+              {grad},{country}
+            </div>
             <div className="date">{dateBuilder(new Date())}</div>
-            <div className="temp">{Math.round((temp)-273.15).toString().slice(0,4)}°c</div>
+            <div className="temp">
+              {Math.round(temp - 273.15)
+                .toString()
+                .slice(0, 4)}
+              °c
+            </div>
             <div className="weather">{oblacnost2}</div>
             <div className="weather">Wind: {wind}m/s</div>
-
-
           </div>
-
         )}
       </main>
+      
     </div>
   );
 }
