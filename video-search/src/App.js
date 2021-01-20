@@ -29,8 +29,13 @@ useEffect(()=>{
 
       {lat && long ? (
         
-        <div className="ispis">{`lat:${lat}, long: ${long}`}
-        <Season lat={lat}></Season></div>
+        <div className="ispis">
+          <div className="koordinate">
+        {`lat:${lat}, long: ${long}`}
+
+          </div>
+        <Season lat={lat}></Season>
+        </div>
         
         
       ) : (

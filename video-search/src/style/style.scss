@@ -1,35 +1,36 @@
-.extra{
-    width: 250px;
-    border-radius: 10px;
-    border: 3px solid black;
-
-    .pitanje{
+.ispis{
+height: 100vh;
+.koordinate{
+    background-color: grey;
+    text-align: center;
+    height: 10vh;
+}
+.polje{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+    background-color: lightblue;
+    .text{
         text-align: center;
+        margin: 0 auto;
+        justify-self: center;
+        padding: 10px 30px;
+        background-color: lightgray;
+        width:10%;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
     }
-
-    .dugmici{
-        display: flex;
-        padding: 10px 20px;
-        cursor: pointer;
-
-       
-        .potvrdi{
-            padding: 10px 20px;
-            border: 2px solid green;
-            border-radius: 5px;
-            &:hover{
-                background-color: grey;
-            }
-        }
-        .odbaci{
-            padding: 10px 20px;
-            border: 2px solid red;
-            border-radius: 5px;
-            &:hover{
-                background-color: grey;
-            }
+    #desno{
+     
+        
+        .slika{
+            width: 100px;
+            float: right;
         }
     }
+}
 }
 
 

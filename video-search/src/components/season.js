@@ -19,9 +19,11 @@ const Season = ({ lat }) => {
 
   return (
     <div className="polje">
-      <div className="text">{sezona1}</div>
-      <div className="slika">{sezona1==='winter'?<Image></Image> : <Sun></Sun>}
-       
+      <div className="slika" id='levo'>{sezona1==='winter'?<Image></Image> : <Sun></Sun>}</div>
+      <div className="text">{sezona1} </div>
+      <div className="slika" id='desno'>{sezona1==='winter'?<Image></Image> : <Sun></Sun>}
+
+     
        
       </div>
     </div>
