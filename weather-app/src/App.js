@@ -15,12 +15,52 @@ function App() {
   const [weather, setWeather] = useState({});
   const [oblacnost2, setOblacnost2] = useState("");
   const [grad, setGrad] = useState("");
+  const [temp, setTemp] = useState("");
+  const [country, setCountry] = useState('');
+  const [wind, setWind] = useState('');
 
   useEffect(() => {
-   localStorage.setItem('vreme',weather);
-  }, [weather]);
+    if (localStorage.getItem("wind")) {
+      setWind(localStorage.getItem("wind"));
+    }
+  }, []);
 
-  console.log(weather);
+  //svaki naredni put
+  useEffect(() => {
+    localStorage.setItem('wind', wind);
+    console.log(weather);
+   }, [wind]);
+
+  
+
+  useEffect(() => {
+    if (localStorage.getItem("country")) {
+      setCountry(localStorage.getItem("country"));
+    }
+  }, []);
+
+  //svaki naredni put
+  useEffect(() => {
+    localStorage.setItem('country', country);
+    
+   }, [country]);
+
+
+
+
+  useEffect(() => {
+    if (localStorage.getItem("temp")) {
+      setTemp(localStorage.getItem("temp"));
+    }
+  }, []);
+
+  //svaki naredni put
+  useEffect(() => {
+    localStorage.setItem('temp', temp);
+    console.log(weather);
+   }, [temp]);
+
+  
 
 
   useEffect(() => {
@@ -55,6 +95,9 @@ function App() {
       setQuery("");
       setOblacnost2(data.weather[0].main);
       setGrad(data.name);
+      setTemp(data.main.temp);
+      setCountry(data.sys.country);
+      setWind(data.wind.speed);
 
       db.collection("kolekcija")
       .doc()
@@ -126,22 +169,27 @@ function App() {
           <div>
             <div className="location-box">
               <div className="location">
-                {weather.name}, {weather.sys.country}
+                {grad}, {country}
               </div>
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
-              <div className="temp">{Math.round(weather.main.temp) / 10}°c</div>
+              <div className="temp">{Math.round((temp) -273.15).toString().slice(0,4)}°c</div>
               
-               <div className="weather">{weather.weather[0].main}</div>
-              <div className="weather">Wind: {weather.wind.speed}m/s</div>
+               <div className="weather">{oblacnost2}</div>
+              <div className="weather">Wind: {wind}m/s</div>
             </div>
           </div>
         ) : (
           <div className="weather-box">
 
+            <div className="weather">{grad},{country}</div>
+            <div className="date">{dateBuilder(new Date())}</div>
+            <div className="temp">{Math.round((temp)-273.15).toString().slice(0,4)}°c</div>
             <div className="weather">{oblacnost2}</div>
-            <div className="weather">{grad}</div>
+            <div className="weather">Wind: {wind}m/s</div>
+
+
           </div>
 
         )}
