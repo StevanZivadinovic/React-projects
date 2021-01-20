@@ -1,14 +1,26 @@
 import { useState } from "react";
-
+//npx json-server --watch data/db.json --port 8000, 
+//svaki put kad pokreces projekat kucas ovo u terminal
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
 
+ let handleSubmit=(e)=>{
+    e.preventDefault()
+    let blog = {title, body, author};
+    console.log(blog);
+    fetch('http://localhost:8000/blogs',{
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(blog)
+    });
+  }
+
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input 
           type="text" 
