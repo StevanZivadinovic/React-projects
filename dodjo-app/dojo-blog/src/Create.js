@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 //npx json-server --watch data/db.json --port 8000, 
 //svaki put kad pokreces projekat kucas ovo u terminal
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
+  let history = useHistory();
 
  let handleSubmit=(e)=>{
     e.preventDefault()
@@ -14,7 +16,10 @@ const Create = () => {
       method:'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(blog)
-    });
+    })
+    .then(()=>{
+      history.push('/')
+    })
   }
 
   return (
