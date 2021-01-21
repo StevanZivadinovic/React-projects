@@ -6,9 +6,11 @@
   background-color: grey;
   text-align: center;
   height: 10vh;
+  color: wheat;
+  font-weight: 700;
 }
 
-.ispis .polje {
+.ispis .poljeZima {
   height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,7 +25,7 @@
   background-color: lightblue;
 }
 
-.ispis .polje .text {
+.ispis .poljeZima .text {
   text-align: center;
   margin: 0 auto;
   -ms-grid-column-align: center;
@@ -36,7 +38,40 @@
   font-size: 20px;
 }
 
-.ispis .polje #desno .slika {
+.ispis .poljeZima #desno .slika {
+  width: 100px;
+  float: right;
+}
+
+.ispis .poljeLeta {
+  height: 90vh !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #cc6f18;
+}
+
+.ispis .poljeLeta .text {
+  text-align: center;
+  margin: 0 auto;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 10px 30px;
+  background-color: #ce3f14;
+  width: 10%;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.ispis .poljeLeta #desno .Sun {
   width: 100px;
   float: right;
 }

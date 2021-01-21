@@ -1,36 +1,62 @@
-.ispis{
-height: 100vh;
-.koordinate{
+.ispis {
+  height: 100vh;
+  .koordinate {
     background-color: grey;
     text-align: center;
     height: 10vh;
-}
-.polje{
+    color: wheat;
+    font-weight: 700;
+  }
+  .poljeZima {
     height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content:  space-between;
+    justify-content: space-between;
     background-color: lightblue;
-    .text{
-        text-align: center;
-        margin: 0 auto;
-        justify-self: center;
-        padding: 10px 30px;
-        background-color: lightgray;
-        width:10%;
-        border-radius: 10px;
-        color: white;
-        font-size: 20px;
+    .text {
+      text-align: center;
+      margin: 0 auto;
+      justify-self: center;
+      padding: 10px 30px;
+      background-color: lightgray;
+      width: 10%;
+      border-radius: 10px;
+      color: white;
+      font-size: 20px;
     }
-    #desno{
+    #desno {
+      .slika {
+        width: 100px;
+        float: right;
+      }
+    }
+  }
+
+  .poljeLeta {
+    height: 90vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(204, 111, 24);
+    .text {
+      text-align: center;
+      margin: 0 auto;
+      justify-self: center;
+      padding: 10px 30px;
+      background-color: rgb(206, 63, 20);
+      width: 10%;
+      border-radius: 10px;
+      color: white;
+      font-size: 20px;
+    }
+    #desno {
      
-        
-        .slika{
-            width: 100px;
-            float: right;
-        }
+          .Sun{
+
+              width: 100px;
+              float: right;
+          }
+      
     }
+  }
 }
-}
-
-

@@ -31,8 +31,9 @@ useEffect(()=>{
         
         <div className="ispis">
           <div className="koordinate">
-        {`lat:${lat}, long: ${long}`}
-
+        {`lat:${lat}`}
+        <br></br>
+        {`long: ${long}`}
           </div>
         <Season lat={lat}></Season>
         </div>
