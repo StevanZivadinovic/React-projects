@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+//ovo je custom hook
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
