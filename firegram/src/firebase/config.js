@@ -1,8 +1,7 @@
 //npm install firebase
-import * as firebase from 'firebase/app';
-
-import 'firebase/storage'//storage SDK
-import 'firebase/firestore'//firestore SDK
+import firebase from 'firebase/app'
+import 'firebase/storage';
+import 'firebase/firestore';
 
   var firebaseConfig = {
     apiKey: "AIzaSyA8z_zGGseZJVfZ_aga6BbyCI5BI7sxsy8",
@@ -17,5 +16,5 @@ import 'firebase/firestore'//firestore SDK
   firebase.initializeApp(firebaseConfig);
 
   const projectStorage = firebase.storage();
-  const projectDB = firebase.firestore();//inace sam pisao samo db
-  export {projectStorage, projectDB };
+const projectFirestore = firebase.firestore();
+  export {projectStorage, projectFirestore };

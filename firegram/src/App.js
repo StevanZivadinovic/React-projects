@@ -3,12 +3,13 @@ import Title from './comps/Title';
 /* ako ne koristis sass nego css onda kucaj kod u index.css, ne treba nista da
 se instalira ako koristis css niti da se inportuje */
 import './style/style.css';
-import './firebase/config';
+import Form from './comps/form';
 
 function App() {
   return (
     <div className="App">
       <Title/>
+    <Form></Form>
     </div>
   );
 }
