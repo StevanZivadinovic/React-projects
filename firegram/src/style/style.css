@@ -23,7 +23,8 @@ body {
   font-weight: normal;
 }
 
-.title h2, .title p {
+.title h2,
+.title p {
   text-align: center;
 }
 
@@ -33,12 +34,12 @@ body {
 }
 
 /* upload form styles */
-form {
+.App .form form {
   margin: 30px auto 10px;
   text-align: center;
 }
 
-label input {
+.App .form form label input {
   height: 0;
   width: 0;
   opacity: 0;

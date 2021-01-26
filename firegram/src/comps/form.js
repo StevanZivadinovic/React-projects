@@ -24,7 +24,7 @@ const Form = () => {
 
     return ( <div className="form">
         <form>
-            <input type="file" onChange={handleEvent}/>
+            <input type="file"  onChange={handleEvent}/>
             <div className="output">
                 {error && <div className='error'>{error}</div> }
                 {file && <div>{file.name}</div> }
