@@ -1,3 +1,6 @@
+//za galeriju instaliras npm install framer-motion
+//moras i da importujes import { motion } from "framer-motion"
+
 import { useState } from "react";
 import Title from "./comps/Title";
 //npm install node-sass --save moras ovo da instaliras da bi .sass radio

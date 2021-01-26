@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const Modal = ({selectedImage, setSelectedImage}) => {
     const handleClick = (e) => {
         if (e.target.classList.contains('backdrop')) {
@@ -5,9 +7,15 @@ const Modal = ({selectedImage, setSelectedImage}) => {
         }
       }
     return ( <div>
-        <div className='backdrop' onClick={handleClick}>
-            <img src={selectedImage}/>
-        </div>
+        <motion.div className='backdrop' onClick={handleClick}
+        initial={{ opacity: 0 }}//properti iz motion-a
+        animate={{ opacity: 1 }}//properti iz motion-a
+        >
+            <motion.img src={selectedImage}
+            initial={{ y: "-100vh" }}//properti iz motion-a
+            animate={{ y: 0 }}//properti iz motion-a
+            />
+        </motion.div>
     </div> );
 }
  
