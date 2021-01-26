@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { projectStorage} from '../firebase/config';
+import { projectStorage,  projectFirestore, timestamps} from '../firebase/config';
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
@@ -9,6 +9,7 @@ const useStorage = (file) => {
   useEffect(() => {
     // references
     const storageRef = projectStorage.ref(file.name);
+    const collection = projectFirestore.collection('images');
 
     //ovo je sintaksa koju su definisali iyumitelji firebase-a, nemoj da te buni
     storageRef.put(file).on('state_changed', (snap) => {
@@ -22,7 +23,11 @@ const useStorage = (file) => {
       // Handle successful uploads on complete      
       async () => {
         const url = await storageRef.getDownloadURL();
-        
+        const createdAt = timestamps;
+        collection.add({
+          url:url,
+          created_At:createdAt
+        })
         setUrl(url);
       });
 
