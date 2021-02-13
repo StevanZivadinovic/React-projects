@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body nav {
+  height: 7vh;
+  background-color: #8d8585;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 7vh;
+}
+
+body nav a {
+  color: honeydew;
+  text-decoration: none;
+  font-size: 4vh;
+  margin-left: 10vh;
+}
+
+body nav div.main {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body nav div.main .navbarSignIn {
+  float: right;
+  font-size: 2vh;
+}
+
+body nav div.main .navbarSignIn .SignInNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 400px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body nav div.main .navbarSignIn .SignInNav a {
+  font-size: 2.5vh;
+  margin: 0;
+}
+
+body nav div.main .navbarSignIn .SignInNav .pinkCircleLink {
+  padding: 0 2vh;
+  border-radius: 50%;
+  background-color: hotpink;
+}
+
+body nav div.main .navbarSignOut {
+  float: right;
+  font-size: 2vh;
+}
+
+body nav div.main .navbarSignOut .SignOutNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body nav div.main .navbarSignOut .SignOutNav a {
+  font-size: 2.5vh;
+  margin: 0;
+}
+/*# sourceMappingURL=style.css.map */

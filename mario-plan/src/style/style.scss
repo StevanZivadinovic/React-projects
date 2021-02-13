@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  nav {
+    height: 7vh;
+    background-color: rgb(141, 133, 133);
+    display: flex;
+    justify-content: space-between;
+    line-height: 7vh;
+    a {
+      color: honeydew;
+      text-decoration: none;
+      font-size: 4vh;
+      margin-left: 10vh;
+    }
+    div.main{
+        width: 70%;
+        display: flex;
+        justify-content: space-around;
+        .navbarSignIn {
+            float: right;
+            font-size: 2vh;
+            .SignInNav {
+              display: flex;
+              width: 400px;
+              justify-content: space-around;
+              a {
+                font-size: 2.5vh;
+                margin: 0;
+              }
+      
+              .pinkCircleLink {
+                padding: 0 2vh;
+                border-radius: 50%;
+                background-color: hotpink;
+              }
+            }
+          }
+      
+          .navbarSignOut {
+            float: right;
+            font-size: 2vh;
+            .SignOutNav {
+              display: flex;
+              width: 200px;
+              justify-content: space-around;
+              a {
+                font-size: 2.5vh;
+                margin: 0;
+              }
+            }
+          }
+        }
+    }
+   
+}
