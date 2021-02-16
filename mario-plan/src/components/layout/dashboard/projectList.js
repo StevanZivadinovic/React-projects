@@ -1,13 +1,13 @@
-const ProjectList = () => {
-    return ( <div className="projectList">
+import ProjectSummary from "../projects/projectSummary"
 
-        <div className="summary">
-            <div className="content">
-                <span className="title">Project title</span>
-                <p>Posted by Marco</p>
-                <p>datum</p>
-            </div>
-        </div>
+const ProjectList = ({projekti}) => {
+    console.log(projekti);
+    return ( <div className="projectList">
+        {projekti && projekti.map((projekt)=>{
+            return <ProjectSummary projekt={projekt} key={projekt.id}></ProjectSummary>
+        })}
+     
+     
     </div> );
 }
  

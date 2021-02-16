@@ -3,6 +3,24 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background: url("./../img/mario-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 100vh;
+  background-color: #95e8f3;
+}
+
+body .title {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body form {
+  background-color: honeydew;
+  width: 40%;
+  margin: 0 auto;
 }
 
 body nav {
@@ -75,5 +93,29 @@ body nav div.main .navbarSignOut .SignOutNav {
 body nav div.main .navbarSignOut .SignOutNav a {
   font-size: 2.5vh;
   margin: 0;
+}
+
+body .dashboard .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+}
+
+body .dashboard .row .projectList {
+  color: grey;
+}
+
+body .dashboard .row .projectList p {
+  font-size: 2vh;
+}
+
+body .dashboard .row .projectList .summary {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin-bottom: 3px;
 }
 /*# sourceMappingURL=style.css.map */

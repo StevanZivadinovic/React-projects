@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 const SignOutLinks = () => {
     return ( <div className="navbarSignOut">
         <nav className='SignOutNav'>
-            <Link to='/'>Signup</Link>
-            <Link to='/'>Login</Link>
+            <Link to='/signup'>Signup</Link>
+            <Link to='/signin'>Login</Link>
            
         </nav>
     </div> );
