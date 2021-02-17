@@ -1,4 +1,5 @@
 //npm install redux react-redux
+//npm install firebase
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Dashboard from './components/layout/dashboard/dashboard';
