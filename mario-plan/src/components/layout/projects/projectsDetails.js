@@ -29,8 +29,8 @@ const ProjectsDetails = (props) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
+const mapStateToProps = (state) => {
+  
   let projects = state.firestore.data.kolekcija;
   return {
     projects: projects,
