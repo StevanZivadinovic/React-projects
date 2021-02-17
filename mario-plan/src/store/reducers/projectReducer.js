@@ -18,7 +18,7 @@ let authReducer = (state=initState, action)=>{
         return state;
     }
 
-    return state;
+    
 }
 
 export default authReducer;

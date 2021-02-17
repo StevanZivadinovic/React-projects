@@ -6,7 +6,7 @@ export const createProject = (project)=>{
         //make async call to database
         let db = getFirestore();
 
-        db.collection('kolekicja').add({
+        db.collection('kolekcija').add({
             ...project,
             authorFirstName:'Net'
         }).then(()=>{
