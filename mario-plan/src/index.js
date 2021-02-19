@@ -21,33 +21,21 @@ const store = createStore(
   )
 );
 
-// const rrfConfig = {
-//   userProfile: "users",
-//   // useFirestoreForProfile: true,
-// }
 
-// const rrfProps = {
-//   firebase,
-//   config: rrfConfig,
-//   dispatch: store.dispatch,
-//   // createFirestoreInstance
-// }
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+      {/* <ReactReduxFirebaseProvider {...rrfProps} > */}
+        <App />
+        {/* </ReactReduxFirebaseProvider> */}
+      </Provider>
+      {/**App tag obuhvatas Provider tagom */}
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
 
-// const rrfProps = {
-//   firebase: firebaseConfig
-// }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-    {/* <ReactReduxFirebaseProvider {...rrfProps} > */}
-      <App />
-      {/* </ReactReduxFirebaseProvider> */}
-    </Provider>
-    {/**App tag obuhvatas Provider tagom */}
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
