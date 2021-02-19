@@ -4,6 +4,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+// import { getFirestore, reduxFirestore } from "redux-firestore";
 
  var firebaseConfig = {
     apiKey: "AIzaSyBmdymkniynaEVF_a_SxCUGEUcJUqBTbPc",
@@ -18,6 +19,7 @@ import 'firebase/auth';
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.firestore().settings({timestampsInSnapshot: true});
+  // reduxFirestore(firebase, firebaseConfig) // redux bindings for firestore
 
   export default firebaseConfig;
 

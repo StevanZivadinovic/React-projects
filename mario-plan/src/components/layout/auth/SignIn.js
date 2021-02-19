@@ -1,6 +1,9 @@
 
 import {useState} from 'react';
-const SignIn = () => {
+import {connect} from 'react-redux';
+import {signIn} from './../../../store/reducers/actions/authActions';
+const SignIn = (props) => {
+    console.log(props);
  const [email, setEmail] = useState('');
  const [password, setPassword] = useState('')
  
@@ -9,9 +12,14 @@ const SignIn = () => {
      password:password,
     
  }
+ let style = {
+     width:'200px',
+     margin:'0 auto',
+     textAlign:'center'
+ }
     let submit = (e)=>{
         e.preventDefault();
-        console.log(object)
+        props.signIn(object)
     }
     
     return ( <div>
@@ -28,7 +36,20 @@ const SignIn = () => {
 
             <input type="submit" value='Sign In'/>
         </form>
+        {props.authError && <p className='error' style={style}>{props.authError}</p>}
     </div> );
 }
+
+let mapStateToProps=(state)=>{
+    return{
+        authError:state.auth.authError//auth properti iz rootReducers.js
+    }
+}
+
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        signIn:(credentials)=>dispatch(signIn(credentials))
+    }
+}
  
-export default SignIn;
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn);

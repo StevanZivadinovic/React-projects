@@ -7,22 +7,42 @@ import rootReducer from "./store/reducers/rootReducers";
 import { Provider } from "react-redux"; //isto ugradjena funkcija
 import thunk from "redux-thunk"; //redux thunk mora da se instalira "npm install redux-thunk"
 import { getFirestore, reduxFirestore } from "redux-firestore";
-import { getFirebase } from "react-redux-firebase";
+import { getFirebase,reactReduxFirebase } from "react-redux-firebase";
 import firebaseConfig from './config/fbConfig';
 import firebase from "firebase/app";
+// import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 const store = createStore(
   rootReducer,
 
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reduxFirestore(firebase, firebaseConfig) // redux bindings for firestore
+    reduxFirestore(firebase, firebaseConfig), // redux bindings for firestore
+    reactReduxFirebase(firebase,firebaseConfig)
   )
 );
+
+// const rrfConfig = {
+//   userProfile: "users",
+//   // useFirestoreForProfile: true,
+// }
+
+// const rrfProps = {
+//   firebase,
+//   config: rrfConfig,
+//   dispatch: store.dispatch,
+//   // createFirestoreInstance
+// }
+
+// const rrfProps = {
+//   firebase: firebaseConfig
+// }
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    {/* <ReactReduxFirebaseProvider {...rrfProps} > */}
       <App />
+      {/* </ReactReduxFirebaseProvider> */}
     </Provider>
     {/**App tag obuhvatas Provider tagom */}
   </React.StrictMode>,
