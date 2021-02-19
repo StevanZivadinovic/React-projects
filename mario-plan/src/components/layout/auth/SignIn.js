@@ -2,6 +2,7 @@
 import {useState} from 'react';
 import {connect} from 'react-redux';
 import {signIn} from './../../../store/reducers/actions/authActions';
+import {Redirect} from 'react-router-dom';
 const SignIn = (props) => {
     console.log(props);
  const [email, setEmail] = useState('');
@@ -20,6 +21,10 @@ const SignIn = (props) => {
     let submit = (e)=>{
         e.preventDefault();
         props.signIn(object)
+    }
+
+    if(props.auth.uid){
+        return <Redirect to='/'/>
     }
     
     return ( <div>
@@ -42,7 +47,8 @@ const SignIn = (props) => {
 
 let mapStateToProps=(state)=>{
     return{
-        authError:state.auth.authError//auth properti iz rootReducers.js
+        authError:state.auth.authError,//auth properti iz rootReducers.js
+        auth:state.firebase.auth
     }
 }
 

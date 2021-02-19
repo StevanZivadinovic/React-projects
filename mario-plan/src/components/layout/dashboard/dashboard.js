@@ -6,8 +6,12 @@ import ProjectList from './projectList';
 import {connect} from 'react-redux'//povezujemo redux sa reactom na ovom mestu
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
+import {Redirect} from 'react-router-dom';
 const Dashboard = (props) => {
     console.log(props.projects)
+    if(!props.auth.uid){
+        return <Redirect to='/signin'/>
+    }
   
     return ( <div className="dashboard">
         <div className="row">
@@ -30,7 +34,8 @@ const mapStateToProps=(state)=>{//u mapStateToProsp se skladiste podaci koje uzi
         //projects je objekt iz projectsReducer, inicijalni state
         //project je iz rootReducera, state je inicijalni state iz index.js
         //OVO DOHVATAMO FAKE PODATKE DOK NE POCNEMO DA DOHVATAMO PODATKE SA FIREBASE-A:
-         projects:state.firestore.ordered.kolekcija
+         projects:state.firestore.ordered.kolekcija,
+         auth:state.firebase.auth
     })
 }
  

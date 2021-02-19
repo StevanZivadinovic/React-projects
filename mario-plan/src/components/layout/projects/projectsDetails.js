@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import {Redirect} from 'react-router-dom';
 
 const ProjectsDetails = (props) => {
   let id = useParams();
@@ -9,6 +10,9 @@ const ProjectsDetails = (props) => {
   console.log(props.projects);
 
   console.log(id.id); 
+  if(!props.auth.uid){
+    return <Redirect to='/signin'/>
+}
   return (
     <div>
       <div>
@@ -34,6 +38,7 @@ const mapStateToProps = (state) => {
   let projects = state.firestore.data.kolekcija;
   return {
     projects: projects,
+    auth:state.firebase.auth
   };
 };
 
