@@ -2,6 +2,7 @@
 import {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {signUp} from './../../../store/reducers/actions/authActions'
 const SignUp = (props) => {
  const [email, setEmail] = useState('');
  const [password, setPassword] = useState('');
@@ -16,6 +17,7 @@ const SignUp = (props) => {
     let submit = (e)=>{
         e.preventDefault();
         console.log(object)
+        props.signUp(object)
     }
     if(props.auth.uid){
         return <Redirect to='/'/>
@@ -42,12 +44,19 @@ const SignUp = (props) => {
 
             <input type="submit" value='Sign Up'/>
         </form>
+        <div>{props.authError ? <p>{props.authError}</p>:null}</div>
     </div> );
 }
 let mapStateToProps = (state)=>{
     return{
-        auth:state.firebase.auth
+        auth:state.firebase.auth,
+        authError:state.auth.authError
     }
 }
  
-export default connect(mapStateToProps)(SignUp);
+let mapDispatchToProps = (dispatch)=>{
+    return{
+        signUp:(newUser)=>dispatch(signUp(newUser))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(SignUp);

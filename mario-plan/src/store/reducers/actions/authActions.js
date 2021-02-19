@@ -23,3 +23,30 @@ export const signOut = (credentials)=>{
         })
     }
 }
+
+
+export const signUp = (newUser)=>{
+    return(dispatch, getState, {getFirebase, getFirestore})=>{
+        let firebase = getFirebase();
+        let firestore = getFirestore();
+        firebase.auth().createUserWithEmailAndPassword(
+            newUser.email,
+            newUser.password
+
+        ).then((resp)=>{
+            return firestore.collection('user').doc(resp.user.uid)
+            .set({
+                firstName:newUser.firstName,
+                lastName:newUser.lastName,
+                initials:newUser.firstName[0]+newUser.lastName[0]
+
+            })
+        })
+        .then(()=>{
+            dispatch({type:'SIGNUP_SUCCESS'})
+        })
+        .catch((err)=>{
+            dispatch({type:'SIGNUP_ERROR',err})
+        })
+    }
+}
