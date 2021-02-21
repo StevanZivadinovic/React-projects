@@ -14,6 +14,10 @@ let authReducer = (state=initState, action)=>{
         case 'CREATE_PROJECT_ERROR':
             console.log('error', action.err)
             return state;
+        
+        // case 'GET_PROJECT':
+        //     console.log('project is getted')
+        //      return {state};
         default:
         return state;
     }

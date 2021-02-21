@@ -14,7 +14,9 @@ import 'firebase/auth';
     storageBucket: "web-app-8f4d1.appspot.com",
     messagingSenderId: "821482055108",
     appId: "1:821482055108:web:6c7ca52e7b8f98cb67f091",
-    measurementId: "G-CPY2FE1L0C"
+    measurementId: "G-CPY2FE1L0C",
+    // userProfile: 'users', // where profiles are stored in database,
+    // useFirestoreForProfile: true
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

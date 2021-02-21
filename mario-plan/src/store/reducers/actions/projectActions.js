@@ -6,6 +6,8 @@ export const createProject = (project)=>{
         //make async call to database
         let db = getFirestore();
 
+        
+
         db.collection('kolekcija').add({
             ...project,
             authorFirstName:'Net'
@@ -24,8 +26,27 @@ export const createProject = (project)=>{
         //        })
 
        
-
-    }
+       
+        
+ 
+     }
 }
 //pola funkcije poveyuje redux store sa unesenim podacima, 
 //a druga polovina omogucava slanje podataka u firestore
+
+
+// export const getUserData = (uid)=>{
+//     return(dispatch, getState, {getFirebase, getFirestore})=>{
+//         let db = getFirestore();
+//         db.collection('user').doc(uid).get()
+//         .then((data)=>{
+//             console.log(data.data());
+//             return data.data();
+//         })
+//         .then((data)=>{
+//          dispatch({
+//              type:'GET_PROJECT', data
+//          })
+//      })
+//     }
+// }

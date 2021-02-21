@@ -9,7 +9,7 @@ let rootReducer = combineReducers({
     auth:authReducer,
     project:projectReducer,
     firestore:firestoreReducer,
-    firebase:firebaseReducer,
+    firebase:firebaseReducer
     
 });
 
