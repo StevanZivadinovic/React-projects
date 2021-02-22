@@ -3,7 +3,7 @@ import {connect} from 'react-redux'; //povezivanje redux-a i react-a
 import {createProject} from './../../../store/reducers/actions/projectActions'
 import {Redirect} from 'react-router-dom';
 const CreateProjects = (props) => {
-    console.log(props);
+    // console.log(props);
  const [title, setTitle] = useState('');
  const [content, setContent] = useState('');
 
