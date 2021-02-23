@@ -1,19 +1,23 @@
 import ProjectSummary from "../projects/projectSummary";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const ProjectList = ({projekti}) => {
-    console.log(projekti);
-    return ( <div className="projectList">
-        {projekti && projekti.map((projekt)=>{
-            return( 
-                <Link to={`/projects/`+ projekt.id}>
-             <ProjectSummary projekt={projekt} key={projekt.id}></ProjectSummary>
-             </Link>
-            )
+const ProjectList = ({ projekti }) => {
+  console.log(projekti);
+  return (
+    <div className="projectList">
+      {projekti &&
+        projekti.map((projekt) => {
+          return (
+            <Link to={`/projects/` + projekt.id}>
+              <ProjectSummary
+                projekt={projekt}
+                key={projekt.id}
+              ></ProjectSummary>
+            </Link>
+          );
         })}
-     
-     
-    </div> );
-}
- 
+    </div>
+  );
+};
+
 export default ProjectList;
