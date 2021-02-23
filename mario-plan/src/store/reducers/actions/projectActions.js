@@ -7,15 +7,15 @@ export const createProject = (project)=>{
        
         //make async call to database
         let db = getFirestore();
-        let state1 = getState().auth.uid;
-        console.log(state1)
-        db.collection('user').doc(state1).get()
-         .then((data)=>{
-             if(data.data()){
-                data.data();
-                return data.data();
-             }
-         }).then((data)=>{
+        // let state1 = getState().auth.uid;
+        // console.log(state1)
+        // db.collection('user').doc(state1).get()
+        //  .then((data)=>{
+        //      if(data.data()){
+        //         data.data();
+        //         return data.data();
+        //      }
+        //  }).then((data)=>{
             db.collection('kolekcija').add({
                 ...project,
                 authorFirstName:'',
@@ -31,7 +31,7 @@ export const createProject = (project)=>{
                     type:'CREATE_PROJECT_ERROR', err
                 })
             })
-         })
+        //  })
        
       
 
