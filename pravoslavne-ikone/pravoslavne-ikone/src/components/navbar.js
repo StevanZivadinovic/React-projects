@@ -7,7 +7,7 @@ import krst from './1.png'
 //i kopiras ga u index.html, u public folderu!!!!!!!!!!!!!!!!!
 
 export default function Navbar(props) {
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(true);
   const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
@@ -46,6 +46,7 @@ export default function Navbar(props) {
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
           
         </div>
+
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
