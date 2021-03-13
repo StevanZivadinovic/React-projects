@@ -14,4 +14,9 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+  // const projectStorage = firebase.storage();
+  // const projectFirestore = firebase.firestore();
+  // const timestamps= firebase.firestore.FieldValue.serverTimestamp()
+  // export {projectStorage, projectFirestore, timestamps };
   export default firebase;
