@@ -62,7 +62,7 @@
   height: 40px;
   width: 430px;
   font-size: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: none;
   margin: 0 auto;
 }
@@ -72,9 +72,22 @@
   height: 40px;
   width: 430px;
   font-size: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: none;
   margin: 0 auto;
   color: white;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 20px !important;
+  background-color: #f3e9e9;
+  height: 40px;
+  width: 450px;
+  font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+  margin: 0 auto;
+  text-align: center;
 }
 /*# sourceMappingURL=App.css.map */
