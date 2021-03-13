@@ -15,9 +15,66 @@
           flex-direction: column;
   width: 450px;
   margin: 0 auto;
+  background-color: #f3e9e9;
 }
 
-.headerForm img, .headerForm h1 {
+.headerForm img,
+.headerForm h1 {
   margin: 0 auto;
+  color: orange;
+}
+
+.forma {
+  width: 450px;
+  margin: 0 auto;
+  background-color: #f3e9e9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 250px;
+}
+
+.forma input#username {
+  background: url(./../img/username.svg) no-repeat scroll 10px 7px;
+}
+
+.forma input#email {
+  background: url(./../img/email.svg) no-repeat scroll 10px 7px;
+}
+
+.forma input#password {
+  background: url(./../img/password.svg) no-repeat scroll 10px 7px;
+}
+
+.forma input#passwordRepeat {
+  background: url(./../img/passwordRepeat.svg) no-repeat scroll 10px 7px;
+}
+
+.forma input {
+  background-color: white !important;
+  padding-left: 50px;
+  height: 40px;
+  width: 430px;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: none;
+  margin: 0 auto;
+}
+
+.forma button {
+  background-color: orange;
+  height: 40px;
+  width: 430px;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: none;
+  margin: 0 auto;
+  color: white;
 }
 /*# sourceMappingURL=App.css.map */

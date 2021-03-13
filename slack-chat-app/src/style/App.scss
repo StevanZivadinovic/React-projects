@@ -1,15 +1,63 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.headerForm{
-  display:flex;
-  flex-direction:column;
+.headerForm {
+  display: flex;
+  flex-direction: column;
   width: 450px;
   margin: 0 auto;
-  img, h1{
+  background-color: rgb(243, 233, 233);
+  img,
+  h1 {
     margin: 0 auto;
+    color: orange;
+  }
+}
+.forma {
+  width: 450px;
+  margin: 0 auto;
+  background-color: rgb(243, 233, 233);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 250px;
+
+  input#username {
+    background: url(./../img/username.svg) no-repeat scroll 10px 7px;
+  }
+  input#email{
+    background: url(./../img/email.svg) no-repeat scroll 10px 7px;
+
+  }
+  input#password{
+    background: url(./../img/password.svg) no-repeat scroll 10px 7px;
+
+  }
+  input#passwordRepeat{
+    background: url(./../img/passwordRepeat.svg) no-repeat scroll 10px 7px;
+
+  }
+  input {
+    background-color: white !important;
+    padding-left: 50px;
+    height: 40px;
+    width: 430px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    margin: 0 auto;
+  }
+  button{
+    background-color: orange;
+    height: 40px;
+    width: 430px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    margin: 0 auto;
+    color: white;
   }
 }
