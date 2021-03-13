@@ -6,7 +6,7 @@ const Register = () => {
     let handleChange=()=>{
         console.log('haj')
     }
-    return ( <div >
+    return ( <div className='mainRegister' >
         <div className='headerForm'>
         <img src={puzzle} alt='puzzle' style={{width:100}}/>
         <h1>Register for DevChat</h1>
