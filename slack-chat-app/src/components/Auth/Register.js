@@ -9,6 +9,8 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [error, setError] = useState('');
+
 
   let handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -31,6 +33,7 @@ const Register = () => {
 let isFormEmpty = (username, email, password, passwordRepeat)=>{
     if(!username || !email || !password || !passwordRepeat){
       console.log('err')
+      setError('You must fill all fields!')
         return false;
     }else{
         return true;
@@ -38,10 +41,14 @@ let isFormEmpty = (username, email, password, passwordRepeat)=>{
 }
 let isPasswordCorect = (password, passwordRepeat)=>{
     if(password.length<6 || passwordRepeat.length<6){
-        console.log('err')
+        console.log('err');
+        setError('Password length must be min 6 characters!')
+
         return false;
     }else if(password!==passwordRepeat){
-        console.log('err')
+        console.log('err');
+        setError('Password are not equal!')
+
         return false;
     }else{
         return true;
@@ -113,6 +120,7 @@ let handleSubmit = e=>{
 
         <button onClick={handleSubmit}>Submit</button>
       </div>
+        {error && <p className='error'>{error}</p>}
       <div className="message">
         Alredy a user? <Link to="/login">Login</Link>
       </div>
