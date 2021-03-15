@@ -2,7 +2,7 @@ import puzzle from "./../../img/puzzle.svg";
 import firebase from './../../config'
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { findAllByTestId } from "@testing-library/dom";
+// import { findAllByTestId } from "@testing-library/dom";
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -10,7 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const [error, setError] = useState('');
-
+  const [loading, setLoading]=useState('');
 
   let handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -70,13 +70,21 @@ let formValidation = e=>{
 
 let handleSubmit = e=>{
     e.preventDefault();
-    console.log(formValidation());
+    
     if(formValidation()){
-
+      setError('');
+      setLoading(true);
+      console.log(loading)
         firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then(data=>{
             console.log(data);
+            setLoading(false);
+        })
+        .catch(err=>{
+          setLoading(false);
+          setError(err.message)
+          console.log(err)
         })
     }else{
         console.log('error')
@@ -117,8 +125,8 @@ let handleSubmit = e=>{
           className="passwordRepeat"
           placeholder="PasswordRepeat"
         />
-
-        <button onClick={handleSubmit}>Submit</button>
+        
+         <button className={loading ? 'loading' : ''}  disabled={loading} onClick={handleSubmit}>Submit</button>
       </div>
         {error && <p className='error'>{error}</p>}
       <div className="message">

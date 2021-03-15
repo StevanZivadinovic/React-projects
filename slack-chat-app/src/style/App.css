@@ -113,4 +113,8 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.loading {
+  opacity: 0.5;
+}
 /*# sourceMappingURL=App.css.map */
