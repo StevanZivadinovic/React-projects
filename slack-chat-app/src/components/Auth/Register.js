@@ -85,11 +85,22 @@ let handleSubmit = e=>{
           setLoading(false);
           setError(err.message)
           console.log(err)
+        
+          
         })
     }else{
         console.log('error')
     }
 }
+console.log(error)
+let handleClass = (error, inputWord)=>{
+  if(error){
+    console.log(error)
+    return error.toLowerCase().includes(inputWord)?
+    'error1':'';
+  }
+}
+
   return (
     <div className="mainRegister">
       <div className="headerForm">
@@ -101,32 +112,32 @@ let handleSubmit = e=>{
           onChange={handleChangeUsername}
           id="username"
           type="text"
-          className="username"
+          className={ handleClass(error, 'username')}
           placeholder="Username"
         />
         <input
           onChange={handleChangeEmail}
           id="email"
           type="email"
-          className="email"
+          className={handleClass(error, 'email')}
           placeholder="EmailAddress"
         />
         <input
           onChange={handleChangePassword}
           id="password"
           type="password"
-          className="password"
+          className={handleClass(error, 'password')}
           placeholder="Password"
         />
         <input
           onChange={handleChangePasswordRepeat}
           id="passwordRepeat"
           type="password"
-          className="passwordRepeat"
+          className={handleClass(error, 'password')}
           placeholder="PasswordRepeat"
         />
         
-         <button className={loading ? 'loading' : ''}  disabled={loading} onClick={handleSubmit}>Submit</button>
+         <button className={loading ? 'loading' : ''}  disabled={loading} onClick={handleClass} onClick={handleSubmit}>Submit</button>
       </div>
         {error && <p className='error'>{error}</p>}
       <div className="message">

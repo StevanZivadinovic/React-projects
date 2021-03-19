@@ -102,7 +102,8 @@
   border: none;
 }
 
-.message, .error {
+.message,
+.error {
   margin-top: 20px !important;
   background-color: #d3cbcb;
   height: 40px;
@@ -112,6 +113,17 @@
   outline: none;
   margin: 0 auto;
   text-align: center;
+}
+
+.error {
+  color: red;
+  background-color: lightcoral;
+  opacity: .8;
+}
+
+.error1 {
+  color: #c73434;
+  border: 2px solid lightcoral !important;
 }
 
 .loading {
