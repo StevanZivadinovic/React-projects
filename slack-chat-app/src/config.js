@@ -1,3 +1,7 @@
+//instalirao sam ova dva, ali pitanje da li je neophodno.
+//npm install firebase
+//npm install firebase --save
+
 // import firebase from 'firebase/app';
 import * as Firebase from 'firebase';//here I must import firebase in this way
 //the solution above didnt work

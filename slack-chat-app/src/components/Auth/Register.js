@@ -13,6 +13,8 @@ const Register = () => {
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading]=useState('');
+  const [avatar, setAvatar] = useState('');
+  const [url, setURL] = useState('')
   
 
   let handleChangeUsername = (e) => {
@@ -84,19 +86,24 @@ let handleSubmit = e=>{
         .then(data=>{
             console.log(data.user);
             let a=data.user;
+            
             a.updateProfile({ 
-              displayName: 'Jane Doe',
+              displayName: username,
               photoURL: 'http://www.example.com/12345678/photo.png'
-            })
-            .then(data=>{
-              let db =Firebase.default.firestore()
+            }).then(a=>{
+              console.log(data.user.displayName)
+              console.log(data.user.photoURL)
               
+              let db =Firebase.default.firestore()             
               db.collection('users').add({
-                name:'',
-                photoURL:''
+                name:data.user.displayName,
+                photoURL:data.user.photoURL
+              }).then(data=>{
+            
+                setLoading(false);
               })
+
             })
-            setLoading(false);
         })
         .catch(err=>{
           setLoading(false);
