@@ -1,7 +1,9 @@
 import puzzle from "./../../img/puzzle.svg";
-import firebase from './../../config'
+import Firebase from './../../config'
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
+
 // import { findAllByTestId } from "@testing-library/dom";
 
 const Register = () => {
@@ -11,6 +13,7 @@ const Register = () => {
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading]=useState('');
+  
 
   let handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -75,10 +78,24 @@ let handleSubmit = e=>{
       setError('');
       setLoading(true);
       console.log(loading)
-        firebase.auth()
+        Firebase.default.auth()
+        // projectAuth
         .createUserWithEmailAndPassword(email, password)
         .then(data=>{
-            console.log(data);
+            console.log(data.user);
+            let a=data.user;
+            a.updateProfile({ 
+              displayName: 'Jane Doe',
+              photoURL: 'http://www.example.com/12345678/photo.png'
+            })
+            .then(data=>{
+              let db =Firebase.default.firestore()
+              
+              db.collection('users').add({
+                name:'',
+                photoURL:''
+              })
+            })
             setLoading(false);
         })
         .catch(err=>{

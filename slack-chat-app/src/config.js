@@ -1,4 +1,6 @@
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
+import * as Firebase from 'firebase';//here I must import firebase in this way
+//the solution above didnt work
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
@@ -13,10 +15,13 @@ var firebaseConfig = {
     measurementId: "G-RDJ5HYLECS"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
+   Firebase.default.initializeApp(firebaseConfig);
+  console.log(Firebase.default.firestore())
   // const projectStorage = firebase.storage();
   // const projectFirestore = firebase.firestore();
+  // const projectAuth = firebase.auth();
   // const timestamps= firebase.firestore.FieldValue.serverTimestamp()
   // export {projectStorage, projectFirestore, timestamps };
-  export default firebase;
+  
+  export default Firebase;
+  
