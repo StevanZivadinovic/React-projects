@@ -1,7 +1,12 @@
+//npm install --save react-gravatar
+//npm install md5
+
+
 import puzzle from "./../../img/puzzle.svg";
 import Firebase from './../../config'
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import md5 from 'md5';
 
 
 // import { findAllByTestId } from "@testing-library/dom";
@@ -13,8 +18,7 @@ const Register = () => {
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading]=useState('');
-  const [avatar, setAvatar] = useState('');
-  const [url, setURL] = useState('')
+  
   
 
   let handleChangeUsername = (e) => {
@@ -29,12 +33,7 @@ const Register = () => {
   let handleChangePasswordRepeat = (e) => {
     setPasswordRepeat(e.target.value);
   };
-//   let data = {
-//     username: username,
-//     email: email,
-//     password: password,
-//     passwordRepeat: passwordRepeat,
-//   };
+
 let isFormEmpty = (username, email, password, passwordRepeat)=>{
     if(!username || !email || !password || !passwordRepeat){
       console.log('err')
@@ -89,7 +88,7 @@ let handleSubmit = e=>{
             
             a.updateProfile({ 
               displayName: username,
-              photoURL: 'http://www.example.com/12345678/photo.png'
+              photoURL: `http://gravatar.com/avatar/${md5(data.user.email)}?d=identicon`
             }).then(a=>{
               console.log(data.user.displayName)
               console.log(data.user.photoURL)
