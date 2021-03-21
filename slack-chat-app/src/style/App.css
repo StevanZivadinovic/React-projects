@@ -133,4 +133,16 @@
 .login {
   height: 150px;
 }
+
+.h1Login {
+  color: purple !important;
+}
+
+.imgLogin {
+  fill: purple !important;
+}
+
+#buttonLogin {
+  background-color: purple !important;
+}
 /*# sourceMappingURL=App.css.map */

@@ -2,7 +2,7 @@
 //npm install md5
 
 
-import puzzle from "./../../img/puzzle.svg";
+import puzzleLogin from "./../../img/puzzleLogin.svg";
 import Firebase from './../../config'
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -93,8 +93,8 @@ let handleClass = (error, inputWord)=>{
   return (
     <div className="mainRegister">
       <div className="headerForm">
-        <img src={puzzle} alt="puzzle" style={{ width: 100 }} />
-        <h1>Register for DevChat</h1>
+        <img className='imgLogin' src={puzzleLogin} alt="puzzle" style={{ width: 100 }} />
+        <h1 className='h1Login'>Register for DevChat</h1>
       </div>
       <div className="forma login">
         {/* <input
@@ -126,7 +126,7 @@ let handleClass = (error, inputWord)=>{
           placeholder="PasswordRepeat"
         /> */}
         
-         <button className={loading ? 'loading' : ''}  disabled={loading} onClick={handleClass} onClick={handleSubmit}>Submit</button>
+         <button id='buttonLogin' className={loading ? 'loading' : ''}  disabled={loading} onClick={handleClass} onClick={handleSubmit}>Submit</button>
       </div>
         {error && <p className='error'>{error}</p>}
       <div className="message">
