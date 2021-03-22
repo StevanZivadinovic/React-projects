@@ -12,7 +12,7 @@ import { useState } from "react";
 // import { findAllByTestId } from "@testing-library/dom";
 
 const Login = () => {
-  
+  console.log(Firebase)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,72 +20,64 @@ const Login = () => {
   
   
 
-//   let handleChangeUsername = (e) => {
-//     setUsername(e.target.value);
-//   };
+
   let handleChangeEmail = (e) => {
     setEmail(e.target.value);
   };
   let handleChangePassword = (e) => {
     setPassword(e.target.value);
   };
-//   let handleChangePasswordRepeat = (e) => {
-//     setPasswordRepeat(e.target.value);
-//   };
-
-// let isFormEmpty = (username, email, password, passwordRepeat)=>{
-//     if(!username || !email || !password || !passwordRepeat){
-//       console.log('err')
-//       setError('You must fill all fields!')
-//         return false;
-//     }else{
-//         return true;
-//     }
-// }
-// let isPasswordCorect = (password, passwordRepeat)=>{
-//     if(password.length<6 || passwordRepeat.length<6){
-//         console.log('err');
-//         setError('Password length must be min 6 characters!')
-
-//         return false;
-//     }else if(password!==passwordRepeat){
-//         console.log('err');
-//         setError('Password are not equal!')
-
-//         return false;
-//     }else{
-//         return true;
-//     }
-// }
 
 
-// let formValidation = e=>{
-//     if(!isFormEmpty(username, email, password, passwordRepeat)){
-//         console.log('a')
-//         return false;
-//     }else if(!isPasswordCorect(password, passwordRepeat)){
-//         console.log('ab')
-//         return false;
-//     }else{
-//         return true;
-//     }
-// }
+let isFormEmpty = ( email, password)=>{
+    if( !email || !password ){
+      console.log('err')
+      setError('You must fill all fields!')
+        return false;
+    }else{
+        return true;
+    }
+}
+
+
+
+let formValidation = e=>{
+    if(!isFormEmpty( email, password)){
+        console.log('a')
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 let handleSubmit = e=>{
     e.preventDefault();
     
-    // if(formValidation()){
-    //   setError('');
-    //   setLoading(true);
-    
-    //     }
+    if(formValidation()){
+      setError('');
+      setLoading(true);
+      
+      Firebase.default
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(signInUser=>{
+        console.log(signInUser)
+      })
+      .catch(err=>{
+        setError(err)
+        setLoading(false)
+      })
+        }else{
+          console.log('error')
+        }
         
 }
 console.log(error)
 let handleClass = (error, inputWord)=>{
-  if(error){
-    console.log(error)
-    return error.toLowerCase().includes(inputWord)?
+  if(error.message){
+    console.log(error.message)
+    return error.message.toLowerCase().includes(inputWord)?
     'error1':'';
   }
 }
@@ -128,7 +120,7 @@ let handleClass = (error, inputWord)=>{
         
          <button id='buttonLogin' className={loading ? 'loading' : ''}  disabled={loading} onClick={handleClass} onClick={handleSubmit}>Submit</button>
       </div>
-        {error && <p className='error'>{error}</p>}
+        {error && <p className='error'>{error.message}</p>}
       <div className="message">
         Don't have an account? <Link to="/login">Register</Link>
       </div>
