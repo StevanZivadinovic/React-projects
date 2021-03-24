@@ -3,14 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';//ovde uvodimo Router,
+//u App.js pogledaj objasnjenje
+
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+
+
+const store = createStore(()=>{}, composeWithDevTools())
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
     <Router>
     <App />
     </Router>
-  </React.StrictMode>,
+    </Provider>
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 
