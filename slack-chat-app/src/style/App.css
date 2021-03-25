@@ -193,4 +193,9 @@ ul li:hover {
   background-color: #83817f;
   cursor: pointer;
 }
+
+ul:nth-child(0):hover {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 /*# sourceMappingURL=App.css.map */

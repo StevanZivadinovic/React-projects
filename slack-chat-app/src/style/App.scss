@@ -147,4 +147,9 @@ ul{
     background-color:rgb(131, 129, 127);
     cursor: pointer;
   }
+  
+}
+ul:nth-child(0):hover{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
