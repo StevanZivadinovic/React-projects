@@ -112,3 +112,14 @@
 #buttonLogin{
   background-color: purple !important;
 }
+
+.mainFields{
+  display: grid;
+  grid-template-columns: 20% 70%;
+  justify-content: space-between;
+  .messagesMeta, .colorSide{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  
+}

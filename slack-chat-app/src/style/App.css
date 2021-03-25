@@ -146,4 +146,21 @@
 #buttonLogin {
   background-color: purple !important;
 }
+
+.mainFields {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 70%;
+      grid-template-columns: 20% 70%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mainFields .messagesMeta, .mainFields .colorSide {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
 /*# sourceMappingURL=App.css.map */

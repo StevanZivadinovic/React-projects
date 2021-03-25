@@ -42,13 +42,16 @@ function App(props) {
           <Register></Register>
         </Route>
       </Switch>
-      <div>
-      <ColorPanel></ColorPanel>
-      <SidePanel></SidePanel>
-      <Messages></Messages>
-      <MetaPanel></MetaPanel>
+      <div className="mainFields">
+        <div className="colorSide">
+          <ColorPanel></ColorPanel>
+          <SidePanel></SidePanel>
+        </div>
+        <div className="messagesMeta">
+          <Messages></Messages>
+          <MetaPanel></MetaPanel>
+        </div>
       </div>
-      
     </div>
   );
 }
