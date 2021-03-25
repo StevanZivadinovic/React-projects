@@ -136,3 +136,15 @@
     }
   }  
 }
+ul{
+  background-color: #eee;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 auto;
+  list-style-type: none;
+  li:hover{
+    background-color:rgb(131, 129, 127);
+    cursor: pointer;
+  }
+}

@@ -179,4 +179,18 @@
   margin: auto;
   font-size: 2.2rem;
 }
+
+ul {
+  background-color: #eee;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+ul li:hover {
+  background-color: #83817f;
+  cursor: pointer;
+}
 /*# sourceMappingURL=App.css.map */
