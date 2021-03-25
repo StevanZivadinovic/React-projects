@@ -44,7 +44,7 @@ function App(props) {
       </Switch>
       <div className="mainFields">
         <div className="colorSide">
-          <ColorPanel></ColorPanel>
+          {/* <ColorPanel></ColorPanel> */}
           <SidePanel></SidePanel>
         </div>
         <div className="messagesMeta">

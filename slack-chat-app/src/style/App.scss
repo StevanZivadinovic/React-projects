@@ -117,9 +117,22 @@
   display: grid;
   grid-template-columns: 20% 70%;
   justify-content: space-between;
+  background-color: #eee;
   .messagesMeta, .colorSide{
     display: grid;
     grid-template-columns: 50% 50%;
   }
-  
+  .sidePanel{
+    
+    width: 200%;
+    height: 100vh;
+    background-color: #4c3c4c;
+    h1{
+      display: flex;
+      width: 80%;
+      margin: auto;
+      font-size: 2.2rem;
+      
+    }
+  }  
 }
