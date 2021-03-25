@@ -14,6 +14,8 @@ import { SetUser } from "./actions/index";
 import Spinner from "./spinner";
 import ColorPanel from "./components/ColorPanel/ColorPanel";
 import SidePanel from "./components/SidePanel/SidePanel";
+import Messages from "./components/Messages/Messages";
+import MetaPanel from "./components/MetaPanel/MetaPanel";
 
 function App(props) {
   let history = useHistory();
@@ -43,6 +45,8 @@ function App(props) {
       <div>
       <ColorPanel></ColorPanel>
       <SidePanel></SidePanel>
+      <Messages></Messages>
+      <MetaPanel></MetaPanel>
       </div>
       
     </div>
