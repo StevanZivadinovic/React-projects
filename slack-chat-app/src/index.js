@@ -8,10 +8,13 @@ import {BrowserRouter as Router} from 'react-router-dom';//ovde uvodimo Router,
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {composeWithDevTools} from 'redux-devtools-extension';//ovo instaliras preko npm
+//ili/i je to google dodatak za redux;
+import rootReducer from './reducers/index'
 
 
-const store = createStore(()=>{}, composeWithDevTools())
+const store = createStore(rootReducer, composeWithDevTools())//pri argument je reducer, drugi enhancer
+//postoji jos jedan argument, koji se dodaje izmedju ova dva, ali on je opcion
 
 ReactDOM.render(
   // <React.StrictMode>

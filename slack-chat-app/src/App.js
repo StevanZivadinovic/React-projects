@@ -9,15 +9,20 @@ import { useHistory } from "react-router-dom";
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Firebase from './config';
-import {useEffect} from 'react'
+import {useEffect} from 'react';
+import { connect } from 'react-redux';
+import {SetUser} from './actions/index'
 
-function App() {
+function App(props) {
+  console.log(connect)
   let history = useHistory();
-  console.log(useHistory())
+
   useEffect(() => {
     Firebase.default.auth().onAuthStateChanged(user=>{
       if(user){
         console.log(user)
+        console.log(props)
+        props.SetUser(user);
         history.push("/");
       }
     })
@@ -37,4 +42,8 @@ function App() {
   );
 }
 
-export default App;
+// const mapStateToProps = (state)=>{
+//   {user}
+// }
+
+export default connect(null, {SetUser})(App);
