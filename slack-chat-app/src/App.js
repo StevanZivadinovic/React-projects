@@ -11,39 +11,47 @@ import Register from './components/Auth/Register';
 import Firebase from './config';
 import {useEffect} from 'react';
 import { connect } from 'react-redux';
-import {SetUser} from './actions/index'
+import {SetUser} from './actions/index';
+import Spinner from './spinner';
+
+
+
 
 function App(props) {
-  console.log(connect)
+  
   let history = useHistory();
 
   useEffect(() => {
     Firebase.default.auth().onAuthStateChanged(user=>{
       if(user){
         console.log(user)
-        console.log(props)
+        console.log(props.stateProperty.user.isLoading)
         props.SetUser(user);
         history.push("/");
       }
     })
+   
     
   },[])
 
 
-  return (
-    <div className="App">
+  return  (props.stateProperty.user.isLoading ? <Spinner></Spinner> :
+
+    (<div className="App">
      
        <Switch>
          <Route path='/login'><Login></Login></Route>
          <Route path='/register'><Register></Register></Route>
        </Switch>
+       
      
-    </div>
-  );
+    </div>)
+  )
 }
 
-// const mapStateToProps = (state)=>{
-//   {user}
-// }
+let mapStateToProps = state=>({
+  stateProperty:state
+})
 
-export default connect(null, {SetUser})(App);
+export default connect(mapStateToProps, {SetUser})(App);//kad ovako dodas funkciju
+//stavljas uglaste zagrade.

@@ -20,6 +20,7 @@ const user_reducer = (state=initalUserState, action)=>{
     }
         
 }
+    
 
 const rootReducer = combineReducers({
     user:user_reducer

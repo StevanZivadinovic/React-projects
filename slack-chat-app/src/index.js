@@ -10,7 +10,8 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';//ovo instaliras preko npm
 //ili/i je to google dodatak za redux;
-import rootReducer from './reducers/index'
+import rootReducer from './reducers/index';
+import 'semantic-ui-css/semantic.min.css';
 
 
 const store = createStore(rootReducer, composeWithDevTools())//pri argument je reducer, drugi enhancer
