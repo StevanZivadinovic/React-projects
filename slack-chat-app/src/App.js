@@ -21,13 +21,15 @@ function App(props) {
   let history = useHistory();
 
   useEffect(() => {
+    console.log(Firebase.default.auth().currentUser)
     Firebase.default.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log(props.stateProperty.user.isLoading);
+        console.log(user)
+        
         props.SetUser(user);
         history.push("/");
       }else{
-        history.push("/login");
+        // history.push("/login");
         props.ClearUser()
 
       }
@@ -49,7 +51,7 @@ function App(props) {
       <div className="mainFields">
         <div className="colorSide">
           {/* <ColorPanel></ColorPanel> */}
-          <SidePanel></SidePanel>
+          <SidePanel curentUser={props}></SidePanel>
         </div>
         <div className="messagesMeta">
           <Messages></Messages>
