@@ -149,7 +149,24 @@ ul{
   }
   
 }
-ul:nth-child(0):hover{
+li:nth-child(1):hover{
+  cursor: not-allowed;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+li:nth-child(3):hover{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#mainMenu{
+  display: none;
+}
+
+.user{
+  width: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.1rem;
+}
+

@@ -1,12 +1,33 @@
-import './../../style/App.css'
+import './../../style/App.css';
+import {useState} from 'react';
+import Firebase from './../../config'
 const SidePanel = () => {
+    const [display, setDisplay] = useState(true)
+    let dropdownMenu = ()=>{
+        if(display){
+
+            document.querySelector('ul').style.display = 'block'
+            setDisplay(false)
+        }else if(!display){
+            document.querySelector('ul').style.display = 'none'
+            setDisplay(true)
+        }
+
+    }
+
+    let signOut = ()=>{
+        Firebase.default.auth().signOut()
+        .then(data=>{
+            console.log('signOut!')
+        })
+    }
     return ( <div className='sidePanel'>
         <h1><span><img src="https://img.icons8.com/color/40/000000/slack-new.png"/></span>DevChat</h1>
-
-        <ul name="" id="">
-            <li value="" disabled>Signed in as User</li>
+        <h2 onClick={dropdownMenu} className='user'>User <span><img src="https://img.icons8.com/metro/12/000000/low-priority.png"/></span></h2>
+        <ul name="" id="mainMenu">
+            <li value="" disabled>Signed in as <b>User</b></li>
             <li value="">Change avatar</li>
-            <li value="">Sign Out</li>
+            <li onClick={signOut} value="">Sign Out</li>
         </ul>
     </div> );
 }

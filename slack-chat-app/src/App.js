@@ -10,7 +10,7 @@ import Register from "./components/Auth/Register";
 import Firebase from "./config";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { SetUser } from "./actions/index";
+import { SetUser, ClearUser } from "./actions/index";
 import Spinner from "./spinner";
 import ColorPanel from "./components/ColorPanel/ColorPanel";
 import SidePanel from "./components/SidePanel/SidePanel";
@@ -26,6 +26,10 @@ function App(props) {
         console.log(props.stateProperty.user.isLoading);
         props.SetUser(user);
         history.push("/");
+      }else{
+        history.push("/login");
+        props.ClearUser()
+
       }
     });
   }, []);
@@ -60,5 +64,5 @@ let mapStateToProps = (state) => ({
   stateProperty: state,
 });
 
-export default connect(mapStateToProps, { SetUser })(App); //kad ovako dodas funkciju
+export default connect(mapStateToProps, { SetUser, ClearUser })(App); //kad ovako dodas funkciju
 //stavljas uglaste zagrade.
