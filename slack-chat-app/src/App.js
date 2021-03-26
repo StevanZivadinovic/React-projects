@@ -29,7 +29,7 @@ function App(props) {
         props.SetUser(user);
         history.push("/");
       }else{
-        // history.push("/login");
+        history.push("/login");
         props.ClearUser()
 
       }
