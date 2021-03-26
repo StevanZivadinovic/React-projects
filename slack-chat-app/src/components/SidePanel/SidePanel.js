@@ -30,7 +30,7 @@ const SidePanel = (props) => {
     }
     return ( <div className='sidePanel'>
         <h1><span><img src="https://img.icons8.com/color/40/000000/slack-new.png"/></span>DevChat</h1>
-        <h2 onClick={dropdownMenu} className='user'>User <span><img src="https://img.icons8.com/metro/12/000000/low-priority.png"/></span></h2>
+        <h2 onClick={dropdownMenu} className='user'>{props.user.displayName}<span><img src="https://img.icons8.com/metro/12/000000/low-priority.png"/></span></h2>
         <ul name="" id="mainMenu">
             <li value="" disabled>Signed in as <b>{props.user.displayName}</b></li>
             <li value="">Change avatar</li>
