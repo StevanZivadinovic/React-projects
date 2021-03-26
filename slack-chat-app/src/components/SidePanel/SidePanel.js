@@ -1,9 +1,11 @@
 import './../../style/App.css';
 import {useState} from 'react';
-import Firebase from './../../config'
-const SidePanel = () => {
+import Firebase from './../../config';
+import {connect} from 'react-redux';
+const SidePanel = (props) => {
     const [display, setDisplay] = useState(true)
     let dropdownMenu = ()=>{
+        console.log(props.user)
         if(display){
 
             document.querySelector('ul').style.display = 'block'
@@ -31,5 +33,9 @@ const SidePanel = () => {
         </ul>
     </div> );
 }
+
+let mapStateToProps = state=>({
+    user:state.user.currentUser
+})
  
-export default SidePanel;
+export default connect(mapStateToProps, null)(SidePanel);
