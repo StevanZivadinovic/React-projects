@@ -122,7 +122,7 @@ let handleClass = (error, inputWord)=>{
       </div>
         {error && <p className='error'>{error.message}</p>}
       <div className="message">
-        Don't have an account? <Link to="/login">Register</Link>
+        Don't have an account? <Link to="/register">Register</Link>
       </div>
     </div>
   );
