@@ -260,8 +260,8 @@ li:nth-child(3):hover {
           justify-content: center;
   width: 90%;
   margin: 0 auto;
-  height: 25%;
-  padding-bottom: 30px;
+  height: 30%;
+  padding-bottom: 60px;
 }
 
 .channels .addChannelForm .form div.subForm {

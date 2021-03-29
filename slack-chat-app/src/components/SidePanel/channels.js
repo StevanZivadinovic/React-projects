@@ -31,7 +31,8 @@ const Channels = () => {
             </div>
 
             <div className="buttons">
-                
+                <input type='button' value='Add'/>
+                <input type='button' value='Cancel'/>
             </div>
 
             </div>
