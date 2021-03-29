@@ -169,4 +169,12 @@ li:nth-child(3):hover{
   display: flex;
   font-size: 1.1rem;
 }
+.channels{
+  width: 80%;
+  margin: 0 auto;
+  .plus{
+    float: right;
+    cursor:pointer;
+  }
+}
 

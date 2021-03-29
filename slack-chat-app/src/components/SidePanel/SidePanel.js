@@ -2,6 +2,7 @@ import './../../style/App.css';
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
 import {connect} from 'react-redux';
+import Channels from './channels';
 const SidePanel = (props) => {
     const [display, setDisplay] = useState(true)
 
@@ -37,6 +38,7 @@ const SidePanel = (props) => {
             <li value="">Change avatar</li>
             <li onClick={signOut} value="">Sign Out</li>
         </ul>
+        <Channels></Channels>
     </div> );
 }
 
