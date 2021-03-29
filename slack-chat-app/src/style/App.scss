@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 .mainRegister {
   height: 100vh;
@@ -175,6 +176,73 @@ li:nth-child(3):hover{
   .plus{
     float: right;
     cursor:pointer;
+  }
+
+  .addChannelForm{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #313131, $alpha: .9);
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+    .form{
+      border: 1px solid rgb(194, 180, 180);
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      margin: 0 auto;
+      height: 25%;
+      padding-bottom: 30px;
+      
+      div.subForm{
+        width: 80%;
+      }
+
+    }
+    .name, .details{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3%;
+      border-radius: 5px;
+      height: 30%;
+
+
+      label{
+        background-color: rgb(212, 214, 214);
+        width: 20%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        text-align: center;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 800;
+        
+        
+      }
+      input{
+        width: 80%;
+        border: none;
+        background-color: lightcyan;
+       
+        outline: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+          font-size: 25px;
+        &:focus{
+          border-bottom: 2px solid #423942 ;
+        }
+      }
+    }
   }
 }
 
