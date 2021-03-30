@@ -4,11 +4,24 @@ import {useState} from 'react';
 const Channels = () => {
 
     const [numOfChannels, setNumOfChannels] = useState([]);
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState(false);
+    const [nameOfChannel, setNameOfChannel] = useState('');
+    const [detailsOfChannel, setDetailsOfChannel] = useState('')
+
 
     let openModal = ()=>{
         setModal(true);
         console.log(true)
+    }
+
+    let handleChangeName = (e)=>{
+        setNameOfChannel(e.target.value);
+        
+
+    }
+    let handleChangeDetails = (e)=>{
+        setDetailsOfChannel(e.target.value);
+
     }
 
     return ( <div className="channels">
@@ -22,12 +35,12 @@ const Channels = () => {
                 <h2>Add a channel</h2>
             <div className="name">
             <label htmlFor="nameOfChannel">Name of channel</label>
-            <input type='text' id='nameOfChannel'/>
+            <input type='text' id='nameOfChannel' onChange={handleChangeName}/>
             </div>
 
             <div className="details">
             <label htmlFor="detailsOfChannel">About the channel</label>
-            <input type='text' id='detailsOfChannel'/>
+            <input type='text' id='detailsOfChannel' onChange={handleChangeDetails}/>
             </div>
 
             <div className="buttons">
