@@ -258,7 +258,7 @@ li:nth-child(3):hover {
       &::after {
         content: "";
         position: absolute;
-        background-color: rgba($color: #55cc1e, $alpha: 0.5);
+        background-color: rgba($color: #55cc1e, $alpha: 0.2);
         top: 0px;
         left: 0px;
         width: 0%;
@@ -284,7 +284,7 @@ li:nth-child(3):hover {
       &::after {
         content: "";
         position: absolute;
-        background-color: rgba($color: #cc1e1e, $alpha: 0.5);
+        background-color: rgba($color: #cc1e1e, $alpha: 0.2);
         top: 0px;
         left: 0px;
         width: 0%;

@@ -350,7 +350,7 @@ li:nth-child(3):hover {
 .channels .buttons .Add::after {
   content: "";
   position: absolute;
-  background-color: rgba(85, 204, 30, 0.5);
+  background-color: rgba(85, 204, 30, 0.2);
   top: 0px;
   left: 0px;
   width: 0%;
@@ -377,7 +377,7 @@ li:nth-child(3):hover {
 .channels .buttons .Cancel::after {
   content: "";
   position: absolute;
-  background-color: rgba(204, 30, 30, 0.5);
+  background-color: rgba(204, 30, 30, 0.2);
   top: 0px;
   left: 0px;
   width: 0%;
