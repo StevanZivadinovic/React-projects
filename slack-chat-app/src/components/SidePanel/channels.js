@@ -48,8 +48,8 @@ const Channels = () => {
             </div>
 
             <div className="buttons">
-                <button className='Add'  value='Add'>Add</button>
-                <button className='Cancel'  value='Cancel' onClick={turnOffAddModal}>Cancel</button>
+                <button className='Add'  value='Add'><span><img src="https://img.icons8.com/color/20/000000/checked--v4.png"/>Add</span></button>
+                <button className='Cancel'  value='Cancel' onClick={turnOffAddModal}><span><img src="https://img.icons8.com/color/20/000000/cancel--v1.png"/>Cancel</span></button>
             </div>
 
             </div>

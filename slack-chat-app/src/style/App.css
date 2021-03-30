@@ -239,9 +239,7 @@ li:nth-child(3):hover {
   left: 0;
   right: 0;
   bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -335,7 +333,8 @@ li:nth-child(3):hover {
 }
 
 .channels .buttons button {
-  padding: 0 30px;
+  padding: 0 20px;
+  width: 50%;
 }
 
 .channels .buttons .Add {
@@ -346,6 +345,27 @@ li:nth-child(3):hover {
   cursor: pointer;
   position: relative;
   color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.channels .buttons .Add span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
 }
 
 .channels .buttons .Add::after {
@@ -373,6 +393,21 @@ li:nth-child(3):hover {
   cursor: pointer;
   position: relative;
   color: red;
+}
+
+.channels .buttons .Cancel span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+}
+
+.channels .buttons .Cancel span span:nth-child(1) {
+  height: 100%;
 }
 
 .channels .buttons .Cancel::after {
