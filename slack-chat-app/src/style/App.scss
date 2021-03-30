@@ -252,10 +252,25 @@ li:nth-child(3):hover {
       outline: none;
       border-radius: 5px;
       cursor: pointer;
+      position: relative;
+      color: green;
 
-      &:hover {
-        background: rgba($color: #bdf1a8, $alpha: 0.5);
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: rgba($color: #55cc1e, $alpha: 0.5);
+        top: 0px;
+        left: 0px;
+        width: 0%;
+        height: 100%;
+        z-index: 1;
+        transition: 0.8s;
       }
+      &:hover::after {
+        width: 100%;
+      }
+
+      
     }
     .Cancel {
       background: transparent;
@@ -264,6 +279,7 @@ li:nth-child(3):hover {
       border-radius: 5px;
       cursor: pointer;
       position: relative;
+      color: red;
 
       &::after {
         content: "";
@@ -279,6 +295,8 @@ li:nth-child(3):hover {
       &:hover::after {
         width: 100%;
       }
+
+   
     }
   }
 }
