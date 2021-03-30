@@ -11,7 +11,8 @@ const Channels = () => {
 
     let openModal = ()=>{
         setModal(true);
-        console.log(true)
+        document.querySelector('.addChannelForm').style.display = 'flex';
+
     }
 
     let handleChangeName = (e)=>{
@@ -22,6 +23,9 @@ const Channels = () => {
     let handleChangeDetails = (e)=>{
         setDetailsOfChannel(e.target.value);
 
+    }
+    let turnOffAddModal = (e)=>{
+        document.querySelector('.addChannelForm').style.display = 'none';
     }
 
     return ( <div className="channels">
@@ -45,7 +49,7 @@ const Channels = () => {
 
             <div className="buttons">
                 <button className='Add'  value='Add'>Add</button>
-                <button className='Cancel'  value='Cancel'>Cancel</button>
+                <button className='Cancel'  value='Cancel' onClick={turnOffAddModal}>Cancel</button>
             </div>
 
             </div>
