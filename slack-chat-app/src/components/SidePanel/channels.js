@@ -28,6 +28,23 @@ const Channels = () => {
         document.querySelector('.addChannelForm').style.display = 'none';
     }
 
+    let formValid = (nameOfChannel,detailsOfChannel )=>{
+        if(nameOfChannel.length>0 && detailsOfChannel.length>0){
+            console.log('validna')
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    let handleSubmit = (nameOfChannel, detailsOfChannel)=>{
+        if(formValid()==true){
+            console.log('Channel added');
+        }
+    }
+
     return ( <div className="channels">
         <img src="https://img.icons8.com/android/12/000000/data-in-both-directions.png"/>
         CHANNELS<span>({numOfChannels.length})</span>
@@ -48,7 +65,7 @@ const Channels = () => {
             </div>
 
             <div className="buttons">
-                <button className='Add'  value='Add'><span><img src="https://img.icons8.com/color/20/000000/checked--v4.png"/>Add</span></button>
+                <button className='Add' onClick={handleSubmit}  value='Add'><span><img src="https://img.icons8.com/color/20/000000/checked--v4.png"/>Add</span></button>
                 <button className='Cancel'  value='Cancel' onClick={turnOffAddModal}><span><img src="https://img.icons8.com/color/20/000000/cancel--v1.png"/>Cancel</span></button>
             </div>
 
