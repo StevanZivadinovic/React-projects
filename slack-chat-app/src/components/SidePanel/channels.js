@@ -28,19 +28,19 @@ const Channels = () => {
         document.querySelector('.addChannelForm').style.display = 'none';
     }
 
+   
+
     let formValid = (nameOfChannel,detailsOfChannel )=>{
-        if(nameOfChannel.length>0 && detailsOfChannel.length>0){
-            console.log('validna')
+        
+
+        if(nameOfChannel&& detailsOfChannel){
+            console.log(true)
             return true;
         }
-        else{
-            return false;
-        }
-
     }
-
-    let handleSubmit = (nameOfChannel, detailsOfChannel)=>{
-        if(formValid()==true){
+   
+    let handleSubmit = ()=>{
+        if(formValid(nameOfChannel,detailsOfChannel)){
             console.log('Channel added');
         }
     }
@@ -52,7 +52,7 @@ const Channels = () => {
 
         <div className='addChannelForm'>
             <div className="form">
-            <div className='subForm'>
+            <div className='subForm' onSubmit={handleSubmit}>
                 <h2>Add a channel</h2>
             <div className="name">
             <label htmlFor="nameOfChannel">Name of channel</label>
