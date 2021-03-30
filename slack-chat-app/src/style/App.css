@@ -118,7 +118,7 @@
 .error {
   color: red;
   background-color: lightcoral;
-  opacity: .8;
+  opacity: 0.8;
   height: 60px;
 }
 
@@ -158,7 +158,8 @@
   background-color: #eee;
 }
 
-.mainFields .messagesMeta, .mainFields .colorSide {
+.mainFields .messagesMeta,
+.mainFields .colorSide {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50% 50%;
@@ -268,7 +269,8 @@ li:nth-child(3):hover {
   width: 80%;
 }
 
-.channels .addChannelForm .name, .channels .addChannelForm .details {
+.channels .addChannelForm .name,
+.channels .addChannelForm .details {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -281,7 +283,8 @@ li:nth-child(3):hover {
   height: 30%;
 }
 
-.channels .addChannelForm .name label, .channels .addChannelForm .details label {
+.channels .addChannelForm .name label,
+.channels .addChannelForm .details label {
   background-color: #d4d6d6;
   width: 20%;
   border-top-left-radius: 5px;
@@ -301,7 +304,8 @@ li:nth-child(3):hover {
   font-weight: 800;
 }
 
-.channels .addChannelForm .name input, .channels .addChannelForm .details input {
+.channels .addChannelForm .name input,
+.channels .addChannelForm .details input {
   width: 80%;
   border: none;
   background-color: lightcyan;
@@ -311,7 +315,63 @@ li:nth-child(3):hover {
   font-size: 25px;
 }
 
-.channels .addChannelForm .name input:focus, .channels .addChannelForm .details input:focus {
+.channels .addChannelForm .name input:focus,
+.channels .addChannelForm .details input:focus {
   border-bottom: 2px solid #423942;
+}
+
+.channels .buttons {
+  width: 35%;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 20%;
+  border-radius: 5px;
+}
+
+.channels .buttons button {
+  padding: 0 30px;
+}
+
+.channels .buttons .Add {
+  background: transparent;
+  border: 1px solid green;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.channels .buttons .Add:hover {
+  background: rgba(189, 241, 168, 0.5);
+}
+
+.channels .buttons .Cancel {
+  background: transparent;
+  border: 1px solid red;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.channels .buttons .Cancel::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(204, 30, 30, 0.5);
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.channels .buttons .Cancel:hover::after {
+  width: 100%;
 }
 /*# sourceMappingURL=App.css.map */
