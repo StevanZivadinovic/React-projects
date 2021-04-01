@@ -1,8 +1,10 @@
 import './../../style/App.css';
 import {useState} from 'react';
+import Firebase from './../../config';
+import {connect} from 'react-redux';
 
-const Channels = () => {
-
+const Channels = (props) => {
+    // console.log(props);
     const [numOfChannels, setNumOfChannels] = useState([]);
     const [modal, setModal] = useState(false);
     const [nameOfChannel, setNameOfChannel] = useState('');
@@ -42,6 +44,16 @@ const Channels = () => {
     let handleSubmit = ()=>{
         if(formValid(nameOfChannel,detailsOfChannel)){
             console.log('Channel added');
+            Firebase.default.firestore()
+            .collection('channels').add({
+                name:nameOfChannel,
+                details:detailsOfChannel,
+                createdBy:{
+                    avatar:props.user.user.currentUser.photoURL,
+                    name:props.user.user.currentUser.displayName
+                }
+            })
+
         }
     }
 
@@ -74,5 +86,9 @@ const Channels = () => {
         </div>
     </div> );
 }
+
+let mapStateToProps=state=>({
+    user:state
+})
  
-export default Channels;
+export default connect(mapStateToProps, null)(Channels);
