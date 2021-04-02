@@ -8,7 +8,7 @@ const Channels = (props) => {
     const [modal, setModal] = useState(false);
     const [nameOfChannel, setNameOfChannel] = useState('');
     const [detailsOfChannel, setDetailsOfChannel] = useState('')
-    console.log(numOfChannels);
+    
     
 
     let openModal = ()=>{
@@ -66,23 +66,22 @@ const Channels = (props) => {
     }
 
     useEffect(() => {
+        setNumOfChannels([]);
         Firebase.default.firestore()
         .collection('channels').get().then(docs=>{
             docs.forEach(doc=>{
                 console.log(doc.data())
-                console.log(...numOfChannels)
+               
                 setNumOfChannels(numOfChannels=> [...numOfChannels, {
-                    name:doc.data().name,
+                    nameOfChannel:doc.data().name,
                     details:doc.data().details,            
                     avatar:doc.data().createdBy.avatar,
                     name:doc.data().createdBy.name
                     }]) 
 
-                    console.log(numOfChannels)
+                   
             })
-        })
-        
-       
+        })  
         
     }, [])
 
@@ -90,6 +89,12 @@ const Channels = (props) => {
         <img src="https://img.icons8.com/android/12/000000/data-in-both-directions.png"/>
         CHANNELS<span>({numOfChannels.length})</span>
         <span className='plus' onClick={openModal}><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
+
+        <ul className='listOfChannels'>
+            {numOfChannels.length>0 && numOfChannels.map(channel=>{
+                return <li>#{channel.nameOfChannel}</li>
+            })}
+        </ul>
 
         <div className='addChannelForm'>
             <div className="form">
