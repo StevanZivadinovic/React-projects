@@ -83,22 +83,7 @@ const Channels = (props) => {
         })
         
        
-        // .onSnapshot(snapshot=>{
-        //     snapshot.docChanges().forEach(change=>{
-            
-                // if(change.type === 'added'){
-                //    setNumOfChannels( [...numOfChannels ,{
-                //     name:nameOfChannel,
-                //     details:detailsOfChannel,
-                //     createdBy:{
-                //         avatar:props.user.user.currentUser.photoURL,
-                //         name:props.user.user.currentUser.displayName
-                //     }}])
-                   
-                // console.log('added')
-                // }
-            // })
-        // })
+        
     }, [])
 
     return ( <div className="channels">
