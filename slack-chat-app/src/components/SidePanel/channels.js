@@ -2,6 +2,7 @@ import './../../style/App.css';
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
 import {connect} from 'react-redux';
+import {setCurrentChannel} from './../../actions/index'
 
 const Channels = (props) => {
     const [numOfChannels, setNumOfChannels] = useState([]);
@@ -70,7 +71,7 @@ const Channels = (props) => {
         Firebase.default.firestore()
         .collection('channels').get().then(docs=>{
             docs.forEach(doc=>{
-                console.log(doc.data())
+                
                
                 setNumOfChannels(numOfChannels=> [...numOfChannels, {
                     nameOfChannel:doc.data().name,
@@ -85,6 +86,10 @@ const Channels = (props) => {
         
     }, [])
 
+    let setChannelToState=channel=>{
+        props.setCurrentChannel(channel)//nije useState promenljiva nego action
+    }
+
     return ( <div className="channels">
         <img src="https://img.icons8.com/android/12/000000/data-in-both-directions.png"/>
         CHANNELS<span>({numOfChannels.length})</span>
@@ -92,7 +97,7 @@ const Channels = (props) => {
 
         <ul className='listOfChannels'>
             {numOfChannels.length>0 && numOfChannels.map(channel=>{
-                return <li>#{channel.nameOfChannel}</li>
+                return <li onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
             })}
         </ul>
 
@@ -125,4 +130,4 @@ let mapStateToProps=state=>({
     user:state
 })
  
-export default connect(mapStateToProps, null)(Channels);
+export default connect(mapStateToProps, {setCurrentChannel})(Channels);

@@ -426,4 +426,23 @@ li:nth-child(3):hover {
 .channels .buttons .Cancel:hover::after {
   width: 100%;
 }
+
+ul.listOfChannels {
+  margin: 0;
+  background-color: transparent !important;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+ul.listOfChannels li:nth-child(1) {
+  cursor: pointer;
+}
+
+ul.listOfChannels li:nth-child(3):hover {
+  border-radius: 0;
+}
+
+ul.listOfChannels li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 /*# sourceMappingURL=App.css.map */

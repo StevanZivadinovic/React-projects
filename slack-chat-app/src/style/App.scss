@@ -318,3 +318,23 @@ li:nth-child(3):hover {
     }
   }
 }
+
+ul.listOfChannels{
+  
+  margin: 0;
+  background-color: transparent !important;
+  color: rgba($color: #000000, $alpha: 0.7);
+  li:nth-child(1){
+    cursor: pointer;
+  }
+
+  li:nth-child(3):hover{
+    border-radius: 0;
+  }
+  li:last-child{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+
+}
