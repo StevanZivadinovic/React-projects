@@ -8,8 +8,14 @@ const Channels = (props) => {
     const [numOfChannels, setNumOfChannels] = useState([]);
     const [modal, setModal] = useState(false);
     const [nameOfChannel, setNameOfChannel] = useState('');
-    const [detailsOfChannel, setDetailsOfChannel] = useState('')
+    const [detailsOfChannel, setDetailsOfChannel] = useState('');
+    const [firstLoad, setFirstLoad] = useState(true);
     
+    
+      
+      
+      
+        
     
 
     let openModal = ()=>{
@@ -54,13 +60,16 @@ const Channels = (props) => {
                     name:props.user.user.currentUser.displayName
                 }
             }).then(data=>{
+
                 setNumOfChannels( [...numOfChannels ,{
                     name:nameOfChannel,
                     details:detailsOfChannel,
+                    uid:props.user.user.currentUser.uid,
                     createdBy:{
                         avatar:props.user.user.currentUser.photoURL,
                         name:props.user.user.currentUser.displayName
                     }}])
+                   
             })
 
         }
@@ -69,22 +78,32 @@ const Channels = (props) => {
     useEffect(() => {
         setNumOfChannels([]);
         Firebase.default.firestore()
-        .collection('channels').get().then(docs=>{
+        .collection('channels').get()
+        .then(docs=>{
+            
+            props.setCurrentChannel( {nameOfChannel:docs.docs[0].data().name,
+            details:docs.docs[0].data().details,            
+            avatar:docs.docs[0].data().createdBy.avatar,
+            name:docs.docs[0].data().createdBy.name})
             docs.forEach(doc=>{
                 
-               
                 setNumOfChannels(numOfChannels=> [...numOfChannels, {
                     nameOfChannel:doc.data().name,
                     details:doc.data().details,            
                     avatar:doc.data().createdBy.avatar,
                     name:doc.data().createdBy.name
                     }]) 
-
-                   
+  
             })
-        })  
-        
-    }, [])
+            
+        })
+     
+    }, []);
+
+   
+      
+
+    
 
     let setChannelToState=channel=>{
         props.setCurrentChannel(channel)//nije useState promenljiva nego action
@@ -123,6 +142,7 @@ const Channels = (props) => {
             </div>
             </div>
         </div>
+        
     </div> );
 }
 
