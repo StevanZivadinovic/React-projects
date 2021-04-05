@@ -114,12 +114,66 @@
 
 .mainFields {
   display: grid;
-  grid-template-columns: 20% 70%;
+  grid-template-columns: 20% 75%;
   justify-content: space-between;
   background-color: #eee;
   .messagesMeta{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
+    .messagesMain{
+      background-color: white;
+      border:1px solid black;
+      margin: 5px;
+
+      .messageHeader{
+        display: grid;
+        grid-template-columns: 50% 50%;
+      
+        .header{
+          border: 1px solid black;
+          display: flex;
+          flex-direction: column;
+         
+          
+         h1,h2{
+           margin: 0;
+         }
+        }
+        .searchMessage{
+          border: 1px solid black;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          float:left;
+
+          .inputBox{
+            display: flex;
+            justify-content: center;
+           
+
+            img{
+              padding-bottom: 5px;
+              border-top-right-radius: 5px;
+              border-bottom-right-radius: 5px;
+            }
+          }
+          input{
+            width: 60%;
+            border-top-left-radius: 5px;
+              border-bottom-left-radius: 5px;
+            border: 0;
+            outline: none;
+            height: 30px;
+           
+            background-color: lightcyan;
+
+            &:focus {
+              border-bottom: 2px solid #423942;
+            }
+          }
+        }
+      }
+    }
   }
   .colorSide {
     display: grid;
