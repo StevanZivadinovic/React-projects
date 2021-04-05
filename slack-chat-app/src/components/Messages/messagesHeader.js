@@ -10,6 +10,8 @@ const MessagesHeader = () => {
             <input type="search" name='search' placeholder='Search Messages'/><span><label htmlFor="search"><img style={{backgroundColor:'lightcyan'}} src="https://img.icons8.com/android/24/000000/search.png"/></label></span>
             </div>
         </div>
+
+        
     </div> );
 }
  
