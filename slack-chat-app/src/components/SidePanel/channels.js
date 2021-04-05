@@ -116,7 +116,8 @@ const Channels = (props) => {
 
         <ul className='listOfChannels'>
             {numOfChannels.length>0 && numOfChannels.map(channel=>{
-                return <li onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
+                return (channel.nameOfChannel?<li onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
+               : <li onClick={()=>setChannelToState(channel)}>#{channel.name}</li>)
             })}
         </ul>
 
