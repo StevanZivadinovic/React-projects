@@ -11,13 +11,6 @@ const Channels = (props) => {
     const [detailsOfChannel, setDetailsOfChannel] = useState('');
     const [firstLoad, setFirstLoad] = useState(true);
     
-    
-      
-      
-      
-        
-    
-
     let openModal = ()=>{
         setModal(true);
         document.querySelector('.addChannelForm').style.display = 'flex';
@@ -35,6 +28,7 @@ const Channels = (props) => {
     }
     let turnOffAddModal = (e)=>{
         document.querySelector('.addChannelForm').style.display = 'none';
+        console.log('haj haj')
     }
 
    
@@ -73,6 +67,9 @@ const Channels = (props) => {
             })
 
         }
+        document.querySelector('#nameOfChannel').value='';
+        document.querySelector('#detailsOfChannel').value='';
+        document.querySelector('.addChannelForm').style.display = 'none';
     }
 
     useEffect(() => {
@@ -100,10 +97,6 @@ const Channels = (props) => {
      
     }, []);
 
-   
-      
-
-    
 
     let setChannelToState=channel=>{
         props.setCurrentChannel(channel)//nije useState promenljiva nego action
