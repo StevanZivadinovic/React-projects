@@ -185,12 +185,22 @@
   width: 165%;
   border: 1px solid black;
   height: 18%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .mainFields .messagesMeta .messagesMain .messageFormMain .inputText {
   width: 98%;
   margin: 0 auto;
-  border: 1px solid #a59797;
+  border: 2px solid #a59797;
+  border-radius: 5px;
 }
 
 .mainFields .messagesMeta .messagesMain .messageFormMain .inputText span {
@@ -204,6 +214,7 @@
 
 .mainFields .messagesMeta .messagesMain .messageFormMain .inputText img {
   width: 35px;
+  cursor: pointer;
 }
 
 .mainFields .messagesMeta .messagesMain .messageFormMain .inputText input {
@@ -211,6 +222,21 @@
   width: 100%;
   height: 40px;
   border: 0;
+}
+
+.mainFields .messagesMeta .messagesMain .messageFormMain .inputText input:focus {
+  font-size: 30px;
+}
+
+.mainFields .messagesMeta .messagesMain .messageFormMain .messageFormButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 98%;
+  border: 1px solid black;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 40px;
 }
 
 .mainFields .messagesMeta .messagesMain .messageHeader {
