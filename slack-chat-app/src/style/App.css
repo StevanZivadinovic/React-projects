@@ -166,7 +166,6 @@
 }
 
 .mainFields .messagesMeta .messagesMain {
-  border: 1px solid black;
   margin: 5px;
   margin-bottom: 15px;
 }
@@ -183,7 +182,8 @@
   background-color: white;
   margin-top: 10px;
   width: 165%;
-  border: 1px solid black;
+  border: 2px solid #726a6a;
+  border-radius: 5px;
   height: 18%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -233,7 +233,6 @@
   display: -ms-flexbox;
   display: flex;
   width: 98%;
-  border: 1px solid black;
   margin: 0 auto;
   border-radius: 5px;
   height: 40px;
@@ -243,6 +242,23 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+}
+
+.mainFields .messagesMeta .messagesMain .messageFormMain .messageFormButton span img {
+  width: 5%;
+}
+
+.mainFields .messagesMeta .messagesMain .messageFormMain .messageFormButton span .addReplay {
+  width: 45%;
+  background-color: orange;
+  border: 0;
+}
+
+.mainFields .messagesMeta .messagesMain .messageFormMain .messageFormButton span .uploadMedia {
+  border: 0;
+  width: 45%;
+  background-color: #93e5e5;
 }
 
 .mainFields .messagesMeta .messagesMain .messageHeader {
@@ -254,7 +270,7 @@
 }
 
 .mainFields .messagesMeta .messagesMain .messageHeader .header {
-  border: 1px solid black;
+  border: 1px solid #797171;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -269,7 +285,6 @@
 }
 
 .mainFields .messagesMeta .messagesMain .messageHeader .searchMessage {
-  border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
