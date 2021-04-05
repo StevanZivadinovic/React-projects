@@ -166,22 +166,25 @@
 }
 
 .mainFields .messagesMeta .messagesMain {
-  background-color: white;
   border: 1px solid black;
   margin: 5px;
   margin-bottom: 15px;
 }
 
 .mainFields .messagesMeta .messagesMain .messages {
+  background-color: white;
   width: 100%;
   height: 70%;
+  margin-top: 10px;
   border: 1px solid black;
 }
 
 .mainFields .messagesMeta .messagesMain .messageFormMain {
+  background-color: white;
+  margin-top: 10px;
   width: 165%;
   border: 1px solid black;
-  height: 20%;
+  height: 18%;
 }
 
 .mainFields .messagesMeta .messagesMain .messageFormMain .inputText {
@@ -215,6 +218,7 @@
   display: grid;
   -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
+  background-color: white;
 }
 
 .mainFields .messagesMeta .messagesMain .messageHeader .header {
