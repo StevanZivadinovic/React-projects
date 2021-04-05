@@ -158,7 +158,13 @@
   background-color: #eee;
 }
 
-.mainFields .messagesMeta,
+.mainFields .messagesMeta {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
 .mainFields .colorSide {
   display: -ms-grid;
   display: grid;
@@ -166,7 +172,6 @@
       grid-template-columns: 25% 75%;
 }
 
-.mainFields .messagesMeta .colorPanel,
 .mainFields .colorSide .colorPanel {
   background-color: black;
   display: -webkit-box;
@@ -177,7 +182,6 @@
           justify-content: center;
 }
 
-.mainFields .messagesMeta .colorPanel img,
 .mainFields .colorSide .colorPanel img {
   margin: 0 auto !important;
   width: 50px;
