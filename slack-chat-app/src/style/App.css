@@ -162,12 +162,30 @@
 .mainFields .colorSide {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
+  -ms-grid-columns: 25% 75%;
+      grid-template-columns: 25% 75%;
+}
+
+.mainFields .messagesMeta .colorPanel,
+.mainFields .colorSide .colorPanel {
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainFields .messagesMeta .colorPanel img,
+.mainFields .colorSide .colorPanel img {
+  margin: 0 auto !important;
+  width: 50px;
+  height: 50px;
 }
 
 .mainFields .sidePanel {
-  width: 200%;
+  width: 100%;
   height: 100vh;
   background-color: #4c3c4c;
 }
@@ -179,6 +197,10 @@
   width: 80%;
   margin: auto;
   font-size: 2.2rem;
+}
+
+.mainFields .sidePanel h2 {
+  margin: 0;
 }
 
 ul {
@@ -212,7 +234,6 @@ li:nth-child(3):hover {
 
 .user {
   width: 50%;
-  margin: 0 auto;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;

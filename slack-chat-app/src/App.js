@@ -50,7 +50,7 @@ function App(props) {
       </Switch>
       <div className="mainFields">
         <div className="colorSide">
-          {/* <ColorPanel></ColorPanel> */}
+          <ColorPanel></ColorPanel>
           <SidePanel curentUser={props}></SidePanel>
         </div>
         <div className="messagesMeta">
