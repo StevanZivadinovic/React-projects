@@ -44,17 +44,18 @@ const Channels = (props) => {
    
     let handleSubmit = ()=>{
         if(formValid(nameOfChannel,detailsOfChannel)){
-            console.log('Channel added');
+            console.log('Channel added', props.user.user);
             Firebase.default.firestore()
             .collection('channels').add({
                 name:nameOfChannel,
                 details:detailsOfChannel,
+                uid:props.user.user.currentUser.uid,
                 createdBy:{
                     avatar:props.user.user.currentUser.photoURL,
                     name:props.user.user.currentUser.displayName
                 }
-            }).then(data=>{
-
+            }).then(data=>{ 
+                console.log(props)
                 setNumOfChannels( [...numOfChannels ,{
                     name:nameOfChannel,
                     details:detailsOfChannel,
@@ -77,18 +78,25 @@ const Channels = (props) => {
         Firebase.default.firestore()
         .collection('channels').get()
         .then(docs=>{
-            
-            props.setCurrentChannel( {nameOfChannel:docs.docs[0].data().name,
-            details:docs.docs[0].data().details,            
-            avatar:docs.docs[0].data().createdBy.avatar,
-            name:docs.docs[0].data().createdBy.name})
+               
+            if(docs.docs.length>0){
+                props.setCurrentChannel( {nameOfChannel:docs.docs[0].data().name,
+                    details:docs.docs[0].data().details,  
+                    uid:docs.docs[0].data().uid,
+                    id:docs.docs[0].id,           
+                    avatar:docs.docs[0].data().createdBy.avatar,
+                    name:docs.docs[0].data().createdBy.name})
+            }
+                
             docs.forEach(doc=>{
                 
                 setNumOfChannels(numOfChannels=> [...numOfChannels, {
                     nameOfChannel:doc.data().name,
                     details:doc.data().details,            
                     avatar:doc.data().createdBy.avatar,
-                    name:doc.data().createdBy.name
+                    name:doc.data().createdBy.name,
+                    id:doc.id,
+                    uid:doc.data().uid,
                     }]) 
   
             })
