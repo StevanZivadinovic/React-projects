@@ -18,6 +18,7 @@ import Messages from "./components/Messages/Messages";
 import MetaPanel from "./components/MetaPanel/MetaPanel";
 
 function App(props) {
+  console.log(props)
   let history = useHistory();
 
   useEffect(() => {
@@ -54,7 +55,7 @@ function App(props) {
           <SidePanel curentUser={props}></SidePanel>
         </div>
         <div className="messagesMeta">
-          <Messages></Messages>
+          <Messages state={props}></Messages>
           <MetaPanel></MetaPanel>
         </div>
       </div>
