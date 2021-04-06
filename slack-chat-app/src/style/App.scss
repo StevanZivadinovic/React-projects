@@ -131,10 +131,12 @@
         width: 100%;
         height: 70%;
         margin-top: 10px;
-        border: 1px solid black;
+        // border: 1px solid black;
       }
 
       .messageFormMain{
+        box-shadow: 3px 3px 5px 6px #ccc;
+
         background-color: white;
         margin-top: 10px;
         width: 165%;
@@ -191,11 +193,15 @@
              width: 45%;
              background-color: orange;
              border: 0;
+             cursor: pointer;
            }
            .uploadMedia{
+
             border: 0;
-             width: 45%;
-             background-color: rgb(147, 229, 229);
+            width: 45%;
+            background-color: rgb(147, 229, 229);
+            cursor: pointer;
+
            }
 
           }
@@ -203,11 +209,14 @@
       }
 
       .messageHeader{
+        box-shadow: 3px 3px 5px 6px #ccc;
+
         display: grid;
         grid-template-columns: 50% 50%;
         background-color: white;
+        border: 2px solid rgb(194, 180, 180);
+        border-radius: 5px;
         .header{
-          border: 1px solid rgb(121, 113, 113);
           display: flex;
           flex-direction: column;
          
@@ -337,6 +346,8 @@ li:nth-child(3):hover {
     flex-direction: column;
 
     .form {
+      box-shadow: 3px 3px 5px 6px #ccc;
+
       border: 1px solid rgb(194, 180, 180);
       display: flex;
       justify-content: center;
@@ -486,6 +497,11 @@ ul.listOfChannels{
   }
 
 
+}
+.messages{
+  border: 2px solid rgb(194, 180, 180);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 
