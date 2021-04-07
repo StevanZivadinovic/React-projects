@@ -1,35 +1,46 @@
 import Firebase from './../../config';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 
-const MessageForm = (props) => {
-  console.log(props)
+const MessageForm = ({stateProperty, dispatch}) => {
+  
   const [message, setMessage] = useState('');
   const [loading, setLoadig] = useState(false);
- const [channel, setChannel] = useState(props.stateProperty.channel.currentChannel &&
-  props.stateProperty.channel.currentChannel.nameOfChannel);
- console.log(channel)
+  const [channel, setChannel] = useState('');
+  const [user, setUser] = useState(stateProperty.user.currentUser);
+  
+  const [err, setErr]=useState([])
+ useEffect(() => {
+  setChannel(stateProperty.channel.currentChannel)
+ }, [stateProperty.channel.currentChannel])
+ 
   let handleChange=(e)=>{
     setMessage(e.target.value)
   }
 
   let sendMessage = () =>{
     if(message){
-
+      setLoadig(true);
       Firebase.default.firestore().collection('messages')
       .add({
         content:message,
         timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),
+        channel:channel.nameOfChannel,
         user:{
-          id:'',
-          name:'',
-          avatar:''
+          id:user.uid,
+          name:user.displayName,
+          avatar:user.photoURL
         }
       })
       .then(data=>{
         console.log('message is sent')
+        setLoadig(false);
+        setMessage('');
+        setErr([])
+      }).catch(err=>{
+        setErr(err)
       })
-      setLoadig(true);
+      
     }
   }
 
