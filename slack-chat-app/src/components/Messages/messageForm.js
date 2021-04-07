@@ -57,7 +57,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
       <div className="messageFormButton">
         <span>
           <img src="https://img.icons8.com/fluent-systems-filled/48/000000/edit-message.png" />
-          <button onClick={sendMessage} className="addReplay">Add Replay</button>
+          <button disabled={loading} onClick={sendMessage} className="addReplay">Add Replay</button>
           <button className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
         </span>

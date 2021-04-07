@@ -117,7 +117,7 @@ const Channels = (props) => {
 
         <ul className='listOfChannels'>
             {numOfChannels.length>0 && numOfChannels.map(channel=>{
-                return (channel.nameOfChannel?<li onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
+                return (channel.nameOfChannel?<li key={Math.random()} onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
                : <li onClick={()=>setChannelToState(channel)}>#{channel.name}</li>)
             })}
         </ul>
