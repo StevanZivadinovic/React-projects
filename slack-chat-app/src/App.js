@@ -18,7 +18,7 @@ import Messages from "./components/Messages/Messages";
 import MetaPanel from "./components/MetaPanel/MetaPanel";
 
 function App(props) {
-  console.log(props)
+  
   let history = useHistory();
 
   useEffect(() => {
