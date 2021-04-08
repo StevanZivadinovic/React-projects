@@ -1,7 +1,8 @@
 import MessagesHeader from './messagesHeader';
 import  MessageForm from './messageForm';
 import {useState, useEffect} from 'react';
-import Firebase from './../../config'
+import Firebase from './../../config';
+import Message from './message'
 
 
 const Messages = (props) => {
@@ -10,7 +11,7 @@ const Messages = (props) => {
   let user = props.state.stateProperty.user;
   const [ channel1, setChannel1] = useState('');
   const [ user1, setUser1] = useState('');
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState('');
 
   useEffect(() => {
         setChannel1(channel);
@@ -18,25 +19,48 @@ const Messages = (props) => {
   }, [channel.currentChannel])
 //   console.log(channel1, user1);
 
-  if(channel1.currentChannel && user1){
-    // let initialArray=[]
+let v=[]
+
+if(channel1.currentChannel && user1){
+
+  
+    
     Firebase.default.firestore().collection('messages')
-    .where('channel','==',channel1.currentChannel.nameOfChannel).get()
-    .then(data=>{
-        data.forEach(doc=>{
-            console.log(doc.data())
-            // initialArray.push()
-            setMessages(...messages, doc.data())
+    .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
+      let initialArray=new Array();
+      snapShot.forEach(doc=>{
+          
+        initialArray.push(doc.data())
+        
+       
 
-        })
-        console.log(messages) 
-    })
-  }
+      })
+      console.log((initialArray))
+        // setMessages(initialArray);
+      v=[...initialArray]
+      })
+    }
+   
+  console.log(v)
+    // let displayMessages=(messages1)=>{
+    //   // console.log(messages1.length)
+    //   messages1.map(message1=>{
+        
+    //     return console.log(message1)
+    //     // <Message
+    //     // key={message.timestamp}
+    //     // message={message}
+    //     // user={message.user}
 
+    //     // />
+    //   })
+    // }
 
+    
     return ( <div className='messagesMain'>
         <MessagesHeader></MessagesHeader>
         <div className="messages">
+          {/* <ul>{displayMessages()}</ul> */}
             </div>        
         <MessageForm></MessageForm>
     </div> );
