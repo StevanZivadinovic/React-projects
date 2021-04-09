@@ -11,33 +11,37 @@ const Messages = (props) => {
   let user = props.state.stateProperty.user;
   const [ channel1, setChannel1] = useState('');
   const [ user1, setUser1] = useState('');
-  const [messages, setMessages] = useState('');
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
         setChannel1(channel);
         setUser1(user)
   }, [channel.currentChannel])
-//   console.log(channel1, user1);
+  console.log(channel1, user1);
 
-let v=[]
 
+var v=[];
 if(channel1.currentChannel && user1){
 
-  
-    
     Firebase.default.firestore().collection('messages')
     .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
       let initialArray=new Array();
+      // setMessages(snapShot);
       snapShot.forEach(doc=>{
           
         initialArray.push(doc.data())
         
-       
-
       })
       console.log((initialArray))
-        // setMessages(initialArray);
-      v=[...initialArray]
+      // v=[...initialArray]
+      // console.log(v)
+     let a = document.querySelector('.ulMessages')
+      initialArray.forEach(b=>{
+        console.log(b.content)
+        
+        a.innerHTML+=`<div class='list-item'><img width='20px' src='${b.user.avatar}'> <li  class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
+      })
+      
       })
     }
    
@@ -60,7 +64,7 @@ if(channel1.currentChannel && user1){
     return ( <div className='messagesMain'>
         <MessagesHeader></MessagesHeader>
         <div className="messages">
-          {/* <ul>{displayMessages()}</ul> */}
+          <ul className='ulMessages'></ul>
             </div>        
         <MessageForm></MessageForm>
     </div> );

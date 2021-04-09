@@ -647,4 +647,25 @@ ul.listOfChannels li:last-child {
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
           box-shadow: 3px 3px 5px 6px #ccc;
 }
+
+.ulMessages {
+  background-color: white;
+}
+
+.ulMessages li {
+  cursor: auto !important;
+  margin-top: 3px;
+}
+
+.ulMessages .message_self {
+  border-left: 2px solid orange;
+  margin-left: 8px;
+  padding-left: 8px;
+}
+
+.list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=App.css.map */
