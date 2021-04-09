@@ -650,6 +650,7 @@ ul.listOfChannels li:last-child {
 
 .ulMessages {
   background-color: white;
+  margin: 0 10px 0 10px;
 }
 
 .ulMessages li {

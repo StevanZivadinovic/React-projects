@@ -19,6 +19,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
   }
 
   let sendMessage = () =>{
+  
+
     if(message){
       setLoadig(true);
       Firebase.default.firestore().collection('messages')
@@ -43,6 +45,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
       
     }
   }
+
+
 
   return (
     <div className="messageFormMain">
