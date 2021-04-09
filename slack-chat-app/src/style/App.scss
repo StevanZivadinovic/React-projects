@@ -510,7 +510,7 @@ ul.listOfChannels{
   li{
 
     cursor: auto !important;
-    margin-top: 3px;
+    
     
   }
   .message_self{
@@ -522,7 +522,8 @@ ul.listOfChannels{
 
 .list-item{
   display: flex;
-  
+ margin-bottom: 4px;
+ height: 30px;
 }
 
 

@@ -39,7 +39,7 @@ if(channel1.currentChannel && user1){
       initialArray.forEach(b=>{
         console.log(b.content)
         
-        a.innerHTML+=`<div class='list-item'><img width='20px' src='${b.user.avatar}'> <li  class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
+        a.innerHTML+=`<div class='list-item'><img width='30px' src='${b.user.avatar}'> <li  class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
       })
       
       })
