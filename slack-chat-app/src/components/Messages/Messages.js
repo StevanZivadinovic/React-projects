@@ -32,10 +32,10 @@ useEffect(() => {
     
         Firebase.default.firestore().collection('messages')
         .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
-          let initialArray=new Array();
+     
           
           snapShot.docChanges().forEach(change=>{
-            initialArray.push(change.doc.data())
+           
             if (change.type === 'added') {
             preuzmi(change.doc.data())
         
