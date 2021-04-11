@@ -520,13 +520,25 @@ ul.listOfChannels{
     margin-left: 8px;
     padding-left: 8px;
   }
+  .message_stranger{
+    border-left: 2px solid rgb(0, 119, 255);
+    margin-left: 8px;
+    padding-left: 8px;
+  }
 }
 
 .list-item{
+  
   display: flex;
  margin-bottom: 4px;
  height: 30px;
  
+}
+.list-item-stranger{
+//  float: right;
+ display: flex;
+ margin-bottom: 4px;
+ height: 30px;
 }
 
 

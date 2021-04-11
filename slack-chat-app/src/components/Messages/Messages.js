@@ -23,7 +23,7 @@ const Messages = (props) => {
 // var v=document.createElement('div')
 let a = document.querySelector('.ulMessages');
 let preuzmi=(b)=>{
-  a.innerHTML+=`<div class='list-item'><img width='30px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
+  a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img width='30px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.content}</li></div>`;
   
 }
 useEffect(() => {
