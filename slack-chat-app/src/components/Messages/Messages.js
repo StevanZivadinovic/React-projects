@@ -34,16 +34,11 @@ useEffect(() => {
         .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
           let initialArray=new Array();
           
-          // setMessages(snapShot);
           snapShot.docChanges().forEach(change=>{
             initialArray.push(change.doc.data())
             if (change.type === 'added') {
-              // console.log(messages)
-               initialArray.forEach(b=>{
-            preuzmi(b)
-            
-           
-          })
+            preuzmi(change.doc.data())
+        
             }
           })
        
