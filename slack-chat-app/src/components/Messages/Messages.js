@@ -22,48 +22,38 @@ const Messages = (props) => {
 
 // var v=document.createElement('div')
 let a = document.querySelector('.ulMessages');
-// let probni = document.querySelector('.probni');
-let c = document.createElement('div');
-if(channel1.currentChannel && user1){
+let preuzmi=(b)=>{
+  a.innerHTML+=`<div class='list-item'><img width='30px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
   
-    Firebase.default.firestore().collection('messages')
-    .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
-      let initialArray=new Array();
-      // setMessages(snapShot);
-      snapShot.forEach(doc=>{
-        initialArray.push(doc.data())
-      })
-      initialArray.forEach(b=>{
-        // console.log(b.content)
-        
-        c.innerHTML+=`<div class='list-item'><img width='30px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":''}'> ${b.content}</li></div>`;
-       
-      })
-      console.log(c)
-     a.innerHTML=`${c}`;
-      // snapShot.docChanges().forEach(change => {
-      //   if (change.type === 'added') {
-      //     console.log('New city: ', change.doc.data());
-      //   }
-      //    })
-    })
+}
+useEffect(() => {
+  if(channel1.currentChannel && user1){
+    a.innerHTML='';
     
-    }
-   
-  // console.log(v)
-    // let displayMessages=(messages1)=>{
-    //   // console.log(messages1.length)
-    //   messages1.map(message1=>{
+        Firebase.default.firestore().collection('messages')
+        .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
+          let initialArray=new Array();
+          
+          // setMessages(snapShot);
+          snapShot.docChanges().forEach(change=>{
+            initialArray.push(change.doc.data())
+            if (change.type === 'added') {
+              // console.log(messages)
+               initialArray.forEach(b=>{
+            preuzmi(b)
+            
+           
+          })
+            }
+          })
+       
+        })
         
-    //     return console.log(message1)
-    //     // <Message
-    //     // key={message.timestamp}
-    //     // message={message}
-    //     // user={message.user}
+        }
+}, [channel1.currentChannel])
 
-    //     // />
-    //   })
-    // }
+   
+ 
 
     
     return ( <div className='messagesMain'>
