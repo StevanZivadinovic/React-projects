@@ -14,7 +14,7 @@ const AddMedia = () => {
 
             <div className="media">
             <label htmlFor="addMedia">File types:jpg, png</label>
-            <input type='text' id='addMedia' />
+            <input type='file' id='addMedia' />
             </div>
 
             <div className="buttons">
