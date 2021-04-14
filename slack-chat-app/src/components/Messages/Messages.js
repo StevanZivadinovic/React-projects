@@ -36,7 +36,7 @@ useEffect(() => {
     
         Firebase.default.firestore().collection('messages')
         .where('channel','==',channel1.currentChannel.nameOfChannel)
-        .orderBy('timestamp', 'desc')
+        .orderBy('timestamp', 'asc')
         .onSnapshot(snapShot => {
      
           
