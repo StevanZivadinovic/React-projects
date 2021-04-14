@@ -26,8 +26,8 @@ let a = document.querySelector('.ulMessages');
 let time = Math.floor(new Date().getTime()/1000)
 
 let preuzmi=(b)=>{
-  console.log(moment(b.timestamp.toMillis()).fromNow())
-  a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${moment(b.timestamp.toMillis()).fromNow()}</span><br>${b.content}</li></div>`;
+  // console.log(moment(b.timestamp.toMillis()).fromNow())
+  a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br>${b.content}</li></div>`;
   
 }
 useEffect(() => {
@@ -35,7 +35,9 @@ useEffect(() => {
     a.innerHTML='';
     
         Firebase.default.firestore().collection('messages')
-        .where('channel','==',channel1.currentChannel.nameOfChannel).onSnapshot(snapShot => {
+        .where('channel','==',channel1.currentChannel.nameOfChannel)
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(snapShot => {
      
           
           snapShot.docChanges().forEach(change=>{
