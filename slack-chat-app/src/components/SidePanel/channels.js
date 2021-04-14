@@ -102,7 +102,8 @@ const Channels = (props) => {
             })
             
         })
-     
+        
+        console.log(props.user);
     }, []);
 
 

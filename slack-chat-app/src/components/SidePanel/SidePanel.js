@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import Channels from './channels';
 const SidePanel = (props) => {
     const [display, setDisplay] = useState(true)
-
+  
     let dropdownMenu = () => {
        
             console.log(props)
@@ -35,7 +35,7 @@ const SidePanel = (props) => {
         <h2 onClick={dropdownMenu} className='user'><span><img style={{width:'30px', borderRadius:'50%'}} src={props.user && props.user.photoURL}/></span>{ props.user && props.user.displayName}<span><img src="https://img.icons8.com/metro/12/000000/low-priority.png"/></span></h2>
      
         <ul name="" id="mainMenu">
-            <li value="" disabled>Signed in as <b>{props.user && props.user.displayName}</b></li>
+            <li value="" disabled>Signed in as <b>{props.user.displayName ? props.user.displayName :''}</b></li>
             <li value="">Change avatar</li>
             <li onClick={signOut} value="">Sign Out</li>
         </ul>
@@ -45,6 +45,7 @@ const SidePanel = (props) => {
 
 let mapStateToProps = state=>({
     user:state.user.currentUser
+    
 })
  
 export default connect(mapStateToProps, null)(SidePanel);
