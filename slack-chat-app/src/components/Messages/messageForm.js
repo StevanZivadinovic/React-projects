@@ -1,6 +1,7 @@
 import Firebase from './../../config';
 import {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
+import AddMedia from './addMedia';
 
 const MessageForm = ({stateProperty, dispatch}) => {
   
@@ -8,6 +9,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [loading, setLoadig] = useState(false);
   const [channel, setChannel] = useState('');
   const [user, setUser] = useState(stateProperty.user.currentUser);
+  const [modal, setModal] = useState(false)
   
   const [err, setErr]=useState([])
  useEffect(() => {
@@ -46,6 +48,14 @@ const MessageForm = ({stateProperty, dispatch}) => {
     }
   }
 
+  let openModal = ()=>{
+    setModal(true);
+    document.querySelector('.mainMedia').style.display = 'flex';
+  }
+  let closeModal = ()=>{
+    setModal(false);
+    console.log(false);
+  }
 
 
   return (
@@ -62,8 +72,9 @@ const MessageForm = ({stateProperty, dispatch}) => {
         <span>
           <img src="https://img.icons8.com/fluent-systems-filled/48/000000/edit-message.png" />
           <button disabled={loading} onClick={sendMessage} className="addReplay">Add Replay</button>
-          <button className="uploadMedia">Upload Media</button>
+          <button onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
+          <AddMedia modal={modal} closeModal={closeModal}></AddMedia>
         </span>
       </div>
     </div>

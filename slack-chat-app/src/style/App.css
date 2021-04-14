@@ -684,4 +684,209 @@ ul.listOfChannels li:last-child {
   margin-bottom: 4px;
   height: 35px;
 }
+
+.mainMedia {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(49, 49, 49, 0.9);
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mainMedia .addMediaForm {
+  -webkit-box-shadow: 0px 0px 5px 5px #ccc;
+          box-shadow: 0px 0px 5px 5px #ccc;
+  border: 1px solid #c2b4b4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  height: 30%;
+}
+
+.mainMedia .addMediaForm .formMedia {
+  width: 80%;
+  padding: 0;
+}
+
+.mainMedia .addMediaForm .formMedia .media {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 3%;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.mainMedia .addMediaForm .formMedia .media label {
+  background-color: #d4d6d6;
+  width: 20%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 800;
+}
+
+.mainMedia .addMediaForm .formMedia .media input {
+  width: 80%;
+  border: none;
+  background-color: lightcyan;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 25px;
+}
+
+.mainMedia .addMediaForm .formMedia .media input:focus {
+  border-bottom: 2px solid #99235a;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons {
+  width: 35%;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons button {
+  padding: 0 20px;
+  width: 50%;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Add {
+  background: transparent;
+  border: 1px solid green;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Add span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Add span img {
+  width: 20px;
+  height: 20px;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Add::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(85, 204, 30, 0.2);
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Add:hover::after {
+  width: 100%;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel {
+  background: transparent;
+  border: 1px solid red;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  color: red;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel span img {
+  width: 20px;
+  height: 20px;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel span span:nth-child(1) {
+  height: 100%;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(204, 30, 30, 0.2);
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.mainMedia .addMediaForm .formMedia .buttons .Cancel:hover::after {
+  width: 100%;
+}
 /*# sourceMappingURL=App.css.map */
