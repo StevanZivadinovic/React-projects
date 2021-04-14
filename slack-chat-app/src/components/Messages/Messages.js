@@ -2,7 +2,8 @@ import MessagesHeader from './messagesHeader';
 import  MessageForm from './messageForm';
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
-import Message from './message'
+import Message from './message';
+import moment from 'moment'
 
 
 const Messages = (props) => {
@@ -22,8 +23,11 @@ const Messages = (props) => {
 
 // var v=document.createElement('div')
 let a = document.querySelector('.ulMessages');
+let time = Math.floor(new Date().getTime()/1000)
+
 let preuzmi=(b)=>{
-  a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img width='30px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.content}</li></div>`;
+  console.log(moment(b.timestamp.toMillis()).fromNow())
+  a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${moment(b.timestamp.toMillis()).fromNow()}</span><br>${b.content}</li></div>`;
   
 }
 useEffect(() => {
@@ -36,6 +40,7 @@ useEffect(() => {
           
           snapShot.docChanges().forEach(change=>{
            
+            console.log(change.doc.data())
             if (change.type === 'added') {
             preuzmi(change.doc.data())
         

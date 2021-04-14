@@ -674,7 +674,7 @@ ul.listOfChannels li:last-child {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 4px;
-  height: 30px;
+  height: 35px;
 }
 
 .list-item-stranger {
@@ -682,6 +682,6 @@ ul.listOfChannels li:last-child {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 4px;
-  height: 30px;
+  height: 35px;
 }
 /*# sourceMappingURL=App.css.map */
