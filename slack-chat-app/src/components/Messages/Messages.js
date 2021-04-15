@@ -42,7 +42,7 @@ useEffect(() => {
           
           snapShot.docChanges().forEach(change=>{
            
-            console.log(change.doc.data())
+            // console.log(change.doc.data())
             if (change.type === 'added') {
             preuzmi(change.doc.data())
         

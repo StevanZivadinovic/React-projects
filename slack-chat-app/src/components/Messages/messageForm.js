@@ -57,6 +57,11 @@ const MessageForm = ({stateProperty, dispatch}) => {
     console.log(false);
   }
 
+  let uploadFile =(file,metadata)=>{
+    const pathToUpLoad = stateProperty.channel.currentChannel.id;
+    let db = '';
+    const filePath = `chat/public/${''}`;
+  }
 
   return (
     <div className="messageFormMain">
@@ -74,7 +79,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
           <button disabled={loading} onClick={sendMessage} className="addReplay">Add Replay</button>
           <button onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
-          <AddMedia modal={modal} closeModal={closeModal}></AddMedia>
+          <AddMedia uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
         </span>
       </div>
     </div>
