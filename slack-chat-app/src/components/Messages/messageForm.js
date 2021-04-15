@@ -10,8 +10,13 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [channel, setChannel] = useState('');
   const [user, setUser] = useState(stateProperty.user.currentUser);
   const [modal, setModal] = useState(false)
-  
-  const [err, setErr]=useState([])
+  const [err, setErr]=useState([]);
+  const [uploadState, setUploadState] = useState('');
+  const [uploadTask, setUploadTask] = useState(null);
+  const [storage, setStorage] = useState('')
+
+
+
  useEffect(() => {
   setChannel(stateProperty.channel.currentChannel)
  }, [stateProperty.channel.currentChannel])
@@ -59,8 +64,11 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
   let uploadFile =(file,metadata)=>{
     const pathToUpLoad = stateProperty.channel.currentChannel.id;
-    let db = '';
+    let db = Firebase.default.firestore().collection('messages');
     const filePath = `chat/public/${''}`;
+
+    setUploadState('uploading');
+    setUploadTask()
   }
 
   return (
