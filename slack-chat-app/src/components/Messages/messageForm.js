@@ -30,7 +30,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
   let sendMessage = (downloadURL=null) =>{
     console.log('neispravno poslato');
-
+    console.log(message)
 
    
 
@@ -53,9 +53,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
       setLoadig(true);
       Firebase.default.firestore().collection('messages')
-      .add({
-       mess
-      })
+      .add(mess)
       .then(data=>{
         console.log('message is sent')
         setLoadig(false);
