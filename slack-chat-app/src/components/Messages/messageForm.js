@@ -13,7 +13,9 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [err, setErr]=useState([]);
   const [uploadState, setUploadState] = useState('');
   const [uploadTask, setUploadTask] = useState(null);
-  const [storage, setStorage] = useState('')
+  const [storage, setStorage] = useState(Firebase.default.storage());
+  const [percentUploaded, setPercentUploaded] = useState(0);
+  const [errors, setErrors] = useState(null)
 
 
 
@@ -65,10 +67,39 @@ const MessageForm = ({stateProperty, dispatch}) => {
   let uploadFile =(file,metadata)=>{
     const pathToUpLoad = stateProperty.channel.currentChannel.id;
     let db = Firebase.default.firestore().collection('messages');
-    const filePath = `chat/public/${''}`;
+    const filePath = `chat/public/${file.name}`;
 
     setUploadState('uploading');
-    setUploadTask()
+    storage.ref(filePath).put(file, metadata)//metadata nesto ne radi
+
+   
+
+     .on('state_changed',snap=>{
+        let percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+        setPercentUploaded(percentage);
+      
+    },
+    (err)=>{
+      console.log(err);
+      setUploadState('error');
+      // setUploadTask(null);
+      setErrors(err);
+    },
+    ()=>{
+     
+      storage.ref(filePath).getDownloadURL()
+      .then(downloadURL=>{//ovde dohvatas URL slike iz storage
+        console.log(downloadURL)
+        // sendFileMessage(downloadURL, ref, pathToUpLoad)
+      })
+      .catch(err=>{
+        console.log(err);
+      setUploadState('error');
+      setUploadTask(null);
+      setErrors(err);
+      })
+    }
+    )
   }
 
   return (
