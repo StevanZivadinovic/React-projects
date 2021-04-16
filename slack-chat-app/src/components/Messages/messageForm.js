@@ -26,22 +26,35 @@ const MessageForm = ({stateProperty, dispatch}) => {
   let handleChange=(e)=>{
     setMessage(e.target.value)
   }
-
-  let sendMessage = () =>{
   
 
-    if(message){
+  let sendMessage = (downloadURL=null) =>{
+    console.log('neispravno poslato');
+
+
+   
+
+    if(message || downloadURL){
+
+      let mess={ 
+        timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),
+      channel:channel.nameOfChannel,
+      user:{
+        id:user.uid,
+        name:user.displayName,
+        avatar:user.photoURL
+      }}
+
+      if(downloadURL!==null){
+        mess['image']=downloadURL;
+      }else{
+        mess['content']=message;
+      }
+
       setLoadig(true);
       Firebase.default.firestore().collection('messages')
       .add({
-        content:message,
-        timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),
-        channel:channel.nameOfChannel,
-        user:{
-          id:user.uid,
-          name:user.displayName,
-          avatar:user.photoURL
-        }
+       mess
       })
       .then(data=>{
         console.log('message is sent')
@@ -63,6 +76,14 @@ const MessageForm = ({stateProperty, dispatch}) => {
     setModal(false);
     console.log(false);
   }
+
+
+
+
+  // let sendFileMessage=(downloadURL, db, pathToUpLoad)=>{
+  //   console.log(pathToUpLoad)
+  //   db.doc(pathToUpLoad).set(sendMessage(downloadURL))
+  // }
 
   let uploadFile =(file,metadata)=>{
     const pathToUpLoad = stateProperty.channel.currentChannel.id;
@@ -90,17 +111,20 @@ const MessageForm = ({stateProperty, dispatch}) => {
       storage.ref(filePath).getDownloadURL()
       .then(downloadURL=>{//ovde dohvatas URL slike iz storage
         console.log(downloadURL)
-        // sendFileMessage(downloadURL, ref, pathToUpLoad)
+        sendMessage(downloadURL)
+        // sendFileMessage(downloadURL, db, pathToUpLoad)
       })
       .catch(err=>{
         console.log(err);
       setUploadState('error');
-      setUploadTask(null);
+      // setUploadTask(null);
       setErrors(err);
       })
     }
     )
   }
+
+
 
   return (
     <div className="messageFormMain">
@@ -118,7 +142,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
           <button disabled={loading} onClick={sendMessage} className="addReplay">Add Replay</button>
           <button onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
-          <AddMedia uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
+          <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
         </span>
       </div>
     </div>
