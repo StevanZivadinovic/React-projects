@@ -48,6 +48,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
       if(downloadURL!==null){
         mess['image']=downloadURL;
+
       }else{
         mess['content']=message;
       }
@@ -87,6 +88,11 @@ const MessageForm = ({stateProperty, dispatch}) => {
      .on('state_changed',snap=>{
         let percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
         setPercentUploaded(percentage);
+        document.querySelector('.mainMedia').style.display = 'none';
+        if(percentUploaded<100){
+
+          document.querySelector('.progress-bar').style.display='block';
+        }
       
     },
     (err)=>{
