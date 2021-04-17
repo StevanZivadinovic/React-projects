@@ -139,7 +139,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
         <span>
           <img src="https://img.icons8.com/fluent-systems-filled/48/000000/edit-message.png" />
           <button disabled={loading} onClick={()=>sendMessage(URL)} className="addReplay">Add Replay</button>
-          <button onClick={openModal} className="uploadMedia">Upload Media</button>
+          <button disabled={uploadState==='uploading'} onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
           <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
         </span>
