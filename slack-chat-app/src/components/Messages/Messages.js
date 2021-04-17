@@ -7,7 +7,7 @@ import moment from 'moment'
 
 
 const Messages = (props) => {
-  
+ 
   let channel=props.state.stateProperty.channel;
   let user = props.state.stateProperty.user;
   const [ channel1, setChannel1] = useState('');
@@ -70,7 +70,8 @@ useEffect(() => {
         <MessagesHeader></MessagesHeader>
         <div className="messages">
           <ul className='ulMessages'></ul>
-            </div>        
+            </div>
+        
         <MessageForm></MessageForm>
     </div> );
 }

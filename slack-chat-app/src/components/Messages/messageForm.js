@@ -122,6 +122,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
   return (
     <div className="messageFormMain">
+      <div className='progress-bar' style={{width:percentUploaded +'%'}}>{`${percentUploaded}%`}</div>
+
       <div className="inputText">
         <div>
           <span>
@@ -138,7 +140,6 @@ const MessageForm = ({stateProperty, dispatch}) => {
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
           <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
         </span>
-        <div className='progress-bar' style={{width:percentUploaded +'%'}}>{`${percentUploaded}%`}</div>
       </div>
     </div>
   );
