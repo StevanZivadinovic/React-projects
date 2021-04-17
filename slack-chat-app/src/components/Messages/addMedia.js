@@ -33,7 +33,7 @@ const AddMedia = (props) => {
         }
     }
 
-    console.log(file)
+    // console.log(file)
 
     return ( <div className='mainMedia'>
         <div className='addMediaForm'>

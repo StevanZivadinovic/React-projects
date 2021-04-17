@@ -3,7 +3,7 @@ const MessagesHeader = (props) => {
     return ( <div className="messageHeader">
         <div className="header">
             <h1>{props.channel1.currentChannel ? props.channel1.currentChannel.nameOfChannel : 'Channel'}<span><img src="https://img.icons8.com/metro/26/000000/star.png"/></span></h1>
-            <h2>2 Users</h2>
+            <h2>{props.numOfUsers1}</h2>
         </div>
         <div className="searchMessage">
             <div className='inputBox'>

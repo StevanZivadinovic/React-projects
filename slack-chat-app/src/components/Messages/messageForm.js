@@ -27,7 +27,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
   let handleChange=(e)=>{
     setMessage(e.target.value)
   }
-  console.log(message)
+  
 
   let sendMessage = (downloadURL=null) =>{
     console.log('neispravno poslato');
@@ -35,7 +35,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
     
     
     if(message || downloadURL){
-      console.log(message, downloadURL)
+      // console.log(message, downloadURL)
 
       let mess={ 
         timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),

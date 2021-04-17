@@ -13,6 +13,7 @@ const Messages = (props) => {
   const [ channel1, setChannel1] = useState('');
   const [ user1, setUser1] = useState('');
   const [messages, setMessages] = useState([]);
+  const [numOfUsers1, setnumOfUsers1] = useState(null);
 
   useEffect(() => {
         setChannel1(channel);
@@ -29,7 +30,7 @@ let preuzmi=(b)=>{
   // console.log(moment(b.timestamp.toMillis()).fromNow())
  
   if(b.content){
-    a.innerHTML+=`<div class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img alt='slika' height='35px' width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br>${b.content}</li></div>`;
+    a.innerHTML+=`<div  class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img alt='slika' height='35px' width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br>${b.content}</li></div>`;
   }
   if(b.image){
    
@@ -38,6 +39,7 @@ let preuzmi=(b)=>{
   }
   
 }
+let users=[];
 useEffect(() => {
   if(channel1.currentChannel && user1){
     a.innerHTML='';
@@ -53,21 +55,37 @@ useEffect(() => {
             // console.log(change.doc.data())
             if (change.type === 'added') {
             preuzmi(change.doc.data())
-            
+           users.push(change.doc.data())
             }
+            
           })
+          console.log(users);
+          let names = [];
+          users.forEach(user=>{
+            names.push(user.user.name)
+          })
+         let numOfUsers=[];
+         names.forEach(name=>{
+           if(!numOfUsers.includes(name)){
+            numOfUsers.push(name)
+           }
+         })
+         setnumOfUsers1(numOfUsers.length)
+         console.log(numOfUsers.length)
           document.querySelector('.progress-bar').style.display='none';
         })
         
         }
 }, [channel1.currentChannel])
 
-   
+
+
+ 
  
 
     
     return ( <div className='messagesMain'>
-        <MessagesHeader channel1={channel1}></MessagesHeader>
+        <MessagesHeader numOfUsers1={numOfUsers1} channel1={channel1}></MessagesHeader>
         <div className="messages">
           <ul className='ulMessages'></ul>
             </div>
