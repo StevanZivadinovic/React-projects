@@ -15,7 +15,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [uploadTask, setUploadTask] = useState(null);
   const [storage, setStorage] = useState(Firebase.default.storage());
   const [percentUploaded, setPercentUploaded] = useState(0);
-  const [errors, setErrors] = useState(null)
+  const [errors, setErrors] = useState(null);
+  const [URL, setURL] = useState(null)
 
 
 
@@ -26,15 +27,15 @@ const MessageForm = ({stateProperty, dispatch}) => {
   let handleChange=(e)=>{
     setMessage(e.target.value)
   }
-  
+  console.log(message)
 
   let sendMessage = (downloadURL=null) =>{
     console.log('neispravno poslato');
-    console.log(message)
-
    
-
+    
+    
     if(message || downloadURL){
+      console.log(message, downloadURL)
 
       let mess={ 
         timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),
@@ -109,6 +110,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
       storage.ref(filePath).getDownloadURL()
       .then(downloadURL=>{//ovde dohvatas URL slike iz storage
         console.log(downloadURL)
+        setURL(downloadURL)
         sendMessage(downloadURL)
         // sendFileMessage(downloadURL, db, pathToUpLoad)
       })
@@ -137,7 +139,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
       <div className="messageFormButton">
         <span>
           <img src="https://img.icons8.com/fluent-systems-filled/48/000000/edit-message.png" />
-          <button disabled={loading} onClick={sendMessage} className="addReplay">Add Replay</button>
+          <button disabled={loading} onClick={()=>sendMessage(URL)} className="addReplay">Add Replay</button>
           <button onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
           <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
