@@ -67,7 +67,7 @@ useEffect(() => {
 
     
     return ( <div className='messagesMain'>
-        <MessagesHeader></MessagesHeader>
+        <MessagesHeader channel1={channel1}></MessagesHeader>
         <div className="messages">
           <ul className='ulMessages'></ul>
             </div>
