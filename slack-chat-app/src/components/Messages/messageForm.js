@@ -62,6 +62,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
         setMessage('');
         setURL(null)
         setErr([])
+        document.querySelector('#textMessage').value = '';
+
       }).catch(err=>{
         setErr(err)
       })
@@ -129,7 +131,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
         <div>
           <span>
             <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" />
-            <input onChange={handleChange} type="text" placeholder="Write your message" />
+            <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" />
           </span>
         </div>
       </div>

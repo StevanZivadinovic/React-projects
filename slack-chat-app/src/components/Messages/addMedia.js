@@ -27,17 +27,13 @@ const AddMedia = (props) => {
                 props.uploadFile(file,metadata);
                 props.closeModal();
                 setFile(null);
+                document.querySelector('#addMedia').value = '';
+
             }
         }
     }
 
     console.log(file)
-
-    let functionProgress = ()=>{
-        document.querySelector('.progress-bar').style.display = 'block';
-        document.querySelector('.mainMedia').style.display = 'none';
-    }
-    
 
     return ( <div className='mainMedia'>
         <div className='addMediaForm'>
