@@ -927,5 +927,8 @@ ul.listOfChannels li:last-child {
   background-color: #55cc1e;
   display: none;
   margin-top: 1vh;
+  height: 20px;
+  border-radius: 5px;
+  color: white;
 }
 /*# sourceMappingURL=App.css.map */

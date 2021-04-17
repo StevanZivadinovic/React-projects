@@ -60,6 +60,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
         console.log('message is sent')
         setLoadig(false);
         setMessage('');
+        setURL(null)
         setErr([])
       }).catch(err=>{
         setErr(err)
