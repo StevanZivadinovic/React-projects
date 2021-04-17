@@ -679,13 +679,17 @@ ul.listOfChannels li:last-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 4px;
+  margin: 4px 5px 4px 5px;
+  border-radius: 5px;
   height: 70px;
   background-color: #ce96d8;
-  width: 100%;
+  width: 80%;
 }
 
 .list-item-stranger {
+  margin: 4px 5px 4px 5px;
+  border-radius: 5px;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -695,7 +699,9 @@ ul.listOfChannels li:last-child {
 }
 
 #imageLi {
-  margin: 20px 0;
+  margin: 4px 5px 4px 5px;
+  border-radius: 5px;
+  width: 80%;
   height: 130px;
 }
 

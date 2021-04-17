@@ -524,6 +524,7 @@ ul.listOfChannels{
     margin-left: 8px;
     padding-left: 8px;
     width: 100%;
+    
   }
   .message_stranger{
     border-left: 2px solid rgb(0, 119, 255);
@@ -537,14 +538,20 @@ ul.listOfChannels{
 .list-item{
   margin-left: 0;
   display: flex;
- margin-bottom: 4px;
+ margin: 4px 5px 4px 5px;
+ border-radius:5px;
+
  height: 70px;
  background-color: rgb(206, 150, 216);
- width: 100%;
+ width: 80%;
  
 }
 .list-item-stranger{
 //  float: right;
+margin: 4px 5px 4px 5px;
+border-radius:5px;
+width: 80%;
+
  display: flex;
  margin-bottom: 4px;
  height: 50px;
@@ -552,7 +559,10 @@ ul.listOfChannels{
 
 }
 #imageLi{
-  margin: 20px 0;
+  margin: 4px 5px 4px 5px;
+  border-radius:5px;
+  width: 80%;
+
   height: 130px;
   #slika{
     max-height: 100px;
