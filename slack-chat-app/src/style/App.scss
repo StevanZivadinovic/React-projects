@@ -508,7 +508,7 @@ ul.listOfChannels{
 
 .ulMessages {
   background-color: white;
-  margin: 0 10px 0 10px;
+  // margin: 0 10px 0 10px;
   overflow: auto;
   max-height: 100%;
   width: 100%;
@@ -523,20 +523,24 @@ ul.listOfChannels{
     border-left: 2px solid orange;
     margin-left: 8px;
     padding-left: 8px;
+    width: 100%;
   }
   .message_stranger{
     border-left: 2px solid rgb(0, 119, 255);
     margin-left: 8px;
     padding-left: 8px;
+    width: 100%;
+
   }
 }
 
 .list-item{
-  
+  margin-left: 0;
   display: flex;
  margin-bottom: 4px;
  height: 70px;
  background-color: rgb(206, 150, 216);
+ width: 100%;
  
 }
 .list-item-stranger{
@@ -547,11 +551,12 @@ ul.listOfChannels{
  background-color: rgb(206, 150, 216);
 
 }
-#image{
+#imageLi{
   margin: 20px 0;
-  height: 120px;
-  img{
+  height: 130px;
+  #slika{
     max-height: 100px;
+    border-radius:5px;
   }
 
 }

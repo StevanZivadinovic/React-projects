@@ -33,7 +33,7 @@ let preuzmi=(b)=>{
   }
   if(b.image){
    
-      a.innerHTML+=`<div id='image' class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img alt='slika' height='35px' width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br><a target='_blank' href='${b.image}'><img  width='110px' src='${b.image}'></a></li></div>`;
+      a.innerHTML+=`<div id='imageLi' class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img alt='slika' height='35px' width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br><a target='_blank' href='${b.image}'><img id='slika'  width='110px' src='${b.image}'></a></li></div>`;
  
   }
   
