@@ -56,7 +56,7 @@ useEffect(() => {
             
             }
           })
-       
+          document.querySelector('.progress-bar').style.display='none';
         })
         
         }
