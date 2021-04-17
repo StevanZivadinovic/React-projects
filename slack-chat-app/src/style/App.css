@@ -234,6 +234,10 @@
   display: -ms-flexbox;
   display: flex;
   width: 98%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0 auto;
   border-radius: 5px;
   height: 40px;
@@ -686,6 +690,10 @@ ul.listOfChannels li:last-child {
   width: 80%;
 }
 
+.message_self::first-line, .message_stranger::first-line {
+  text-decoration: underline;
+}
+
 .list-item-stranger {
   margin: 4px 5px 4px 5px;
   border-radius: 5px;
@@ -913,5 +921,10 @@ ul.listOfChannels li:last-child {
 
 .mainMedia .addMediaForm .formMedia .buttons .Cancel:hover::after {
   width: 100%;
+}
+
+.progress-bar {
+  background-color: #55cc1e;
+  display: none;
 }
 /*# sourceMappingURL=App.css.map */

@@ -32,6 +32,11 @@ const AddMedia = (props) => {
     }
 
     console.log(file)
+
+    let functionProgress = ()=>{
+        document.querySelector('.progress-bar').style.display = 'block';
+        document.querySelector('.mainMedia').style.display = 'none';
+    }
     
 
     return ( <div className='mainMedia'>
@@ -47,7 +52,7 @@ const AddMedia = (props) => {
             </div>
 
             <div className="buttons">
-                <button className='Add' onClick={props.sendMessage} onClick={sendFile} value='Send'><span><img src="https://img.icons8.com/color/20/000000/checked--v4.png"/>Add</span></button>
+                <button  className='Add' onClick={props.sendMessage} onClick={sendFile} onClick={functionProgress} value='Send'><span><img src="https://img.icons8.com/color/20/000000/checked--v4.png"/>Add</span></button>
                 <button className='Cancel'  value='Cancel' onClick={turnOffAddMedia}><span><img src="https://img.icons8.com/color/20/000000/cancel--v1.png"/>Cancel</span></button>
             </div>
 

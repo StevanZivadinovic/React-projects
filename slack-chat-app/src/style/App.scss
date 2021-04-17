@@ -179,7 +179,7 @@
         .messageFormButton{
           display: flex;
           width: 98%;
-         
+         flex-direction: column;
           margin: 0 auto;
           border-radius: 5px;
           height: 40px;
@@ -544,7 +544,13 @@ ul.listOfChannels{
  height: 70px;
  background-color: rgb(206, 150, 216);
  width: 80%;
+
  
+ 
+}
+.message_self::first-line, .message_stranger::first-line {
+  text-decoration: underline;
+  
 }
 .list-item-stranger{
 //  float: right;
@@ -570,6 +576,8 @@ width: 80%;
   }
 
 }
+
+
 
 .mainMedia{
   display:none;
@@ -724,6 +732,11 @@ width: 80%;
       }
     }
   }
+}
+
+.progress-bar{
+  background-color: #55cc1e;
+  display: none;
 }
 
 

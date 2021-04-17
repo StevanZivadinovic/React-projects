@@ -78,15 +78,8 @@ const MessageForm = ({stateProperty, dispatch}) => {
 
 
 
-
-  // let sendFileMessage=(downloadURL, db, pathToUpLoad)=>{
-  //   console.log(pathToUpLoad)
-  //   db.doc(pathToUpLoad).set(sendMessage(downloadURL))
-  // }
-
   let uploadFile =(file,metadata)=>{
-    // const pathToUpLoad = stateProperty.channel.currentChannel.id;
-    // let db = Firebase.default.firestore().collection('messages');
+    
     const filePath = `chat/public/${file.name}`;
 
     setUploadState('uploading');
@@ -107,11 +100,13 @@ const MessageForm = ({stateProperty, dispatch}) => {
       .then(downloadURL=>{//ovde dohvatas URL slike iz storage
         setURL(downloadURL)
         sendMessage(downloadURL)
+        setUploadState('done');
       })
       .catch(err=>{
       setUploadState('error');
       // setUploadTask(null);
       setErrors(err);
+      
       })
     }
     )
@@ -137,6 +132,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
           <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
         </span>
+        <div className='progress-bar' style={{width:percentUploaded +'%'}}>{`${percentUploaded}%`}</div>
       </div>
     </div>
   );
