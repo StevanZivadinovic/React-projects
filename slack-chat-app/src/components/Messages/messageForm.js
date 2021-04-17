@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import AddMedia from './addMedia';
 
 const MessageForm = ({stateProperty, dispatch}) => {
-  
+  console.log(dispatch)
   const [message, setMessage] = useState('');
   const [loading, setLoadig] = useState(false);
   const [channel, setChannel] = useState('');
@@ -85,22 +85,18 @@ const MessageForm = ({stateProperty, dispatch}) => {
   // }
 
   let uploadFile =(file,metadata)=>{
-    const pathToUpLoad = stateProperty.channel.currentChannel.id;
-    let db = Firebase.default.firestore().collection('messages');
+    // const pathToUpLoad = stateProperty.channel.currentChannel.id;
+    // let db = Firebase.default.firestore().collection('messages');
     const filePath = `chat/public/${file.name}`;
 
     setUploadState('uploading');
     storage.ref(filePath).put(file, metadata)//metadata nesto ne radi
-
-   
-
      .on('state_changed',snap=>{
         let percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
         setPercentUploaded(percentage);
       
     },
     (err)=>{
-      console.log(err);
       setUploadState('error');
       // setUploadTask(null);
       setErrors(err);
@@ -109,13 +105,10 @@ const MessageForm = ({stateProperty, dispatch}) => {
      
       storage.ref(filePath).getDownloadURL()
       .then(downloadURL=>{//ovde dohvatas URL slike iz storage
-        console.log(downloadURL)
         setURL(downloadURL)
         sendMessage(downloadURL)
-        // sendFileMessage(downloadURL, db, pathToUpLoad)
       })
       .catch(err=>{
-        console.log(err);
       setUploadState('error');
       // setUploadTask(null);
       setErrors(err);
