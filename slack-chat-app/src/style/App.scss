@@ -502,12 +502,16 @@ ul.listOfChannels{
   border: 2px solid rgb(194, 180, 180);
   border-radius: 5px;
   box-shadow: 3px 3px 5px 6px #ccc;
+  height: 65vh !important;
 }
 
 
 .ulMessages {
   background-color: white;
   margin: 0 10px 0 10px;
+  overflow: auto;
+  max-height: 100%;
+  width: 100%;
   
   li{
 
@@ -531,18 +535,24 @@ ul.listOfChannels{
   
   display: flex;
  margin-bottom: 4px;
- height: 35px;
+ height: 70px;
+ background-color: rgb(206, 150, 216);
  
 }
 .list-item-stranger{
 //  float: right;
  display: flex;
  margin-bottom: 4px;
- height: 35px;
+ height: 50px;
+ background-color: rgb(206, 150, 216);
+
 }
 #image{
   margin: 20px 0;
   height: 120px;
+  img{
+    max-height: 100px;
+  }
 
 }
 

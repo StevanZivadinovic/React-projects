@@ -646,11 +646,15 @@ ul.listOfChannels li:last-child {
   border-radius: 5px;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
           box-shadow: 3px 3px 5px 6px #ccc;
+  height: 65vh !important;
 }
 
 .ulMessages {
   background-color: white;
   margin: 0 10px 0 10px;
+  overflow: auto;
+  max-height: 100%;
+  width: 100%;
 }
 
 .ulMessages li {
@@ -674,7 +678,8 @@ ul.listOfChannels li:last-child {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 4px;
-  height: 35px;
+  height: 70px;
+  background-color: #ce96d8;
 }
 
 .list-item-stranger {
@@ -682,12 +687,17 @@ ul.listOfChannels li:last-child {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 4px;
-  height: 35px;
+  height: 50px;
+  background-color: #ce96d8;
 }
 
 #image {
   margin: 20px 0;
   height: 120px;
+}
+
+#image img {
+  max-height: 100px;
 }
 
 .mainMedia {

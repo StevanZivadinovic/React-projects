@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import AddMedia from './addMedia';
 
 const MessageForm = ({stateProperty, dispatch}) => {
-  console.log(dispatch)
+  
   const [message, setMessage] = useState('');
   const [loading, setLoadig] = useState(false);
   const [channel, setChannel] = useState('');
