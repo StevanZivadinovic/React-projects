@@ -685,6 +685,7 @@ ul.listOfChannels li:last-child {
   display: flex;
   margin: 4px 5px 4px 5px;
   border-radius: 5px;
+  float: right;
   height: 70px;
   background-color: #ce96d8;
   width: 80%;

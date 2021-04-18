@@ -36,7 +36,9 @@ const MessageForm = ({stateProperty, dispatch}) => {
     
     if(message || downloadURL){
       // console.log(message, downloadURL)
-
+      if(user){
+        console.log(user);
+      
       let mess={ 
         timestamp:Firebase.default.firestore.FieldValue.serverTimestamp(),
       channel:channel.nameOfChannel,
@@ -68,9 +70,9 @@ const MessageForm = ({stateProperty, dispatch}) => {
         setErr(err)
       })
       
-    }
+      }
   }
-
+  }
   let openModal = ()=>{
     setModal(true);
     document.querySelector('.mainMedia').style.display = 'flex';
