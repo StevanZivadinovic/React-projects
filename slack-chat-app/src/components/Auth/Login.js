@@ -6,6 +6,7 @@ import puzzleLogin from "./../../img/puzzleLogin.svg";
 import Firebase from './../../config'
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 // import md5 from 'md5';
 
 
@@ -17,8 +18,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading]=useState('');
-  
-  
+  let history = useHistory();
 
 
   let handleChangeEmail = (e) => {
@@ -63,6 +63,7 @@ let handleSubmit = e=>{
       .signInWithEmailAndPassword(email, password)
       .then(signInUser=>{
         console.log(signInUser)
+        history.push("/");
       })
       .catch(err=>{
         setError(err)

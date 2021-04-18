@@ -3,9 +3,10 @@ import {useState, useEffect} from 'react';
 import Firebase from './../../config';
 import {connect} from 'react-redux';
 import Channels from './channels';
+import { useHistory } from "react-router-dom";
 const SidePanel = (props) => {
     const [display, setDisplay] = useState(true)
-  
+    let history = useHistory();
     let dropdownMenu = () => {
        
             console.log(props)
@@ -26,7 +27,9 @@ const SidePanel = (props) => {
     let signOut = ()=>{
         Firebase.default.auth().signOut()
         .then(data=>{
-            console.log('signOut!')
+            console.log('signOut!');
+            history.push("/login");
+
         })
     }
     

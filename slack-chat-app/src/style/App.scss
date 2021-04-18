@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgb(238, 238, 238);
+  overflow-y: hidden !important;
 }
 .headerForm {
   border-top-left-radius: 5px;

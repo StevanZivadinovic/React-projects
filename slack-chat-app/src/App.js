@@ -48,8 +48,8 @@ function App(props) {
         <Route path="/register">
           <Register></Register>
         </Route>
-      </Switch>
-      <div className="mainFields">
+        <Route path="/">
+        <div className="mainFields">
         <div className="colorSide">
           <ColorPanel></ColorPanel>
           <SidePanel curentUser={props}></SidePanel>
@@ -59,6 +59,9 @@ function App(props) {
           <MetaPanel></MetaPanel>
         </div>
       </div>
+        </Route>
+      </Switch>
+     
     </div>
   );
 }
