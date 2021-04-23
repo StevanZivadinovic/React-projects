@@ -5,10 +5,17 @@ import Firebase from './../../config';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {setTerm1} from './../../actions/index';
-// import Spinner from "./spinner";
+
 
 
 const Messages = (props) => {
+  console.log(props.state1.term);
+  let channel=props.state.stateProperty.channel;
+  let user = props.state.stateProperty.user;
+  const [ channel1, setChannel1] = useState('');
+  const [ user1, setUser1] = useState('');
+  // const [messages, setMessages] = useState([]);
+  const [numOfUsers1, setnumOfUsers1] = useState(null);
   const [loadingSearch, setLoadingSearch] = useState(false)
   let a = document.querySelector('.ulMessages');
   let preuzmi=(b)=>{
@@ -26,6 +33,8 @@ const Messages = (props) => {
   }
  let catchTerm = (e) =>{
   if(e.target.value){ 
+
+
     setLoadingSearch(true);
 
     a.innerHTML='';
@@ -41,8 +50,10 @@ const Messages = (props) => {
       console.log(change.doc.data())
       if(q && q.match(regex) || change.doc.data().user.name.match(regex)){
         console.log('Uspelo je');
-        preuzmi(change.doc.data())
-        setLoadingSearch(false)
+        preuzmi(change.doc.data());
+        setTimeout(() => {          
+          setLoadingSearch(false)
+        }, 1000);
       }
       
     })
@@ -66,13 +77,7 @@ const Messages = (props) => {
         })
   }
 }
-console.log(props.state1.term);
-  let channel=props.state.stateProperty.channel;
-  let user = props.state.stateProperty.user;
-  const [ channel1, setChannel1] = useState('');
-  const [ user1, setUser1] = useState('');
-  // const [messages, setMessages] = useState([]);
-  const [numOfUsers1, setnumOfUsers1] = useState(null);
+
 
   useEffect(() => {
         setChannel1(channel);
