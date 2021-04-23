@@ -9,7 +9,7 @@ import {setTerm1} from './../../actions/index';
 
 
 const Messages = (props) => {
-
+  const [loadingSearch, setLoadingSearch] = useState(false)
   let a = document.querySelector('.ulMessages');
   let preuzmi=(b)=>{
     // console.log(moment(b.timestamp.toMillis()).fromNow())
@@ -26,6 +26,8 @@ const Messages = (props) => {
   }
  let catchTerm = (e) =>{
   if(e.target.value){ 
+    setLoadingSearch(true);
+
     a.innerHTML='';
   
   Firebase.default.firestore().collection('messages')
@@ -40,12 +42,14 @@ const Messages = (props) => {
       if(q && q.match(regex) || change.doc.data().user.name.match(regex)){
         console.log('Uspelo je');
         preuzmi(change.doc.data())
+        setLoadingSearch(false)
       }
       
     })
    
    })
   }else{
+
     a.innerHTML='';
     Firebase.default.firestore().collection('messages')
         .where('channel','==',channel1.currentChannel.nameOfChannel)
@@ -128,7 +132,7 @@ useEffect(() => {
 
     
     return ( <div className='messagesMain'>
-        <MessagesHeader catchTerm={catchTerm} numOfUsers1={numOfUsers1} channel1={channel1}></MessagesHeader>
+        <MessagesHeader loadingSearch={loadingSearch} catchTerm={catchTerm} numOfUsers1={numOfUsers1} channel1={channel1}></MessagesHeader>
         <div className="messages">
           <ul className='ulMessages'></ul>
             </div>

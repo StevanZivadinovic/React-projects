@@ -12,7 +12,7 @@ const MessagesHeader = (props) => {
         <div className="searchMessage">
             <div className='inputBox'>
 
-            <input onChange={(e)=>props.catchTerm(e)} type="search" name='search' placeholder='Search Messages'/><span><label htmlFor="search">{<Spinner></Spinner> ? <div class="ui tiny active inline loader"></div> : <img style={{backgroundColor:'lightcyan'}} src="https://img.icons8.com/android/24/000000/search.png"/>}</label></span>
+            <input onChange={(e)=>props.catchTerm(e)} type="search" name='search' placeholder='Search Messages'/><span><label htmlFor="search">{props.loadingSearch ? <div class="ui tiny active inline loader"></div> : <img style={{backgroundColor:'lightcyan'}} src="https://img.icons8.com/android/24/000000/search.png"/>}</label></span>
             </div>
         </div>
 
