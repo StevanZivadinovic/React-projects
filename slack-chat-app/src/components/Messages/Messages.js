@@ -4,7 +4,8 @@ import {useState, useEffect} from 'react';
 import Firebase from './../../config';
 import moment from 'moment';
 import {connect} from 'react-redux';
-import {setTerm1} from './../../actions/index'
+import {setTerm1} from './../../actions/index';
+// import Spinner from "./spinner";
 
 
 const Messages = (props) => {
@@ -33,7 +34,7 @@ const Messages = (props) => {
   .onSnapshot(snapShot => {
     snapShot.docChanges().forEach(change=>{
     //  console.log(change.doc.data().content);
-      const regex = new RegExp(e.target.value, 'gi');
+      const regex = new RegExp(`${e.target.value}`, 'gi');
       let q = change.doc.data().content;
       console.log(change.doc.data())
       if(q && q.match(regex) || change.doc.data().user.name.match(regex)){
