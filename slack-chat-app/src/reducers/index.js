@@ -20,6 +20,11 @@ const user_reducer = (state=initalUserState, action)=>{
                     ...initalUserState,
                     isLoading:false
                 }
+            // case actionTypes.SET_TERM:
+            //     return{
+            //         ...initalUserState,
+            //         isLoading:false
+            //     }
             default:
                 return state;
     }
@@ -42,11 +47,28 @@ const channel_reducer = (state=initialChannelState, action)=>{
             
     }
 }
+const initialSetTermState={
+    term:''
+}
+
+const term_reducer = (state=initialSetTermState, action)=>{
+    switch(action.type){
+        case actionTypes.SET_TERM:
+            return{
+                ...state,
+                term:action.payload.term
+            }
+            default:
+                return state;
+            
+    }
+}
     
 
 const rootReducer = combineReducers({
     user:user_reducer,
-    channel:channel_reducer
+    channel:channel_reducer,
+    term:term_reducer
 })
 
 export default rootReducer;

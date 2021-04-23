@@ -4,4 +4,8 @@ export const CLEAR_USER = 'CLEAR_USER';
 
 // Channel Action Types
 
-export const SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL'
+export const SET_CURRENT_CHANNEL = 'SET_CURRENT_CHANNEL';
+
+//Set Term Types
+
+export const SET_TERM = 'SET_TERM';

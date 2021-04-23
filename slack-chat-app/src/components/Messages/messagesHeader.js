@@ -1,5 +1,11 @@
+import {useState} from 'react';
+import {connect} from 'react-redux';
+
 const MessagesHeader = (props) => {
     
+  console.log(props)
+    
+
     return ( <div className="messageHeader">
         <div className="header">
             <h1>{props.channel1.currentChannel ? props.channel1.currentChannel.nameOfChannel : 'Channel'}<span><img src="https://img.icons8.com/metro/26/000000/star.png"/></span></h1>
@@ -8,12 +14,13 @@ const MessagesHeader = (props) => {
         <div className="searchMessage">
             <div className='inputBox'>
 
-            <input type="search" name='search' placeholder='Search Messages'/><span><label htmlFor="search"><img style={{backgroundColor:'lightcyan'}} src="https://img.icons8.com/android/24/000000/search.png"/></label></span>
+            <input onChange={(e)=>props.catchTerm(e)} type="search" name='search' placeholder='Search Messages'/><span><label htmlFor="search"><img style={{backgroundColor:'lightcyan'}} src="https://img.icons8.com/android/24/000000/search.png"/></label></span>
             </div>
         </div>
 
         
     </div> );
 }
+
  
 export default MessagesHeader;

@@ -26,3 +26,13 @@ export const SetUser = user=>{
             }
         }
     }
+//Set Search term
+    export const setTerm1 = term =>{
+        return{
+            type:actionTypes.SET_TERM,
+            payload:{
+                currentTerm:term
+            }
+            
+        }
+    }
