@@ -435,6 +435,23 @@ li:nth-child(3):hover {
   font-size: 1.1rem;
 }
 
+.directMessagesUsers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.directMessagesUsers .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .channels {
   width: 80%;
   margin: 0 auto;

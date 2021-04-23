@@ -334,6 +334,16 @@ li:nth-child(3):hover {
   display: flex;
   font-size: 1.1rem;
 }
+
+.directMessagesUsers{
+  display:flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  .header{
+    display: flex;
+  }
+}
 .channels {
   width: 80%;
   margin: 0 auto;

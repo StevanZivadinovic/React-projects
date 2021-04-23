@@ -4,6 +4,7 @@ import Firebase from './../../config';
 import {connect} from 'react-redux';
 import Channels from './channels';
 import { useHistory } from "react-router-dom";
+import DirectMessages from './directMessages';
 const SidePanel = (props) => {
     const [display, setDisplay] = useState(true)
     let history = useHistory();
@@ -43,6 +44,7 @@ const SidePanel = (props) => {
             <li onClick={signOut} value="">Sign Out</li>
         </ul>
         <Channels></Channels>
+        <DirectMessages props={props}></DirectMessages>
     </div> );
 }
 
