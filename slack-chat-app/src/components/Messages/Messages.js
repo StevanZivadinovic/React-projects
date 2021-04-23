@@ -35,8 +35,8 @@ const Messages = (props) => {
     //  console.log(change.doc.data().content);
       const regex = new RegExp(e.target.value, 'gi');
       let q = change.doc.data().content;
-
-      if(q && q.match(regex)){
+      console.log(change.doc.data())
+      if(q && q.match(regex) || change.doc.data().user.name.match(regex)){
         console.log('Uspelo je');
         preuzmi(change.doc.data())
       }
