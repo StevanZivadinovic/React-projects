@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import Firebase from './../../config';
 const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
@@ -11,6 +12,19 @@ const DirectMessages = (props) => {
         
     }, [props.props])
     console.log(currentUser.displayName)
+
+
+    let addListeners = (userId)=>{
+
+    }
+
+
+
+    useEffect(() => {
+        if(currentUser){
+            addListeners(currentUser.uid)
+        }
+    }, [])
    
     return ( <div >
         <div className='directMessagesUsers'>
