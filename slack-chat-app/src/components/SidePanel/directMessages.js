@@ -56,7 +56,7 @@ const DirectMessages = (props) => {
 
             {users.length>0 && users.map(user=>{
                 console.log(user);
-                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>
+                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}><span>@{user } {currentUser.displayName===user ? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}</span></li>
                : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}
