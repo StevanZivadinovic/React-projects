@@ -4,6 +4,7 @@ const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
+    
     let usersFiltered=[];
     let addListeners = (userId)=>{
         Firebase.default.firestore().collection('messages')
@@ -18,6 +19,7 @@ const DirectMessages = (props) => {
               
                 }
             })
+            setUsers(usersFiltered)
             console.log(usersFiltered);
           
         })
@@ -45,12 +47,14 @@ const DirectMessages = (props) => {
             <span className='plus'><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
         </div>
 
-        {/* <ul className='listOfChannels'>
-            {numOfChannels.length>0 && numOfChannels.map(channel=>{
-                return (channel.nameOfChannel?<li key={Math.random()} onClick={()=>setChannelToState(channel)}>#{channel.nameOfChannel}</li>
-               : <li onClick={()=>setChannelToState(channel)}>#{channel.name}</li>)
+        <ul className='listOfChannels'>
+            {users.length>0 && users.map(user=>{
+                console.log(user);
+                return (user?<li key={Math.random()}>#{user}</li>
+               : <li>#{user}</li>)
+            //    onClick={()=>setChannelToState(channel)}
             })}
-        </ul> */}
+        </ul>
  </div> );
 }
  
