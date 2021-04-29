@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
+import {setCurrentChannel} from './../../actions/index';
+import {connect} from 'react-redux';
 const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
@@ -36,6 +38,9 @@ const DirectMessages = (props) => {
     }, [props.props])
     // console.log(currentUser.displayName)
 
+    let setChannelToState=channel=>{
+        props.setCurrentChannel(channel)//nije useState promenljiva nego action
+    }
    
    
     return ( <div >
@@ -51,12 +56,14 @@ const DirectMessages = (props) => {
 
             {users.length>0 && users.map(user=>{
                 console.log(user);
-                return (user?<li key={Math.random()}>#{user}</li>
-               : <li>#{user}</li>)
+                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>
+               : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}
         </ul>
  </div> );
 }
+
+
  
-export default DirectMessages;
+export default connect(null, {setCurrentChannel})(DirectMessages);
