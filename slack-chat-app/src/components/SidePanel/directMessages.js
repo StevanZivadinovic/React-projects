@@ -4,16 +4,6 @@ const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
-    useEffect(() => {
-        if(props.props.user){
-
-            setCurrentUser(props.props.user)
-        }
-        
-    }, [props.props])
-    console.log(currentUser.displayName)
-
-
     let usersFiltered=[];
     let addListeners = (userId)=>{
         Firebase.default.firestore().collection('messages')
@@ -22,31 +12,29 @@ const DirectMessages = (props) => {
             snapShot.docChanges().forEach(change=>{
                 if(userId!==change.doc.data().user.id){
                     
-                    usersFiltered.push(change.doc.data().user)
-                    
-                   
+                     if(!usersFiltered.includes(change.doc.data().user.name)){
+                        usersFiltered.push(change.doc.data().user.name)
+                    }  
+              
                 }
             })
-            let uniqueUsers = [];  
-            usersFiltered.forEach(user=>{
-
-                if(!uniqueUsers.includes(user)){
-                    uniqueUsers.push(user)
-                }
-                console.log(uniqueUsers);
-            })
-            // setUsers(usersFiltered);
+            console.log(usersFiltered);
+          
         })
     }
-    
-   
-
-
     useEffect(() => {
+        if(props.props.user){
+
+            setCurrentUser(props.props.user)
+        }
+        
         if(currentUser){
             addListeners(currentUser.uid)
         }
-    }, [])
+    }, [props.props])
+    // console.log(currentUser.displayName)
+
+   
    
     return ( <div >
         <div className='directMessagesUsers'>
