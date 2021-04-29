@@ -661,23 +661,27 @@ li:nth-child(3):hover {
   width: 100%;
 }
 
-ul.listOfChannels {
+ul.listOfChannels, .listOfUsers {
   margin: 0;
   background-color: transparent !important;
   color: rgba(0, 0, 0, 0.7);
 }
 
-ul.listOfChannels li:nth-child(1) {
+ul.listOfChannels li:nth-child(1), .listOfUsers li:nth-child(1) {
   cursor: pointer;
 }
 
-ul.listOfChannels li:nth-child(3):hover {
+ul.listOfChannels li:nth-child(3):hover, .listOfUsers li:nth-child(3):hover {
   border-radius: 0;
 }
 
-ul.listOfChannels li:last-child {
+ul.listOfChannels li:last-child, .listOfUsers li:last-child {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.listOfUsers {
+  margin: 0 0px 0 15px;
 }
 
 .messages {

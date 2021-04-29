@@ -47,7 +47,8 @@ const DirectMessages = (props) => {
             <span className='plus'><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
         </div>
 
-        <ul className='listOfChannels'>
+        <ul className='listOfUsers'>
+
             {users.length>0 && users.map(user=>{
                 console.log(user);
                 return (user?<li key={Math.random()}>#{user}</li>

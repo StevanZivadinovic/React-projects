@@ -499,7 +499,7 @@ li:nth-child(3):hover {
   }
 }
 
-ul.listOfChannels{
+ul.listOfChannels, .listOfUsers{
   
   margin: 0;
   background-color: transparent !important;
@@ -517,6 +517,9 @@ ul.listOfChannels{
   }
 
 
+}
+.listOfUsers{
+  margin: 0 0px 0 15px;
 }
 .messages{
   border: 2px solid rgb(194, 180, 180);
