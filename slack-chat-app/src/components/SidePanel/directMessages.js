@@ -2,10 +2,12 @@ import {useState, useEffect} from 'react';
 import Firebase from './../../config';
 import {setCurrentChannel} from './../../actions/index';
 import {connect} from 'react-redux';
+import Ime from './ime';
 const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
+    const [presence, setPresence] = useState(null)
     
     let usersFiltered=[];
     let addListeners = (userId)=>{
@@ -43,24 +45,42 @@ const DirectMessages = (props) => {
     }
 
 
-    let setOnlineOffline = (ime)=>{
-        Firebase.default.firestore().collection('usersConnected')
-        .onSnapshot(snapShot=>{
-            snapShot.docChanges().forEach(change=>{
-                console.log(change.doc.data().name, ime)
-                if(change.doc.data().name===ime){
-                    return true
-                    // <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
-                    console.log('green')
-                }
-                else{
-                    console.log('red')
-                    return false;
-                    // <img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>
-                }
-            })
-        })
-    }
+    // function setOnlineOffline(ime){
+    //     Firebase.default.firestore().collection('usersConnected')
+    //     .onSnapshot(snapShot=>{
+    //         snapShot.docChanges().forEach(change=>{
+    //             console.log(change.doc.data().name, ime)
+    //             if(change.doc.data().name===ime){
+    //                 // <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
+    //                 console.log('green')
+    //                 setPresence(true)
+    //                 return true
+    //             }
+    //             if(change.doc.data().name!==ime)
+    //             {
+    //                 setPresence(false)
+    //                 return false;
+    //             }
+             
+    //         })
+    //     })
+    // }
+function setOnlineOffline(user){
+
+    Firebase.default.firestore().collection('usersConnected')
+    .where('name','==', user)
+    .onSnapshot(snapShot => {
+      snapShot.docChanges().forEach(change=>{
+          console.log(change.doc.data(), 'haj')
+          if(change.doc.data()){
+
+              setPresence(true)
+          }else{
+            setPresence(false)
+          }
+      })
+    })
+}
     
     return ( <div >
         <div className='directMessagesUsers'>
@@ -73,11 +93,15 @@ const DirectMessages = (props) => {
 
         <ul className='listOfUsers'>
             {users.length>0 && users.map(user=>{
-        console.log(setOnlineOffline(user))
+        console.log(presence)
             
                 console.log(user);
-                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}>
-                    <span>@{user} {setOnlineOffline(user)? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}</span></li>
+                //  onChange={setOnlineOffline(user)}
+                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})} onChange={setOnlineOffline(user)}>
+                    <span>@{user} { 
+                    presence
+       ? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}
+                        </span></li>
                : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}

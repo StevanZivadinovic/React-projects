@@ -74,12 +74,7 @@ let handleSubmit = e=>{
         console.log(signInUser)
         history.push("/");
         setNameOfUser(signInUser.user.displayName)
-        Firebase.default.firestore().collection('usersConnected')
-      .add({
-        registredUser:email,
-        connected:true,
-        name:nameOfUser
-      })
+     
     
       
       })
@@ -90,7 +85,13 @@ let handleSubmit = e=>{
         }else{
           console.log('error')
         }
-        
+        console.log(nameOfUser);
+        Firebase.default.firestore().collection('usersConnected')
+        .add({
+          registredUser:email,
+          connected:true,
+          name:nameOfUser
+        })
 }
 console.log(error)
 let handleClass = (error, inputWord)=>{
