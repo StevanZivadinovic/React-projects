@@ -41,6 +41,23 @@ const DirectMessages = (props) => {
     let setChannelToState=channel=>{
         props.setCurrentChannel(channel)//nije useState promenljiva nego action
     }
+
+
+    let setOnlineOffline = (ime)=>{
+        Firebase.default.firestore().collection('usersConnected')
+        .onSnapshot(snapShot=>{
+            snapShot.docChanges().forEach(change=>{
+                console.log(change.doc.data().name, ime)
+                if(change.doc.data().name===ime){
+                    return <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
+                }
+                if(change.doc.data().name!==ime){
+        
+                    return <img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>
+                }
+            })
+        })
+    }
    
    
     return ( <div >
@@ -56,7 +73,8 @@ const DirectMessages = (props) => {
 
             {users.length>0 && users.map(user=>{
                 console.log(user);
-                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}><span>@{user } {currentUser.displayName===user ? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}</span></li>
+                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}>
+                    <span>@{user} {setOnlineOffline(user)}</span></li>
                : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}

@@ -18,6 +18,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading]=useState('');
+  const [nameOfUser, setNameOfUser] = useState('')
   let history = useHistory();
 
 
@@ -59,11 +60,12 @@ let handleSubmit = e=>{
       setLoading(true);
 
 
-      Firebase.default.firestore().collection('usersConnected')
-      .add({
-        registredUser:email,
-        connected:true
-      })
+     
+      // Firebase.default.firestore().collection('usersConnected')
+      // .add({
+      //   registredUser:email,
+      //   connected:true
+      // })
       
       Firebase.default
       .auth()
@@ -71,7 +73,13 @@ let handleSubmit = e=>{
       .then(signInUser=>{
         console.log(signInUser)
         history.push("/");
-
+        setNameOfUser(signInUser.user.displayName)
+        Firebase.default.firestore().collection('usersConnected')
+      .add({
+        registredUser:email,
+        connected:true,
+        name:nameOfUser
+      })
     
       
       })
