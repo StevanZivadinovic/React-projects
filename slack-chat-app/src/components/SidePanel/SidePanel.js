@@ -31,6 +31,18 @@ const SidePanel = (props) => {
             console.log('signOut!');
             history.push("/login");
 
+            Firebase.default.firestore().collection('usersConnected')
+            .onSnapshot(snapShot=>{
+                  
+            snapShot.docChanges().forEach(change=>{
+                if(change.doc.data().registredUser===props.user.email){
+                    console.log(change.doc.id, props.user.email)
+                    // change.doc.data().delete()
+                    Firebase.default.firestore().collection('usersConnected').doc(change.doc.id).delete()
+                }
+            })
+            })
+
         })
     }
     

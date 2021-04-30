@@ -49,7 +49,7 @@ const DirectMessages = (props) => {
 
         <img src="https://img.icons8.com/fluent-systems-regular/20/000000/message-read.png"/><span>DIRECT MESS({users.length})</span>
             </div>
-            <span className='plus'><img src="https://img.icons8.com/android/12/000000/plus.png"/></span>
+            {/* <span className='plus'><img src="https://img.icons8.com/android/12/000000/plus.png"/></span> */}
         </div>
 
         <ul className='listOfUsers'>

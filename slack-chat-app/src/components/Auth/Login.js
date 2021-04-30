@@ -57,6 +57,13 @@ let handleSubmit = e=>{
     if(formValidation()){
       setError('');
       setLoading(true);
+
+
+      Firebase.default.firestore().collection('usersConnected')
+      .add({
+        registredUser:email,
+        connected:true
+      })
       
       Firebase.default
       .auth()
@@ -64,6 +71,9 @@ let handleSubmit = e=>{
       .then(signInUser=>{
         console.log(signInUser)
         history.push("/");
+
+    
+      
       })
       .catch(err=>{
         setError(err)
