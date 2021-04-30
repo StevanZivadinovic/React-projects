@@ -49,17 +49,19 @@ const DirectMessages = (props) => {
             snapShot.docChanges().forEach(change=>{
                 console.log(change.doc.data().name, ime)
                 if(change.doc.data().name===ime){
-                    return <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
+                    return true
+                    // <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
+                    console.log('green')
                 }
-                if(change.doc.data().name!==ime){
-        
-                    return <img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>
+                else{
+                    console.log('red')
+                    return false;
+                    // <img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>
                 }
             })
         })
     }
-   
-   
+    
     return ( <div >
         <div className='directMessagesUsers'>
             <div className='header'>
@@ -70,11 +72,12 @@ const DirectMessages = (props) => {
         </div>
 
         <ul className='listOfUsers'>
-
             {users.length>0 && users.map(user=>{
+        console.log(setOnlineOffline(user))
+            
                 console.log(user);
                 return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})}>
-                    <span>@{user} {setOnlineOffline(user)}</span></li>
+                    <span>@{user} {setOnlineOffline(user)? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}</span></li>
                : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}
