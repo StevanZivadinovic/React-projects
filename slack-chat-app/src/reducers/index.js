@@ -63,12 +63,28 @@ const term_reducer = (state=initialSetTermState, action)=>{
             
     }
 }
+const initialSetUsersState={
+    users:[]
+}
+const users_reducer = (state=initialSetUsersState, action)=>{
+    switch(action.type){
+        case actionTypes.SET_USERS:
+            return{
+                ...state,
+                users3:action.payload.users2
+            }
+            default:
+                return state;
+            
+    }
+}
     
 
 const rootReducer = combineReducers({
     user:user_reducer,
     channel:channel_reducer,
-    term:term_reducer
+    term:term_reducer,
+    users3:users_reducer
 })
 
 export default rootReducer;

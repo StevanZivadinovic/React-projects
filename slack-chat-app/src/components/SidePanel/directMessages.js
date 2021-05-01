@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
-import {setCurrentChannel} from './../../actions/index';
+import {setCurrentChannel, setUsers1} from './../../actions/index';
 import {connect} from 'react-redux';
 import Ime from './ime';
 const DirectMessages = (props) => {
-   
+  console.log(props);
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
     const [presence, setPresence] = useState(null);
@@ -53,26 +53,7 @@ const DirectMessages = (props) => {
     }
 
 
-    // function setOnlineOffline(ime){
-    //     Firebase.default.firestore().collection('usersConnected')
-    //     .onSnapshot(snapShot=>{
-    //         snapShot.docChanges().forEach(change=>{
-    //             console.log(change.doc.data().name, ime)
-    //             if(change.doc.data().name===ime){
-    //                 // <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>
-    //                 console.log('green')
-    //                 setPresence(true)
-    //                 return true
-    //             }
-    //             if(change.doc.data().name!==ime)
-    //             {
-    //                 setPresence(false)
-    //                 return false;
-    //             }
-             
-    //         })
-    //     })
-    // }
+   
     
     console.log(users)
  let newUsers=[];
@@ -96,7 +77,7 @@ const DirectMessages = (props) => {
     })
     
     console.log(newUsers);
-    
+    setUsers1([...newUsers])
     let novi=[...newUsers]
    
     return ( <div >
@@ -125,6 +106,8 @@ const DirectMessages = (props) => {
  </div> );
 }
 
-
+let setPropsToState = state=>({
+    users1:state
+})
  
-export default connect(null, {setCurrentChannel})(DirectMessages);
+export default connect(setPropsToState, {setCurrentChannel, setUsers1})(DirectMessages);
