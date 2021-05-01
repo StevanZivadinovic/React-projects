@@ -96,7 +96,8 @@ const DirectMessages = (props) => {
         })
     })
 
-    console.log(newUsers);
+    
+    let novi=[...newUsers]
    
     return ( <div >
         <div className='directMessagesUsers'>
@@ -108,8 +109,9 @@ const DirectMessages = (props) => {
         </div>
 
         <ul className='listOfUsers'>
-            {newUsers.length>0 && newUsers.map(user=>{
-        console.log(user.presence1, newUsers)
+           
+            { newUsers.length>0 && novi.map(user=>{
+                console.log(newUsers, novi)
             
                 return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user.name})} >
                     <span>@{user.name} { 
