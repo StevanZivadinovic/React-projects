@@ -79,23 +79,23 @@ const DirectMessages = (props) => {
     users.forEach(a=>{
         newUsers.push({name:a, presence1:false})
     })
-    console.log(newUsers);
     
     newUsers.forEach(user=>{
-
+        
         Firebase.default.firestore().collection('usersConnected')
         .where('name','==', user.name)
         .onSnapshot(snapShot => {
-          snapShot.docChanges().forEach(change=>{
-              console.log(change.doc.data().name, user)
-              if(change.doc.data().name){
-               user.presence1=true;   
-              }
-           
-          })
+            snapShot.docChanges().forEach(change=>{
+                console.log(change.doc.data().name, user)
+                if(change.doc.data().name){
+                    user.presence1=true;   
+                }
+                
+            })
         })
     })
-
+    
+    console.log(newUsers);
     
     let novi=[...newUsers]
    
@@ -111,7 +111,7 @@ const DirectMessages = (props) => {
         <ul className='listOfUsers'>
            
             { newUsers.length>0 && novi.map(user=>{
-                console.log(newUsers, novi)
+                // console.log(newUsers, novi)
             
                 return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user.name})} >
                     <span>@{user.name} { 
