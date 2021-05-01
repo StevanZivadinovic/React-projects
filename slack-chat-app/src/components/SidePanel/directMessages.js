@@ -7,24 +7,32 @@ const DirectMessages = (props) => {
    
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
-    const [presence, setPresence] = useState(null)
+    const [presence, setPresence] = useState(null);
+    const [new1, setNew1] = useState([])
     
     let usersFiltered=[];
+ 
     let addListeners = (userId)=>{
         Firebase.default.firestore().collection('messages')
         .onSnapshot(snapShot => {
            
             snapShot.docChanges().forEach(change=>{
                 if(userId!==change.doc.data().user.id){
-                    
-                     if(!usersFiltered.includes(change.doc.data().user.name)){
-                        usersFiltered.push(change.doc.data().user.name)
-                    }  
+                   
+
+                        if(!usersFiltered.includes(change.doc.data().user.name)){
+                          
+                           usersFiltered.push(
+                              change.doc.data().user.name
+                              
+                           );
+                       }  
+                
               
                 }
             })
             setUsers(usersFiltered)
-            console.log(usersFiltered);
+           
           
         })
     }
@@ -65,23 +73,31 @@ const DirectMessages = (props) => {
     //         })
     //     })
     // }
-function setOnlineOffline(user){
-
-    Firebase.default.firestore().collection('usersConnected')
-    .where('name','==', user)
-    .onSnapshot(snapShot => {
-      snapShot.docChanges().forEach(change=>{
-          console.log(change.doc.data(), 'haj')
-          if(change.doc.data()){
-
-              setPresence(true)
-          }else{
-            setPresence(false)
-          }
-      })
-    })
-}
     
+    console.log(users)
+ let newUsers=[];
+    users.forEach(a=>{
+        newUsers.push({name:a, presence1:false})
+    })
+    console.log(newUsers);
+    
+    newUsers.forEach(user=>{
+
+        Firebase.default.firestore().collection('usersConnected')
+        .where('name','==', user.name)
+        .onSnapshot(snapShot => {
+          snapShot.docChanges().forEach(change=>{
+              console.log(change.doc.data().name, user)
+              if(change.doc.data().name){
+               user.presence1=true;   
+              }
+           
+          })
+        })
+    })
+
+    console.log(newUsers);
+   
     return ( <div >
         <div className='directMessagesUsers'>
             <div className='header'>
@@ -92,17 +108,15 @@ function setOnlineOffline(user){
         </div>
 
         <ul className='listOfUsers'>
-            {users.length>0 && users.map(user=>{
-        console.log(presence)
+            {newUsers.length>0 && newUsers.map(user=>{
+        console.log(user.presence1, newUsers)
             
-                console.log(user);
-                //  onChange={setOnlineOffline(user)}
-                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user})} onChange={setOnlineOffline(user)}>
-                    <span>@{user} { 
-                    presence
+                return (user?<li key={Math.random()} onClick={()=>setChannelToState({nameOfChannel:user.name})} >
+                    <span>@{user.name} { 
+                  user.presence1
        ? <img src="https://img.icons8.com/emoji/10/000000/green-circle-emoji.png"/>:<img src="https://img.icons8.com/emoji/10/000000/red-circle-emoji.png"/>}
                         </span></li>
-               : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user}</li>)
+               : <li onClick={()=>setChannelToState({nameOfChannel:user})}>#{user.name}</li>)
             //    onClick={()=>setChannelToState(channel)}
             })}
         </ul>
