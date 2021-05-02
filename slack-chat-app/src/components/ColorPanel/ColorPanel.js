@@ -11,6 +11,19 @@ const ColorPanel = () => {
     let removeColorPicker = ()=>{
         document.querySelector('.picker').style.display='none';
     }
+
+    let setColor = ()=>{
+        localStorage.setItem('color', document.querySelector('#favcolor').value);
+        document.querySelector('.picker').style.display='none';
+        document.querySelector('.sidePanel').style.backgroundColor=localStorage.getItem('color');
+        document.querySelectorAll('.list-item').forEach(a=>{
+            a.style.backgroundColor=localStorage.getItem('color');
+        })
+        document.querySelectorAll('.list-item-stranger').forEach(a=>{
+            a.style.backgroundColor=localStorage.getItem('color');
+        })
+
+    }
     
     return ( <div className='colorPanel'>
        <img src={plus} onClick={showPicker} />
@@ -20,7 +33,7 @@ const ColorPanel = () => {
        <input   type="color" id="favcolor" name="favcolor"></input>
       <div>
 
-       <button value='Submit'>Submit</button>
+       <button onClick={setColor} value='Submit'>Submit</button>
       <button onClick={removeColorPicker} value='Cancel'>Cancel</button>
       </div>
        </div>
