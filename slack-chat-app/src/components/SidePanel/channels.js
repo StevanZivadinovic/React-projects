@@ -5,11 +5,13 @@ import {connect} from 'react-redux';
 import {setCurrentChannel} from './../../actions/index'
 
 const Channels = (props) => {
+    console.log(props)
     const [numOfChannels, setNumOfChannels] = useState([]);
     const [modal, setModal] = useState(false);
     const [nameOfChannel, setNameOfChannel] = useState('');
     const [detailsOfChannel, setDetailsOfChannel] = useState('');
     const [firstLoad, setFirstLoad] = useState(true);
+   
     
     let openModal = ()=>{
         setModal(true);

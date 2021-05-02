@@ -38,12 +38,12 @@ export const SetUser = user=>{
     }
 
 //Set Users 
-export const setUsers1 = users =>{
-    return{
-        type:actionTypes.SET_USERS,
-        payload:{
-            users2:users
-        }
+// export const setUsers1 = users =>{
+//     return{
+//         type:actionTypes.SET_USERS,
+//         payload:{
+//             users2:users
+//         }
         
-    }
-}
+//     }
+// }

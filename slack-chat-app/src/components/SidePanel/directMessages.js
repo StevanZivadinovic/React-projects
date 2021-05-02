@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
 import Firebase from './../../config';
-import {setCurrentChannel, setUsers1} from './../../actions/index';
+import {setCurrentChannel} from './../../actions/index';
 import {connect} from 'react-redux';
 import Ime from './ime';
 const DirectMessages = (props) => {
-  console.log(props);
+ 
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
     const [presence, setPresence] = useState(null);
@@ -56,7 +56,8 @@ const DirectMessages = (props) => {
    
     
     console.log(users)
- let newUsers=[];
+    let newUsers=[];
+  
     users.forEach(a=>{
         newUsers.push({name:a, presence1:false})
     })
@@ -77,7 +78,12 @@ const DirectMessages = (props) => {
     })
     
     console.log(newUsers);
-    setUsers1([...newUsers])
+   
+    
+
+        // props.setUsers1(newUsers)
+    
+   
     let novi=[...newUsers]
    
     return ( <div >
@@ -88,7 +94,7 @@ const DirectMessages = (props) => {
             </div>
             {/* <span className='plus'><img src="https://img.icons8.com/android/12/000000/plus.png"/></span> */}
         </div>
-
+        
         <ul className='listOfUsers'>
            
             { newUsers.length>0 && novi.map(user=>{
@@ -110,4 +116,4 @@ let setPropsToState = state=>({
     users1:state
 })
  
-export default connect(setPropsToState, {setCurrentChannel, setUsers1})(DirectMessages);
+export default connect(setPropsToState, {setCurrentChannel})(DirectMessages);
