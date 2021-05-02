@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 const MetaPanel = (props) => {
     console.log(props)
     return ( <div className='metaPanel'>
-        <h1>About channel</h1>
-        <p>Name of channel: {props.metaPodaci.channel.currentChannel.nameOfChannel}</p>
-        <p>details: {props.metaPodaci.channel.currentChannel.details}</p>
+        <h1>About { props.metaPodaci.channel.currentChannel && props.metaPodaci.channel.currentChannel.nameOfChannel} channel </h1>
+        <p>Name of channel: { props.metaPodaci.channel.currentChannel && props.metaPodaci.channel.currentChannel.nameOfChannel}</p>
+        <p>details: {props.metaPodaci.channel.currentChannel && props.metaPodaci.channel.currentChannel.details}</p>
     </div> );
 }
  
