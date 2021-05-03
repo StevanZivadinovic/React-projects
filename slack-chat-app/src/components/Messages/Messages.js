@@ -81,7 +81,8 @@ const Messages = (props) => {
 
   useEffect(() => {
         setChannel1(channel);
-        setUser1(user)
+        setUser1(user);
+        
   }, [channel.currentChannel])
   console.log(channel1, user1);
 
@@ -128,6 +129,8 @@ useEffect(() => {
         })
         
         }
+
+        
 }, [channel1.currentChannel])
 
 

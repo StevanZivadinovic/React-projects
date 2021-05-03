@@ -65,6 +65,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
         setURL(null)
         setErr([])
         document.querySelector('#textMessage').value = '';
+      Firebase.default.firestore().collection('typing').doc(user.uid).delete()//ovde dodato
 
       }).catch(err=>{
         setErr(err)
@@ -123,6 +124,19 @@ const MessageForm = ({stateProperty, dispatch}) => {
     )
   }
 
+  let typingAnimation = ()=>{
+    console.log(message)
+    if(message){
+      
+      Firebase.default.firestore().collection('typing').doc(user.uid)
+      .set({
+        user1:user.displayName
+      })
+    }else{
+      Firebase.default.firestore().collection('typing').doc(user.uid).delete()
+    }
+  }
+
 
 
   return (
@@ -133,7 +147,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
         <div>
           <span>
             <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" />
-            <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" />
+            <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>
         </div>
       </div>

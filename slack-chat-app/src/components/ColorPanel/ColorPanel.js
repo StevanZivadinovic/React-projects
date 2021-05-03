@@ -1,8 +1,21 @@
 import plus from './../../img/plus.svg';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const ColorPanel = () => {
-    
+    useEffect(() => {
+        document.querySelector('.sidePanel').style.backgroundColor=localStorage.getItem('color');
+        if( document.querySelectorAll('.list-item')){
+
+            document.querySelectorAll('.list-item').forEach(a=>{
+                a.style.backgroundColor=localStorage.getItem('color');
+            })
+            document.querySelectorAll('.list-item-stranger').forEach(a=>{
+                a.style.backgroundColor=localStorage.getItem('color');
+            })
+        }
+      }, []) 
+
+
     let showPicker = ()=>{
         
             document.querySelector('.picker').style.display='block';
@@ -17,13 +30,15 @@ const ColorPanel = () => {
         document.querySelector('.picker').style.display='none';
         document.querySelector('.sidePanel').style.backgroundColor=localStorage.getItem('color');
         document.querySelectorAll('.list-item').forEach(a=>{
-            a.style.backgroundColor=localStorage.getItem('color');
+            a.style.backgroundColor=`${localStorage.getItem('color')}`;
         })
         document.querySelectorAll('.list-item-stranger').forEach(a=>{
-            a.style.backgroundColor=localStorage.getItem('color');
+            a.style.backgroundColor=`${localStorage.getItem('color')}`;
         })
 
     }
+
+
     
     return ( <div className='colorPanel'>
        <img src={plus} onClick={showPicker} />
