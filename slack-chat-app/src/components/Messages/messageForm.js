@@ -136,41 +136,17 @@ const MessageForm = ({stateProperty, dispatch}) => {
       Firebase.default.firestore().collection('typing').doc(user.uid).delete()
     }
 
-    if(message && user){
+   
 
-      if(Firebase.default.firestore().collection('typing').doc(user.uid)){
-         Firebase.default.firestore().collection('typing').doc(user.uid)
-        .get().then(doc=>{
-          console.log(doc.data().user1, user.displayName)
-          if(doc.data.user1!==user.displayName){
-         
-            document.querySelector('.dots').style.display='flex';
-          }else{
-            document.querySelector('.dots').style.display='none';
-          }
-        })
-      
-      }
+    Firebase.default.firestore().collection('typing')
+    .where('user1','!=',user.displayName)
+.onSnapshot(snapsHot=>{
+  snapsHot.docChanges().forEach(change=>{
+    if(user){
+      console.log(user.displayName, change.doc.data());
     }
-
-//     Firebase.default.firestore().collection('typing')
-// .onSnapshot(snapsHot=>{
-//   snapsHot.docChanges().forEach(change=>{
-//     if(user){
-//       let a=[];
-
-//       if(change.doc.data().user1!==user.displayName){
-//         a.push(change.doc.data().user1)
-//         console.log(change.doc.data().user1!==user.displayName)
-//           document.querySelector('.dots').style.display='flex';
-//       }
-//       else if(!change.doc.data().user1){
-//         console.log('haj haj')
-//         document.querySelector('.dots').style.display='flex';
-//       }
-//     }
-//   })
-// })
+  })
+})
   }
 
 
