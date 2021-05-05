@@ -146,7 +146,7 @@ useEffect(() => {
         <div className="messages">
           <ul className='ulMessages'></ul>
           <div style={{display:'none', alignItems:'center'}} className='dots'>
-          <span className='user__typing'>douglas is typing</span><Typing/>
+          <span className='user__typing'></span><Typing/>
           </div>
             </div>
         

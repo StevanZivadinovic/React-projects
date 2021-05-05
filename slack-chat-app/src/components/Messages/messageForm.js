@@ -142,14 +142,45 @@ const MessageForm = ({stateProperty, dispatch}) => {
     .where('user1','!=',user.displayName)
 .onSnapshot(snapsHot=>{
   snapsHot.docChanges().forEach(change=>{
+    console.log(snapsHot.docs.length);
     if(user){
-      console.log(user.displayName, change.doc.data());
+      if(user.displayName !== change.doc.data().user1 && change.doc.data().user1!==null && change.doc.data().user1!==undefined && change.doc.data().user1 ){
+        console.log(change.doc.data().user1);
+        document.querySelector('.dots').style.display='flex';
+        document.querySelector('.user__typing').innerText =`${change.doc.data().user1} is typing`
+      }
+     console.log(change.doc.data().user1)
+      if(snapsHot.docs.length===0){
+         console.log('uspeh')
+        document.querySelector('.dots').style.display='none';
+      }
     }
   })
+
 })
+
   }
 
+  Firebase.default.firestore().collection('typing')
+  .where('user1','!=',user.displayName)
+.onSnapshot(snapsHot=>{
+snapsHot.docChanges().forEach(change=>{
+  
+  if(user){
+    if(user.displayName !== change.doc.data().user1 && change.doc.data().user1!==null && change.doc.data().user1!==undefined && change.doc.data().user1 ){
+      console.log(change.doc.data().user1);
+      document.querySelector('.dots').style.display='flex';
+      document.querySelector('.user__typing').innerText =`${change.doc.data().user1} is typing`
+    }
+   console.log(change.doc.data().user1)
+    if(snapsHot.docs.length===0){
+      console.log('uspeh')
+      document.querySelector('.dots').style.display='none';
+    }
+  }
+})
 
+})
 
   return (
     <div className="messageFormMain">
