@@ -2,6 +2,11 @@ import Firebase from './../../config';
 import {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import AddMedia from './addMedia';
+import "emoji-mart/css/emoji-mart.css";
+import { Picker, emojiIndex } from "emoji-mart";
+//za emoji-e
+// npm install emoji-mart
+// npm install babel-runtime
 
 const MessageForm = ({stateProperty, dispatch}) => {
   
@@ -16,16 +21,31 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [storage, setStorage] = useState(Firebase.default.storage());
   const [percentUploaded, setPercentUploaded] = useState(0);
   const [errors, setErrors] = useState(null);
-  const [URL, setURL] = useState(null)
-
-
+  const [URL, setURL] = useState(null);
+  const [emoji, setEmoji] = useState(false);
+  const [emojiToInput, setEmojiToInput] = useState(null)
+console.log(emojiToInput)
 
  useEffect(() => {
   setChannel(stateProperty.channel.currentChannel)
  }, [stateProperty.channel.currentChannel])
  
+ let colonToUnicode = (message)=>{
+   return message.replace(/:[A-Za-z0-9_+-]+:/g,x=>{
+     x=x.replace(/:/g, "");
+     let emoji = emojiIndex.emojis[x];
+     if(typeof emoji !=='undefined'){
+       let unicode = emoji.native;
+       if(typeof unicode !=="undefined"){
+         return unicode
+       }
+     }
+     x=":"+x+":";
+     return x;
+   })
+ }
   let handleChange=(e)=>{
-    setMessage(e.target.value)
+    setMessage(colonToUnicode(`${e.target.value}${emojiToInput}`))
   }
   
 
@@ -182,6 +202,18 @@ snapsHot.docChanges().forEach(change=>{
 
 })
 
+let handleEmoji = ()=>{
+  if(emoji===false){
+
+    setEmoji(true)
+  }else{
+    setEmoji(false)
+  }
+}
+let CloseEmoji = ()=>{
+  document.querySelector('.emojipicker').remove();
+  console.log('uspeh')
+}
   return (
     <div className="messageFormMain">
       <div className='progress-bar' style={{width:percentUploaded +'%'}}>{`${percentUploaded}%`}</div>
@@ -189,7 +221,15 @@ snapsHot.docChanges().forEach(change=>{
       <div className="inputText">
         <div>
           <span>
-            <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" />
+            <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" onClick={handleEmoji}/>{emoji && 
+            <Picker  
+            // onSelect={CloseEmoji()}
+            set='apple'
+            className='emojipicker'
+            title='Pick your emoji'
+            emoji='point_up'
+            onSelect={()=>CloseEmoji()}
+            onSelect={emoji => setEmojiToInput(emoji.native)}  />}
             <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>
         </div>

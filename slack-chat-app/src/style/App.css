@@ -1086,4 +1086,10 @@ ul.listOfChannels li:last-child, .listOfUsers li:last-child {
     opacity: 0;
   }
 }
+
+.emojipicker, .emoji-mart {
+  background-color: black;
+  position: absolute;
+  bottom: 50px;
+}
 /*# sourceMappingURL=App.css.map */
