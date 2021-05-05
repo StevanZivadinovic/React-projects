@@ -5,6 +5,7 @@ import Firebase from './../../config';
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {setTerm1} from './../../actions/index';
+import Typing from './typing';
 
 
 
@@ -29,6 +30,7 @@ const Messages = (props) => {
         a.innerHTML+=`<div id='imageLi' class='${b.user.id===user1.currentUser.uid ? "list-item":"list-item-stranger"}'><img alt='slika' height='35px' width='35px' src='${b.user.avatar}'><li class='${b.user.id===user1.currentUser.uid?"message_self":"message_stranger"}'> ${b.user.name} <span>${b.timestamp ? moment(b.timestamp.toMillis()).fromNow():''}</span><br><a target='_blank' href='${b.image}'><img id='slika'  width='110px' src='${b.image}'></a></li></div>`;
    
     }
+  
     
   }
  let catchTerm = (e) =>{
@@ -143,6 +145,9 @@ useEffect(() => {
         <MessagesHeader loadingSearch={loadingSearch} catchTerm={catchTerm} numOfUsers1={numOfUsers1} channel1={channel1}></MessagesHeader>
         <div className="messages">
           <ul className='ulMessages'></ul>
+          <div style={{display:'none', alignItems:'center'}} className='dots'>
+          <span className='user__typing'>douglas is typing</span><Typing/>
+          </div>
             </div>
         
         <MessageForm></MessageForm>
