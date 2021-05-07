@@ -212,9 +212,10 @@ let handleEmoji = ()=>{
   }
 }
 let CloseEmoji = (emoji)=>{
-  setEmoji(false)
   setEmojiToInput(emoji)
   console.log('uspeh')
+  setEmoji(false);
+  document.querySelector('#textMessage').value+=emoji;
 }
   return (
     <div className="messageFormMain">
