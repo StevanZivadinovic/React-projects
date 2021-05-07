@@ -215,7 +215,7 @@ let CloseEmoji = (emoji)=>{
   setEmojiToInput(emoji)
   console.log('uspeh')
   setEmoji(false);
-  document.querySelector('#textMessage').value+=emoji;
+  // document.querySelector('#textMessage').value+=emojiToInput;
 }
   return (
     <div className="messageFormMain">
