@@ -44,7 +44,8 @@ console.log(emojiToInput)
      return x;
    })
  }
-  let handleChange=(e)=>{
+ let handleChange=(e)=>{
+  
     setMessage(colonToUnicode(`${e.target.value}${emojiToInput}`))
   }
   
@@ -210,8 +211,9 @@ let handleEmoji = ()=>{
     setEmoji(false)
   }
 }
-let CloseEmoji = ()=>{
-  document.querySelector('.emojipicker').remove();
+let CloseEmoji = (emoji)=>{
+  setEmoji(false)
+  setEmojiToInput(emoji)
   console.log('uspeh')
 }
   return (
@@ -221,15 +223,16 @@ let CloseEmoji = ()=>{
       <div className="inputText">
         <div>
           <span>
-            <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" onClick={handleEmoji}/>{emoji && 
+            <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" onClick={handleEmoji}/>
+            {emoji && 
             <Picker  
             // onSelect={CloseEmoji()}
             set='apple'
             className='emojipicker'
             title='Pick your emoji'
             emoji='point_up'
-            onSelect={()=>CloseEmoji()}
-            onSelect={emoji => setEmojiToInput(emoji.native)}  />}
+           
+            onSelect={emoji => CloseEmoji(emoji.native)}  />}
             <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>
         </div>
