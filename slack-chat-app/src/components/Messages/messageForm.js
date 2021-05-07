@@ -24,7 +24,7 @@ const MessageForm = ({stateProperty, dispatch}) => {
   const [URL, setURL] = useState(null);
   const [emoji, setEmoji] = useState(false);
   const [emojiToInput, setEmojiToInput] = useState(null)
-console.log(emojiToInput)
+console.log(typeof emojiToInput)
 
  useEffect(() => {
   setChannel(stateProperty.channel.currentChannel)
@@ -46,7 +46,9 @@ console.log(emojiToInput)
  }
  let handleChange=(e)=>{
   
-    setMessage(colonToUnicode(`${e.target.value}${emojiToInput}`))
+ 
+  //  document.querySelector('#textMessage').value
+    setMessage((`${e.target.value}${emojiToInput.native}`))
   }
   
 
@@ -212,10 +214,11 @@ let handleEmoji = ()=>{
   }
 }
 let CloseEmoji = (emoji)=>{
+  
   setEmojiToInput(emoji)
-  console.log('uspeh')
+  console.log(emoji)
   setEmoji(false);
-  // document.querySelector('#textMessage').value+=emojiToInput;
+ 
 }
   return (
     <div className="messageFormMain">
@@ -227,13 +230,13 @@ let CloseEmoji = (emoji)=>{
             <img src="https://img.icons8.com/emoji/48/000000/plus-emoji.png" onClick={handleEmoji}/>
             {emoji && 
             <Picker  
-            // onSelect={CloseEmoji()}
+            
             set='apple'
             className='emojipicker'
             title='Pick your emoji'
             emoji='point_up'
-           
-            onSelect={emoji => CloseEmoji(emoji.native)}  />}
+            onSelect={emoji => {CloseEmoji(emoji)}}
+            />}
             <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>
         </div>
