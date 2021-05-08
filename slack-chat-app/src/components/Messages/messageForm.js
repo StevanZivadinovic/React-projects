@@ -30,12 +30,12 @@ console.log(typeof emojiToInput)
   setChannel(stateProperty.channel.currentChannel);
 
  }, [stateProperty.channel.currentChannel])
-
-//  useEffect(() => {
-//   let objDiv =  document.querySelector('.ulMessages')
-//   let d = objDiv.scrollHeight;//daje visinu elementa
-//     objDiv.scrollTo({left:0 , top:d, behavior:'smooth'});//baca te na zeljene koordinate elementa
-//  }, [])
+ 
+ useEffect(() => {
+   let objDiv =  document.querySelector('.ulMessages')
+  let d = objDiv.scrollHeight;//daje visinu elementa
+    objDiv.scrollTo({left:0 , top:d, behavior:'smooth'});//baca te na zeljene koordinate elementa
+ }, [channel, message, loading])
  
  let colonToUnicode = (message)=>{
    return message.replace(/:[A-Za-z0-9_+-]+:/g,x=>{
