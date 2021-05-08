@@ -27,8 +27,15 @@ const MessageForm = ({stateProperty, dispatch}) => {
 console.log(typeof emojiToInput)
 
  useEffect(() => {
-  setChannel(stateProperty.channel.currentChannel)
+  setChannel(stateProperty.channel.currentChannel);
+
  }, [stateProperty.channel.currentChannel])
+
+//  useEffect(() => {
+//   let objDiv =  document.querySelector('.ulMessages')
+//   let d = objDiv.scrollHeight;//daje visinu elementa
+//     objDiv.scrollTo({left:0 , top:d, behavior:'smooth'});//baca te na zeljene koordinate elementa
+//  }, [])
  
  let colonToUnicode = (message)=>{
    return message.replace(/:[A-Za-z0-9_+-]+:/g,x=>{
@@ -46,16 +53,24 @@ console.log(typeof emojiToInput)
  }
  let handleChange=(e)=>{
   
+    if(emojiToInput!==null){
+      console.log(emojiToInput)
+      //  document.querySelector('#textMessage').value
+        setMessage(colonToUnicode(`${e.target.value}${emojiToInput}`))
+    }
+   if(emojiToInput===null){
+      setMessage(colonToUnicode(`${e.target.value}`))
+    }
+
  
-  //  document.querySelector('#textMessage').value
-    setMessage((`${e.target.value}${emojiToInput.native}`))
+    
   }
   
 
   let sendMessage = (downloadURL=null) =>{
-    console.log('neispravno poslato');
+    console.log('neispravno poslato', message);
    
-    
+  
     
     if(message || downloadURL){
       // console.log(message, downloadURL)
@@ -88,8 +103,11 @@ console.log(typeof emojiToInput)
         setURL(null)
         setErr([])
         document.querySelector('#textMessage').value = '';
+      setEmojiToInput(null)
+     let objDiv =  document.querySelector('.ulMessages')
+      let d = objDiv.scrollHeight;//daje visinu elementa
+      objDiv.scrollTo({left:0 , top:d, behavior:'smooth'});//baca te na zeljene koordinate elementa
       Firebase.default.firestore().collection('typing').doc(user.uid).delete()//ovde dodato
-
       }).catch(err=>{
         setErr(err)
       })
@@ -235,7 +253,7 @@ let CloseEmoji = (emoji)=>{
             className='emojipicker'
             title='Pick your emoji'
             emoji='point_up'
-            onSelect={emoji => {CloseEmoji(emoji)}}
+            onSelect={emoji => {CloseEmoji(emoji.native)}}
             />}
             <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>

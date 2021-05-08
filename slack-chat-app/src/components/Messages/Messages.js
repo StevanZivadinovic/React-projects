@@ -144,7 +144,9 @@ useEffect(() => {
     return ( <div className='messagesMain'>
         <MessagesHeader loadingSearch={loadingSearch} catchTerm={catchTerm} numOfUsers1={numOfUsers1} channel1={channel1}></MessagesHeader>
         <div className="messages">
-          <ul className='ulMessages'></ul>
+          <ul className='ulMessages'>
+          </ul>
+            
           <div style={{display:'none', alignItems:'center'}} className='dots'>
           <span className='user__typing'></span><Typing/>
           </div>
