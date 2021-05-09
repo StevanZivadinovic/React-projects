@@ -238,6 +238,12 @@ let CloseEmoji = (emoji)=>{
   setEmoji(false);
  
 }
+let sendWithEnter = e =>{
+ 
+  if(e.charCode === 13){
+    sendMessage()
+  }
+}
   return (
     <div className="messageFormMain">
       <div className='progress-bar' style={{width:percentUploaded +'%'}}>{`${percentUploaded}%`}</div>
@@ -255,14 +261,14 @@ let CloseEmoji = (emoji)=>{
             emoji='point_up'
             onSelect={emoji => {CloseEmoji(emoji.native)}}
             />}
-            <input id='textMessage' onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
+            <input id='textMessage' onKeyPress={sendWithEnter} onChange={handleChange} type="text" placeholder="Write your message" onKeyDown={typingAnimation}/>
           </span>
         </div>
       </div>
       <div className="messageFormButton">
         <span>
           <img src="https://img.icons8.com/fluent-systems-filled/48/000000/edit-message.png" />
-          <button disabled={loading} onClick={()=>sendMessage(URL)} className="addReplay">Add Replay</button>
+          <button disabled={loading}  onClick={()=>sendMessage(URL)} className="addReplay">Add Replay</button>
           <button disabled={uploadState==='uploading'} onClick={openModal} className="uploadMedia">Upload Media</button>
           <img src="https://img.icons8.com/metro/26/000000/upload.png" />
           <AddMedia sendMessage={sendMessage} uploadFile={uploadFile} modal={modal} closeModal={closeModal}></AddMedia>
